@@ -1,6 +1,7 @@
 package com.reatchall.charan.reatchallVendor.Vendor;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -73,11 +74,9 @@ public class VendorCustomerActivity extends AppCompatActivity {
         }
 
         init();
-        mCustomerList =new ArrayList<>();
         rvCustomers.setHasFixedSize(true);
         rvCustomers.setLayoutManager(new LinearLayoutManager(context,LinearLayoutManager.VERTICAL,false));
-        vendorCustomerAdapter = new VendorCustomerAdapter(mCustomerList,context);
-        rvCustomers.setAdapter(vendorCustomerAdapter);
+
     }
 
     private void init() {
@@ -89,6 +88,10 @@ public class VendorCustomerActivity extends AppCompatActivity {
         txtAddCustomer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                Intent intent = new Intent(context,VendorAddCustomerActivity.class);
+                intent.putExtra("businessDetails",businessDetails);
+                startActivity(intent);
 
             }
         });
@@ -113,7 +116,7 @@ public class VendorCustomerActivity extends AppCompatActivity {
                     if(success){
 
                         JSONArray jsonArray = response.getJSONArray("msg");
-
+                        mCustomerList =new ArrayList<>();
                         for (int i = 0; i < jsonArray.length(); i++) {
                             JSONObject object = jsonArray.getJSONObject(i);
                             String _id = object.getString("_id");
@@ -126,8 +129,10 @@ public class VendorCustomerActivity extends AppCompatActivity {
                             String created_date = object.getString("created_date");
                             String __v = object.getString("__v");
                             mCustomerList.add(new Customer(_id,gender,email,mobile,name,vendor_id,address,created_date,__v));
+
                         }
-                        vendorCustomerAdapter.notifyDataSetChanged();
+                        vendorCustomerAdapter = new VendorCustomerAdapter(mCustomerList,context);
+                        rvCustomers.setAdapter(vendorCustomerAdapter);
                     }
 
                 }catch (Exception e){
