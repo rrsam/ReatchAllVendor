@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white">
+
+    <fr.arnaudguyon.smartfontslib.FontTextView
+        app:smart_font="fonts/Montserrat-Regular.ttf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Item 1"
+        android:textSize="14sp"
+        android:textColor="@color/black"
+        android:layout_centerVertical="true"
+        android:id="@+id/item_list_title"
+        android:layout_marginLeft="10dp"
+        />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/plus_minus"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp">
+
+        <fr.arnaudguyon.smartfontslib.FontTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="-"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:layout_centerVertical="true"
+            android:id="@+id/item_list_minus"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:background="@drawable/plus_background"
+            />
+        <fr.arnaudguyon.smartfontslib.FontTextView
+            app:smart_font="fonts/Montserrat-Regular.ttf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:layout_centerVertical="true"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:id="@+id/item_list_quantity"
+            android:layout_toRightOf="@id/item_list_minus"
+            android:background="@color/light_grey"
+            />
+        <fr.arnaudguyon.smartfontslib.FontTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="+"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:layout_centerVertical="true"
+            android:id="@+id/item_list_plus"
+            android:layout_toRightOf="@id/item_list_quantity"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:background="@drawable/plus_background"
+            />
+
+    </RelativeLayout>
+
+    <View
+        android:layout_below="@id/plus_minus"
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/grey"
+        />
+</RelativeLayout>

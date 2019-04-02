@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/filter_layout"
+        android:background="@drawable/welcome_blue_light_white_border">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_filter_icon"
+            android:paddingLeft="13dp"
+            android:paddingTop="13dp"
+            android:paddingBottom="13dp"
+            android:layout_centerVertical="true"
+            android:id="@+id/filters_icon"
+            />
+
+
+        <fr.arnaudguyon.smartfontslib.FontTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/filters_text_view"
+            android:text="FILTERS"
+            android:layout_toRightOf="@id/filters_icon"
+            android:background="@android:color/transparent"
+            android:padding="8dp"
+            android:layout_centerVertical="true"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textSize="18sp"/>
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_grid_grey"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/list_icon"
+            android:id="@+id/list_grid"
+            android:layout_marginRight="10dp"
+            />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_list_grey"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:id="@+id/list_icon"
+            android:layout_marginRight="10dp"
+            />
+
+    </RelativeLayout>
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/near_by_rcv_grid"
+        android:layout_below="@id/filter_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        ></android.support.v7.widget.RecyclerView>
+
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/near_by_rcv_list"
+        android:layout_below="@id/filter_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
+
+
+</RelativeLayout>

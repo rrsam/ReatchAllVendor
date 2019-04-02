@@ -1,0 +1,418 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.reatchall.charan.reatchallVendor.Vendor.VendorBusinessProfileActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        >
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/profileToolBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/back_arrow"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="5dp"
+                    android:src="@drawable/ic_back_arrow_white" />
+
+                <fr.arnaudguyon.smartfontslib.FontTextView
+                    android:id="@+id/title_toolbar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@id/back_arrow"
+                    android:text="Edit business profile"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    app:smart_font="fonts/Montserrat-Regular.ttf" />
+            </RelativeLayout>
+        </android.support.v7.widget.Toolbar>
+    </android.support.design.widget.AppBarLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:focusable="true"
+                android:focusableInTouchMode="true"><requestFocus/></View>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="10dp">
+
+                <fr.arnaudguyon.smartfontslib.FontTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:text="Business Name"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    app:smart_font="fonts/Montserrat-Regular.ttf" />
+
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/ic_edit_black"
+                    android:id="@+id/editBusinessName"/>
+
+            </RelativeLayout>
+
+            <fr.arnaudguyon.smartfontslib.FontEditText
+                android:id="@+id/businessName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/grey_rounded"
+                android:hint="Business Name"
+                android:inputType="text"
+                android:padding="15dp"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                app:smart_font="fonts/Montserrat-Regular.ttf" />
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp">
+
+                <fr.arnaudguyon.smartfontslib.FontTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:text="Contact Person Name"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    app:smart_font="fonts/Montserrat-Regular.ttf" />
+
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/ic_edit_black"
+                    android:id="@+id/editContactPersonName"/>
+
+            </RelativeLayout>
+
+            <fr.arnaudguyon.smartfontslib.FontEditText
+                android:id="@+id/contactPersonName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/grey_rounded"
+                android:hint="Contact Person Name"
+                android:inputType="text"
+                android:padding="15dp"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                app:smart_font="fonts/Montserrat-Regular.ttf" />
+
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp">
+
+                <fr.arnaudguyon.smartfontslib.FontTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:text="Contact Number"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    app:smart_font="fonts/Montserrat-Regular.ttf" />
+
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/ic_edit_black"
+                    android:id="@+id/editcontactNumber"/>
+
+            </RelativeLayout>
+
+            <fr.arnaudguyon.smartfontslib.FontEditText
+                android:id="@+id/contactNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/grey_rounded"
+                android:hint="Contact Number"
+                android:inputType="phone"
+                android:padding="15dp"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                app:smart_font="fonts/Montserrat-Regular.ttf" />
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp">
+
+                <fr.arnaudguyon.smartfontslib.FontTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:text="Offline/Landline Number"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    app:smart_font="fonts/Montserrat-Regular.ttf" />
+
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/ic_edit_black"
+                    android:id="@+id/editlandlineNumber"/>
+
+            </RelativeLayout>
+
+            <fr.arnaudguyon.smartfontslib.FontEditText
+                android:id="@+id/landlineNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/grey_rounded"
+                android:hint="Offline/Landline Number"
+                android:inputType="phone"
+                android:padding="15dp"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                app:smart_font="fonts/Montserrat-Regular.ttf" />
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp">
+
+                <fr.arnaudguyon.smartfontslib.FontTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:text="WhatsApp Number"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    app:smart_font="fonts/Montserrat-Regular.ttf" />
+
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/ic_edit_black"
+                    android:id="@+id/editwhatsappNum"/>
+
+            </RelativeLayout>
+
+            <fr.arnaudguyon.smartfontslib.FontEditText
+                android:id="@+id/whatsappNum"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/grey_rounded"
+                android:hint="WhatsApp Number"
+                android:inputType="phone"
+                android:padding="15dp"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                app:smart_font="fonts/Montserrat-Regular.ttf" />
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp">
+
+                <fr.arnaudguyon.smartfontslib.FontTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:text="Email"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    app:smart_font="fonts/Montserrat-Regular.ttf" />
+
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/ic_edit_black"
+                    android:id="@+id/editemailBusiness"/>
+
+            </RelativeLayout>
+
+            <fr.arnaudguyon.smartfontslib.FontEditText
+                android:id="@+id/emailBusiness"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/grey_rounded"
+                android:hint="Email"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:inputType="textEmailAddress"
+                android:padding="15dp"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                app:smart_font="fonts/Montserrat-Regular.ttf" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp">
+
+                <fr.arnaudguyon.smartfontslib.FontTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:text="Address"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    app:smart_font="fonts/Montserrat-Regular.ttf" />
+
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/ic_edit_black"
+                    android:id="@+id/editaddressBusiness"/>
+
+            </RelativeLayout>
+
+            <fr.arnaudguyon.smartfontslib.FontEditText
+                android:id="@+id/addressBusiness"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/address_bg"
+                android:hint="Address"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:inputType="text|textMultiLine"
+                android:scrollbars="vertical"
+                android:scrollHorizontally="false"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:paddingTop="30dp"
+                android:paddingBottom="30dp"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                app:smart_font="fonts/Montserrat-Regular.ttf" />
+
+            <fr.arnaudguyon.smartfontslib.FontButton
+                android:id="@+id/getCurrentLocation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/current_location_bg"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="Get Current Location"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                app:smart_font="fonts/Montserrat-Regular.ttf" />
+
+            <fr.arnaudguyon.smartfontslib.FontButton
+                android:id="@+id/saveDetails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="20dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/blue_rounded"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="Save Details"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                app:smart_font="fonts/Montserrat-Regular.ttf" />
+
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>

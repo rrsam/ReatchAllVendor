@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="15dp"
+    android:layout_marginBottom="10dp"
+    android:orientation="vertical"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:background="@color/light_grey">
+
+    <fr.arnaudguyon.smartfontslib.FontTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Name : Charan reddy"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        android:id="@+id/visitorName"
+        android:singleLine="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:smart_font="fonts/Montserrat-Regular.ttf" />
+
+    <fr.arnaudguyon.smartfontslib.FontTextView
+        android:id="@+id/visitedTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:singleLine="true"
+        android:text="Visited Time : 08:17PM   22/03/2018 "
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@id/visitorName"
+        app:layout_constraintTop_toBottomOf="@id/visitorName"
+        app:smart_font="fonts/Montserrat-Regular.ttf" />
+
+    <fr.arnaudguyon.smartfontslib.FontTextView
+        android:id="@+id/totalVisits"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:singleLine="true"
+        android:text="No. of total visits : 10"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@id/visitedTime"
+        app:layout_constraintTop_toBottomOf="@id/visitedTime"
+        app:smart_font="fonts/Montserrat-Regular.ttf" />
+
+    <ImageView
+        android:id="@+id/visitorCall"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:src="@drawable/ic_phone_call"
+        android:layout_marginEnd="16dp"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+</android.support.constraint.ConstraintLayout>

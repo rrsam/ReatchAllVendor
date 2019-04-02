@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.reatchall.charan.reatchallVendor.Registration.EnterOtpActivity">
+
+    <fr.arnaudguyon.smartfontslib.FontTextView
+        app:smart_font="fonts/Montserrat-Regular.ttf"
+        android:textColor="@color/black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Please enter OTP manually"
+        android:textSize="14sp"
+        android:layout_marginTop="15dp"
+        android:layout_gravity="center"
+        />
+    <fr.arnaudguyon.smartfontslib.FontTextView
+        app:smart_font="fonts/Montserrat-Regular.ttf"
+        android:textColor="@color/black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="if we fail to detect it"
+        android:textSize="12sp"
+        android:layout_marginTop="5dp"
+        android:layout_gravity="center"
+        />
+
+    <com.goodiebag.pinview.Pinview
+        android:id="@+id/enterOtpPin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:pinWidth="30dp"
+        app:pinHeight="30dp"
+        app:pinLength="6"
+        android:layout_marginTop="15dp"
+        app:cursorVisible="true"
+        app:forceKeyboard="true"
+        app:hint="0"
+        app:inputType="number"
+        app:password="false"/>
+
+
+
+    <fr.arnaudguyon.smartfontslib.FontButton
+        app:smart_font="fonts/Montserrat-Regular.ttf"
+        android:id="@+id/verifyOtp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="VERIFY"
+        android:textAllCaps="false"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/white"
+        android:padding="10dp"
+        android:textSize="16sp"
+        android:background="@drawable/orange_rounded_bg"
+        android:gravity="center"
+        android:layout_gravity="center"
+        />
+
+
+    <fr.arnaudguyon.smartfontslib.FontTextView
+        app:smart_font="fonts/Montserrat-Regular.ttf"
+        android:textColor="@color/black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Didn't receive the Otp ? Resend"
+        android:textSize="14sp"
+        android:id="@+id/resendOtp"
+        android:layout_marginTop="15dp"
+        android:layout_gravity="center"
+        />
+
+</LinearLayout>

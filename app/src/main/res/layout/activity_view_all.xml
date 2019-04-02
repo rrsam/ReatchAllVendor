@@ -1,0 +1,112 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="7"
+        android:orientation="horizontal"
+        android:id="@+id/tabs_layout"
+        >
+
+        <fr.arnaudguyon.smartfontslib.FontTextView
+            app:smart_font="fonts/Montserrat-Regular.ttf"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="Services"
+            android:gravity="center"
+            android:textSize="14sp"
+            android:padding="8dp"
+            android:textColor="@color/white"
+            android:id="@+id/services"
+            android:background="@drawable/view_all_selector"/>
+
+        <fr.arnaudguyon.smartfontslib.FontTextView
+            app:smart_font="fonts/Montserrat-Regular.ttf"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="Products"
+            android:gravity="center"
+            android:textSize="14sp"
+            android:padding="8dp"
+            android:textColor="@color/white"
+            android:id="@+id/products"
+            android:background="@drawable/view_all_selector"/>
+        <fr.arnaudguyon.smartfontslib.FontTextView
+            app:smart_font="fonts/Montserrat-Regular.ttf"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="Individuals"
+            android:gravity="center"
+            android:textSize="14sp"
+            android:padding="8dp"
+            android:textColor="@color/white"
+            android:id="@+id/individuals"
+            android:background="@drawable/view_all_selector"/>
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@drawable/ic_search_white"
+            android:padding="6dp"
+            android:id="@+id/search_tab"
+            android:background="@drawable/view_all_selector_search"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="7"
+        android:orientation="horizontal"
+        android:layout_below="@id/tabs_layout"
+        android:id="@+id/search_bar"
+        android:visibility="gone"
+        android:background="@drawable/black_border"
+        >
+
+        <fr.arnaudguyon.smartfontslib.FontEditText
+            app:smart_font="fonts/Montserrat-Regular.ttf"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/search_query"
+            android:layout_weight="6"
+            android:hint="Search"
+            android:textColorHint="@color/white"
+            android:background="@android:color/transparent"
+            android:padding="8dp"
+            android:textSize="14sp"/>
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@drawable/ic_search_white"
+            android:padding="6dp"
+            android:id="@+id/search_bar_icon"
+            android:background="@drawable/black_border_search"/>
+
+    </LinearLayout>
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/home_rcv"
+        android:layout_below="@+id/search_bar"
+        android:layout_marginRight="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </android.support.v7.widget.RecyclerView>
+
+
+
+</RelativeLayout>

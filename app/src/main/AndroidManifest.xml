@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.reatchall.charan.reatchallVendor">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="ANDROID.PERMISSION.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+
+    <application
+        android:name=".Utils.ReatchAll"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".Vendor.VendorCustomerActivity"></activity>
+
+        <meta-data
+            android:name="com.razorpay.ApiKey"
+            android:value="rzp_test_p7uZPSWHwldcMU" />
+
+        <service android:name=".Utils.MyFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
+        <!--
+     Set custom default icon. This is used when no icon is set for incoming notification messages.
+     See README(https://goo.gl/l4GJaQ) for more.
+        -->
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@drawable/splash_logo" />
+        <!--
+             Set color used with incoming notification messages. This is used when no color is set for the incoming
+             notification message. See README(https://goo.gl/6BKBk7) for more.
+        -->
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_color"
+            android:resource="@color/white_opacity" />
+
+        <service
+            android:name="com.amazonaws.mobileconnectors.s3.transferutility.TransferService"
+            android:enabled="true" />
+
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
+
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
+
+        <activity
+            android:name="com.facebook.FacebookActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:label="@string/app_name" />
+        <activity
+            android:name="com.facebook.CustomTabActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="@string/fb_login_protocol_scheme" />
+            </intent-filter>
+        </activity>
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/maps_api_key" />
+
+        <activity android:name=".Intro.SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Intro.WelcomeActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".Login.LoginActivity" />
+        <activity android:name=".Registration.RegisterActivity" />
+        <activity android:name=".Vendor.VendorsAppoinmentListActivity" />
+        <activity android:name=".HomeActivity" />
+        <activity android:name=".ViewAllActivity" />
+        <activity android:name=".ViewBusinessActivity" />
+        <activity android:name=".MyOrdersActivity" />
+        <activity android:name=".MyWishListActivity" />
+        <activity android:name=".DeliveryAddressActivity" />
+        <activity android:name=".NotificationsActivity" />
+        <activity android:name=".ProfileSettingsActivity" />
+        <activity android:name=".PrivacySettingsActivity" />
+        <activity android:name=".ChangePasswordActivity" />
+        <activity android:name=".InviteEarnActivity" />
+        <activity android:name=".RatingsReviewsActivity" />
+        <activity android:name=".FeedBackActivity" />
+        <activity android:name=".AddNewAddressActivity" />
+        <activity android:name=".ViewMoreAboutUsActivity" />
+        <activity android:name=".ViewMoreRatingsActivity" />
+        <activity android:name=".ViewMoreContactUsActivity" />
+        <activity android:name=".ViewMoreTimingsActivity" />
+        <activity android:name=".ViewMoreWebSocialActivity" />
+        <activity android:name=".ViewMoreRemarksActivity" />
+        <activity android:name=".ViewProductsTypesActivity" />
+        <activity android:name=".ViewProductDetailsActivity" />
+        <activity android:name=".Vendor.VendorHomeActivity" />
+        <activity android:name=".Vendor.VendorDashBoardActivity" />
+        <activity android:name=".Vendor.VendorMyCashActivity" />
+        <activity android:name=".Vendor.VendorOpenCloseStatusActivity" />
+        <activity android:name=".Vendor.VendorOfferZoneActivity" />
+        <activity android:name=".Vendor.VendorViewCountActivity" />
+        <activity android:name=".Vendor.VendorOrdersActivity" />
+        <activity android:name=".Vendor.VendorRatingsActivity" />
+        <activity android:name=".Vendor.VendorBusinessProfileActivity" />
+        <activity android:name=".Vendor.VendorBusinessPlanActivity" />
+        <activity android:name=".Vendor.VendorPrivacySettingsActivity" />
+        <activity android:name=".Vendor.VendorCreateListActivity" />
+        <activity android:name=".Vendor.VendorAddItemsActivity" />
+        <activity android:name=".Vendor.VendorMyProductsActivity" />
+        <activity android:name=".Vendor.VendorProductListActivity" />
+        <activity android:name=".Vendor.VendorBusinessAnalysisActivity" />
+        <activity android:name=".Vendor.VendorOrderAnalysisActivity" />
+        <activity android:name=".Vendor.VendorBusinessSettingsActivity" />
+        <activity android:name=".Intro.WelcomeActivityNew" />
+
+        <receiver android:name=".Registration.SmsReceiver">
+            <intent-filter android:priority="1000">
+                <action android:name="android.provider.Telephony.SMS_RECEIVED" />
+            </intent-filter>
+        </receiver>
+
+        <activity android:name=".Vendor.VendorDashBoardNewActivity" />
+        <activity android:name=".Vendor.VendorBusinessNotificationsActivity" />
+        <activity android:name=".Registration.EnterOtpActivity" />
+        <activity android:name=".Vendor.VendorImportDatabaseActivity" />
+        <activity android:name=".Vendor.VendorCmsManageActivity" />
+        <activity android:name=".Vendor.VendorBusinessEditProfileActivity" />
+        <activity android:name=".Vendor.VendorFeedbackActivity" />
+        <activity android:name=".Vendor.VendorContactUsActivity" />
+        <activity android:name=".Vendor.VendorWebsiteSocialActivity" />
+        <activity android:name=".Vendor.VendorBusinessSettingsNewActivity" />
+        <activity android:name=".Vendor.VendorBusinessProofsActivity" />
+        <activity android:name=".Vendor.VendorAdvertisementsActivity" />
+        <activity android:name=".Vendor.VendorPromotionsActivity" />
+        <activity android:name=".Vendor.VendorHomeDeliveryActivity" />
+        <activity android:name=".Cabs.CabsHomeActivity" />
+        <activity android:name=".Login.ForgotPasswordActivity" />
+        <activity android:name=".Vendor.CreateBusiness.VendorCreateBusinessActivity" />
+        <activity android:name=".Registration.HelpUserActivity" />
+        <activity android:name=".Login.ResetPasswordActivity" />
+        <activity android:name=".Vendor.CreateBusiness.TestTimingsActivity" />
+        <activity android:name=".Registration.ChooseUserActivity" />
+        <activity
+            android:name=".Login.VendorLoginActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_vendor_login"
+            android:theme="@style/FullscreenTheme" />
+        <activity android:name=".Registration.VendorRegistrationActivity" />
+        <activity android:name=".Intro.VideoScreenActivity" />
+        <activity
+            android:name=".Login.ForgotPasswordNewActivity"
+            android:windowSoftInputMode="adjustPan" />
+        <activity android:name=".Vendor.CreateBusiness.BusinessCreatedActivity" />
+        <activity android:name=".Login.UserLoginActivity" />
+        <activity android:name=".Registration.UserRegistrationActivity" />
+        <activity android:name=".Vendor.VendorAddOfferActivity" />
+        <activity android:name=".Vendor.TotalEarningsBreakdownActivity" />
+        <activity android:name=".MyCashActivity" />
+        <activity android:name=".Vendor.VendorProfileSettingsActivity" />
+        <activity android:name=".Vendor.VendorViewDetailsActivity" />
+        <activity android:name=".Vendor.VendorViewOffersActivity" />
+        <activity android:name=".Vendor.VendorSearchHistoryActivity" />
+        <activity android:name=".Vendor.Maps.MarkLocationActivity" />
+        <activity android:name=".Vendor.Plans.ComparePlansActivity" />
+        <activity android:name=".Vendor.Plans.FreeBusinessPlansActivity" />
+        <activity android:name=".Vendor.Plans.SilverBusinessPlansActivity" />
+        <activity android:name=".Vendor.Plans.GoldBusinessPlansActivity" />
+        <activity android:name=".Vendor.Plans.PlatinumBusinessPlansActivity" />
+        <activity android:name=".Vendor.VendorPrivacyDashboardActivity" />
+        <activity android:name=".Vendor.VendorBusinessTimingsModeActivity" />
+        <activity android:name=".Vendor.BusinessAllProductsActivity" />
+        <activity android:name=".Vendor.VendorAddManagerActivity" />
+        <activity android:name=".Vendor.VendorUpdateAddressActivity" />
+        <activity android:name=".Vendor.VendorEditOfferActivity" />
+        <activity android:name=".Vendor.VendorAccessManagementActivity" />
+        <activity android:name=".Vendor.VendorAssignLinksActivity" />
+        <activity android:name=".Vendor.VendorEditListActivity" />
+        <activity android:name=".Vendor.VendorEditItemActivity" />
+        <activity android:name=".Vendor.VendorNewHomeDelActivity" />
+        <activity android:name=".Vendor.VendorServicesActivity" />
+        <activity android:name=".Vendor.VendorServiceAppmntsActivity" />
+        <activity android:name=".Vendor.VendorEditProfileActivity" />
+        <activity android:name=".Vendor.VendorProfilePrivacyActivity" />
+        <activity android:name=".Login.ManagerLoginActivity" />
+        <activity android:name=".Vendor.ManagerHomeActivity" />
+        <activity android:name=".Vendor.Offers.VendorAddItemOfferActivity" />
+        <activity android:name=".Vendor.Offers.VendorEditItemOfferActivity" />
+        <activity android:name=".Vendor.Offers.VendorAddBuzOfferActivity" />
+        <activity android:name=".Vendor.Offers.VendorEditBuzOfferActivity" />
+        <activity android:name=".Vendor.Offers.VendorOfferZoneNewActivity" />
+        <activity android:name=".Vendor.Orders.VendorCurrentOrderActivity" />
+    </application>
+
+</manifest>

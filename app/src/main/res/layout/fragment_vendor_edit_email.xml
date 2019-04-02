@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<LinearLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/customer_business"
+        android:layout_marginLeft="20dp"
+        android:scrollbars="none"
+        android:layout_marginRight="20dp">
+        <LinearLayout
+            android:id="@+id/login_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:descendantFocusability="beforeDescendants"
+            android:focusableInTouchMode="true">
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_centerInParent="true"
+                android:layout_margin="20dp">
+
+
+
+                <fr.arnaudguyon.smartfontslib.FontTextView
+                    app:smart_font="fonts/Montserrat-Bold.ttf"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Email :"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    />
+
+                <fr.arnaudguyon.smartfontslib.FontEditText
+                    app:smart_font="fonts/Montserrat-Regular.ttf"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/userName"
+                    android:inputType="textEmailAddress"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:padding="5dp"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:background="@drawable/black_bottom_border"/>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone"
+                    android:layout_marginTop="20dp"
+                    android:id="@+id/otpLayout">
+                    <fr.arnaudguyon.smartfontslib.FontTextView
+                        app:smart_font="fonts/Montserrat-Bold.ttf"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Otp :"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        />
+
+                    <fr.arnaudguyon.smartfontslib.FontEditText
+                        app:smart_font="fonts/Montserrat-Regular.ttf"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/otp"
+                        android:inputType="number"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:padding="5dp"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"
+                        android:background="@drawable/black_bottom_border"/>
+
+                </LinearLayout>
+
+
+                <fr.arnaudguyon.smartfontslib.FontButton
+                    app:smart_font="fonts/Montserrat-Bold.ttf"
+                    android:id="@+id/editProfile"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="SAVE"
+                    android:textAllCaps="false"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginBottom="40dp"
+                    android:textColor="@color/white"
+                    android:padding="10dp"
+                    android:textSize="16sp"
+                    android:background="@color/dark_orange"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+</LinearLayout>
+
+

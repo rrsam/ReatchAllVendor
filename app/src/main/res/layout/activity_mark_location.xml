@@ -1,0 +1,89 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <fragment
+        android:id="@+id/map"
+        android:name="com.reatchall.charan.reatchallVendor.Vendor.Maps.CustomMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <include
+        android:id="@+id/marker_view_incl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        layout="@layout/marker_view" />
+
+    <include
+        android:id="@+id/location_display_incl"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="7dp"
+        android:visibility="invisible"
+        layout="@layout/location_display_view" />
+
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:id="@+id/searchArea"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="10dp"
+        android:background="@color/dark_orange"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:paddingRight="20dp"
+        android:paddingLeft="20dp"
+        android:layout_above="@+id/saveLocation"
+        android:layout_centerHorizontal="true"
+        >
+
+        <fr.arnaudguyon.smartfontslib.FontTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Search"
+            app:smart_font="fonts/Montserrat-Bold.ttf"
+            android:textColor="@color/white"
+            android:layout_gravity="center"
+            android:textSize="14sp"/>
+
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:id="@+id/saveLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="10dp"
+        android:background="@color/dark_orange"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:paddingRight="20dp"
+        android:paddingLeft="20dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        >
+
+        <fr.arnaudguyon.smartfontslib.FontTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Save Location"
+            app:smart_font="fonts/Montserrat-Bold.ttf"
+            android:textColor="@color/white"
+            android:layout_gravity="center"
+            android:textSize="14sp"/>
+
+
+
+    </LinearLayout>
+
+</RelativeLayout>

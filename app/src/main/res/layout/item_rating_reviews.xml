@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="20dp"
+        >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/businessLogo"
+            android:src="@drawable/ic_person_black"/>
+
+        <fr.arnaudguyon.smartfontslib.FontTextView
+            app:smart_font="fonts/Montserrat-Regular.ttf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Business Name"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:id="@+id/businessName"
+            />
+        <RatingBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rating_customer"
+            android:rating="4.5"
+            style="@style/Widget.AppCompat.RatingBar.Small"
+            />
+        <fr.arnaudguyon.smartfontslib.FontTextView
+            app:smart_font="fonts/Montserrat-Regular.ttf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+            android:textSize="14sp"
+            android:textColor="@color/black"
+            android:id="@+id/review"
+            />
+
+        <fr.arnaudguyon.smartfontslib.FontTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:text="Edit"
+            android:padding="10dp"
+            android:background="@color/light_grey"
+            android:layout_gravity="right"
+            android:textColor="@color/black"
+            android:id="@+id/editRatingReview"/>
+
+    </LinearLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:id="@+id/divider"
+        android:background="@color/grey"
+        />
+
+
+</LinearLayout>

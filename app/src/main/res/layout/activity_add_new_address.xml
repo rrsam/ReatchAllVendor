@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/relativeLayout1">
+
+        <include layout="@layout/toolbar_add_new_address"/>
+
+    </RelativeLayout>
+
+
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:id="@+id/address"
+        android:hint="Type Your Address here"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:background="@drawable/cancel_grey_border"
+        android:padding="15dp"
+        android:textSize="18sp"
+        android:inputType="text"/>
+
+    <fr.arnaudguyon.smartfontslib.FontTextView
+        app:smart_font="fonts/Montserrat-Regular.ttf"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/locateMe"
+        android:text="Locate Me"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:gravity="center"
+        android:padding="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:background="@color/light_grey"/>
+
+
+    <Button
+        android:id="@+id/saveAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Save Address"
+        android:textAllCaps="false"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/white"
+        android:padding="10dp"
+        android:textSize="18sp"
+        android:background="@drawable/blue_rounded"
+        android:gravity="center"
+        android:layout_gravity="center"
+        />
+
+</LinearLayout>

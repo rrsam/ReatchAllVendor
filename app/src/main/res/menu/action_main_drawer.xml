@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+
+
+        <item
+            android:id="@+id/nav_my_orders"
+            android:icon="@drawable/ic_shopping_basket"
+            android:title="@string/nav_my_orders" />
+
+        <item
+            android:id="@+id/nav_my_cash"
+            android:icon="@drawable/ic_account_balance"
+            android:title="@string/nav_my_cash" />
+
+        <item
+            android:id="@+id/nav_my_wishlist"
+            android:icon="@drawable/vector_heart_black"
+            android:title="@string/nav_my_wishlist" />
+
+        <item
+            android:id="@+id/nav_delivery_address"
+            android:icon="@drawable/ic_delivery_address"
+            android:title="@string/nav_delivery_address" />
+
+        <item
+            android:id="@+id/nav_notifications"
+            android:icon="@drawable/ic_notifications"
+            android:title="@string/nav_notifications" />
+
+        <item
+            android:id="@+id/nav_profile_settings"
+            android:icon="@drawable/ic_profile_settings"
+            android:title="@string/nav_profile_settings" />
+
+        <item
+            android:id="@+id/nav_privacy_settings"
+            android:icon="@drawable/ic_privacy_settings_key"
+            android:title="@string/nav_privacy_settings" />
+
+        <item
+            android:id="@+id/nav_invite_earn"
+            android:icon="@drawable/ic_invite"
+            android:title="@string/nav_invite_earn" />
+
+        <item
+            android:id="@+id/nav_ratings"
+            android:icon="@drawable/ic_ratings"
+            android:title="@string/nav_ratings" />
+
+        <item
+            android:id="@+id/nav_feedback"
+            android:icon="@drawable/ic_feedback"
+            android:title="@string/nav_feedback" />
+
+        <item
+            android:id="@+id/nav_terms"
+            android:icon="@drawable/ic_terms_conditions"
+            android:title="@string/nav_terms" />
+
+        <item
+            android:id="@+id/nav_logout"
+            android:icon="@drawable/ic_logout"
+            android:title="@string/nav_logout" />
+
+
+
+    </group>
+
+
+
+</menu>

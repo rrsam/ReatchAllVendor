@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Vendor.Orders.VendorCurrentOrderActivity">
+
+    <LinearLayout
+        android:id="@+id/parentLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <android.support.design.widget.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/profileToolBar">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:padding="10dp"
+                        android:layout_marginRight="3dp"
+                        android:layout_centerVertical="true"
+                        android:id="@+id/back_arrow"
+                        android:src="@drawable/ic_back_navigate"/>
+                    <fr.arnaudguyon.smartfontslib.FontTextView
+                        app:smart_font="fonts/Montserrat-Regular.ttf"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="New Order"
+                        android:textSize="14sp"
+                        android:textColor="@color/white"
+                        android:layout_centerVertical="true"
+                        android:id="@+id/title_toolbar"
+                        android:gravity="start"
+                        android:singleLine="true"
+                        android:layout_toRightOf="@+id/back_arrow"
+                        />
+                </RelativeLayout>
+            </LinearLayout>
+        </android.support.design.widget.AppBarLayout>
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:focusableInTouchMode="true"
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical">
+
+            <fr.arnaudguyon.smartfontslib.FontTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="Order Details"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:id="@+id/subTitle"
+                app:smart_font="fonts/Montserrat-Bold.ttf" />
+
+            <View
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_width="match_parent"
+                android:layout_marginTop="3dp"
+                android:layout_height="2dp"
+                android:background="@color/dark_orange"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:orientation="horizontal">
+
+            <fr.arnaudguyon.smartfontslib.FontTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Order Status : "
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                app:smart_font="fonts/Montserrat-Regular.ttf" />
+
+            <fr.arnaudguyon.smartfontslib.FontTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Order Pending at vendor"
+                android:textColor="@color/dark_orange"
+                android:textSize="14sp"
+                android:id="@+id/orderStatusTV"
+                app:smart_font="fonts/Montserrat-Bold.ttf" />
+        </LinearLayout>
+
+        <fr.arnaudguyon.smartfontslib.FontTextView
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="Please wait for the delivery boy to pickup the ordee"
+            android:textColor="@color/grey_light"
+            android:textSize="10sp"
+            android:id="@+id/orderStatusDetailTv"
+            app:smart_font="fonts/Montserrat-Regular.ttf" />
+
+
+
+        <android.support.v7.widget.RecyclerView
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/itemsRcv">
+
+        </android.support.v7.widget.RecyclerView>
+
+
+
+
+            <LinearLayout
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/taxesLayout"
+                android:background="@color/white"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:orientation="vertical">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp">
+
+                    <fr.arnaudguyon.smartfontslib.FontTextView
+                        app:smart_font="fonts/Montserrat-Regular.ttf"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Taxes &amp; Charges"
+                        android:id="@+id/taxesTV"
+                        android:textColor="@color/search_tab_text_selected"
+                        android:textSize="12sp"/>
+
+                    <ImageView
+                        android:layout_width="14dp"
+                        android:layout_height="14dp"
+                        android:id="@+id/taxesIv"
+                        android:visibility="gone"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/ic_down_arrow_grey"
+                        />
+                </RelativeLayout>
+
+                <android.support.v7.widget.RecyclerView
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/taxesChargesRcv"></android.support.v7.widget.RecyclerView>
+
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/divider_color"/>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="8dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="15dp"
+                android:paddingBottom="8dp"
+                android:background="@color/white"
+                android:orientation="horizontal">
+
+                <fr.arnaudguyon.smartfontslib.FontTextView
+                    app:smart_font="fonts/Montserrat-Regular.ttf"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Item Total"
+                    android:textColor="@color/search_tab_text_selected"
+                    android:textSize="12sp"/>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_height="wrap_content"
+                    >
+
+                    <fr.arnaudguyon.smartfontslib.FontTextView
+                        app:smart_font="fonts/Ubuntu-M.ttf"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/res"
+                        android:textSize="12sp"
+                        android:textColor="@color/search_tab_text_selected"
+                        android:layout_centerVertical="true"
+                        android:id="@+id/rupeeSymbolSub"/>
+
+                    <fr.arnaudguyon.smartfontslib.FontTextView
+                        app:smart_font="fonts/Montserrat-Regular.ttf"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="10sp"
+                        android:id="@+id/itemTotal"
+                        android:textColor="@color/search_tab_text_selected"
+                        android:layout_marginLeft="3dp"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@id/rupeeSymbolSub"
+                        android:text="400"
+                        />
+
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="15dp"
+                android:background="@color/white"
+                android:orientation="horizontal">
+
+                <fr.arnaudguyon.smartfontslib.FontTextView
+                    app:smart_font="fonts/Montserrat-Regular.ttf"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Bill Total"
+                    android:textAllCaps="false"
+                    android:textColor="@color/search_tab_text_selected"
+                    android:textSize="13sp"/>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_height="wrap_content">
+
+                    <fr.arnaudguyon.smartfontslib.FontTextView
+                        app:smart_font="fonts/Ubuntu-M.ttf"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/res"
+                        android:textSize="13sp"
+                        android:textColor="@color/search_tab_text_selected"
+                        android:layout_centerVertical="true"
+                        android:id="@+id/rupeeSymbol"/>
+
+                    <fr.arnaudguyon.smartfontslib.FontTextView
+                        app:smart_font="fonts/Montserrat-Regular.ttf"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"
+                        android:id="@+id/amountToPay"
+                        android:textColor="@color/search_tab_text_selected"
+                        android:layout_marginLeft="3dp"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@id/rupeeSymbol"
+                        android:text="430"
+                        />
+
+
+                </RelativeLayout>
+            </RelativeLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2000dp"/>
+
+
+
+
+    </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/acceptRejectLayout"
+        android:background="@color/white"
+        android:orientation="vertical">
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/divider_color"/>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="2"
+            android:padding="10dp"
+            android:orientation="horizontal">
+
+            <fr.arnaudguyon.smartfontslib.FontTextView
+                android:layout_weight="1"
+                android:layout_marginRight="10dp"
+                app:smart_font="fonts/Montserrat-Regular.ttf"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="REJECT"
+                android:id="@+id/rejectOrder"
+                android:textColor="@color/white"
+                android:gravity="center"
+                android:paddingTop="10dp"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:paddingBottom="10dp"
+                android:layout_gravity="center"
+                android:layout_alignParentBottom="true"
+                android:background="@color/red_new"
+                android:textSize="10sp"/>
+
+
+            <fr.arnaudguyon.smartfontslib.FontTextView
+                android:layout_weight="1"
+                android:layout_marginRight="10dp"
+                app:smart_font="fonts/Montserrat-Regular.ttf"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="ACCEPT"
+                android:id="@+id/acceptOrder"
+                android:textColor="@color/white"
+                android:gravity="center"
+                android:paddingTop="10dp"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:paddingBottom="10dp"
+                android:layout_gravity="center"
+                android:layout_alignParentBottom="true"
+                android:background="@color/add_btn_color"
+                android:textSize="10sp"/>
+
+        </LinearLayout>
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/light_grey"/>
+    </LinearLayout>
+
+
+</RelativeLayout>

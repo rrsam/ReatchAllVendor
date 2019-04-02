@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/light_grey"
+
+    >
+
+    <LinearLayout
+        android:id="@+id/under"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:background="@color/light_yellow"
+            android:orientation="horizontal">
+
+            <fr.arnaudguyon.smartfontslib.FontTextView
+                android:id="@+id/malertTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textColor="#ffffff"
+                android:gravity="center"
+                android:text="Select Offer Type"
+                android:layout_gravity="center"
+                app:smart_font="fonts/Montserrat-Regular.ttf"
+                />
+        </LinearLayout>
+
+
+        <fr.arnaudguyon.smartfontslib.FontTextView
+            android:text="Business Offer"
+            app:smart_font="fonts/Montserrat-Regular.ttf"
+            android:id="@+id/businessOffer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="15dp"
+            android:textSize="14sp"
+            android:textColor="@color/black"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@color/grey"/>
+
+        <fr.arnaudguyon.smartfontslib.FontTextView
+            android:text="Item Offer"
+            app:smart_font="fonts/Montserrat-Regular.ttf"
+            android:id="@+id/itemOffer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="15dp"
+            android:textSize="14sp"
+            android:textColor="@color/black"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/grey"/>
+    </LinearLayout>
+
+
+
+</RelativeLayout>

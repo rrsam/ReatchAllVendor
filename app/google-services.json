@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "284159771822",
+    "firebase_url": "https://reatchallvendor-4470a.firebaseio.com",
+    "project_id": "reatchallvendor-4470a",
+    "storage_bucket": "reatchallvendor-4470a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:284159771822:android:9db49ea03d5807dc",
+        "android_client_info": {
+          "package_name": "com.reatchall.charan.reatchallVendor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "284159771822-sig859c8rtuhkjchlno0d0ogk1torarh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBl6ce6TXIlLV3dndfEZltEdM1fCEbfEO8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

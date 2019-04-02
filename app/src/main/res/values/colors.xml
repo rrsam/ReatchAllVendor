@@ -1,0 +1,147 @@
+<!--?xml version="1.0" encoding="UTF-8"?-->
+<resources>
+  <color name="primaryColor">#009ec1</color>
+  <color name="primaryLightColor">#F79D2E</color>
+  <color name="primaryDarkColor">#890001</color>
+  <color name="primaryTextColor">#000000</color>
+
+
+  <color name="grey">#bfbfbf</color>
+  <color name="white">#fff</color>
+  <color name="black">#000000</color>
+  <color name="blue">#00AEE7</color>
+  <color name="selection_blue">#6CCFF2</color>
+  <color name="orange">#F79D2E</color><!---->
+  <color name="light_grey">#EAEAEA</color>
+  <color name="darkRed">#cc0000</color>
+  <color name="grey_letters">#4F4C4A</color>
+
+  <color name="light_yellow">#f1c40f</color>
+  <color name="dark_orange">#e67e22</color>
+  <color name="dark_red">#e74c3c</color>
+  <color name="orange_new">#f39c12</color>
+  <color name="red_other">#d35400</color>
+  <color name="red_new">#c0392b</color>
+  <color name="white_light">#ecf0f1</color>
+  <color name="grey_dark">#95a5a6</color>
+  <color name="grey_light">#bdc3c7</color>
+  <color name="blue_dark">#34495e</color>
+  <color name="dark_blue">#2c3e50</color>
+
+    <color name="black_overlay">#66000000</color>
+
+  <color name="darkGreen">#4CAF50</color>
+  <color name="lightGreen">#00E676</color>
+  <color name="darkBlue">#039BE5</color>
+  <color name="redVariant">#E34F38</color>
+  <color name="red">#E34F38</color>
+
+  <color name="placeholder">#D3D3D3</color>
+
+  <color name="list_background">#06ACE4</color>
+
+  <color name="gray">#D1D0CE</color>
+  <color name="background_color">#E1E2E2</color>
+
+
+  <color name="primary">#3f51b5</color>
+  <color name="primary_pressed">#E1E2E2</color>
+  <color name="primary_dark">#303f9f</color>
+  <color name="ripple">#F06292</color>
+  <color name="cyan">#00FFFF</color>
+  <color name="lightBlue">#ADD8E6</color>
+
+  <color name="text_color">#686868</color>
+  <color name="android_text_color">#747474</color>
+  <color name="app_topbar_color">#AAAAAA</color>
+
+  <color name="list_even">#AAAAAA</color>
+  <color name="list_odd">#E1E2E2</color>
+  <color name="list_selected">#455FB6</color>
+  <color name="list_header">#99979C</color>
+
+
+  <color name="white_opacity">#80ffffff</color>
+  <color name="black_opacity">#80000000</color>
+  <color name="black_opacity_res_small_card">#BA000000</color>
+  <color name="black_opacity_toran">#CC000000</color>
+  <color name="black_opacity_toran_scan">#61000000</color>
+  <color name="search_bg">#80361215</color>
+  <color name="search_hint">#80CA697F</color>
+  <color name="search_tab_bg">#f5f5f5</color>
+  <color name="search_tab_text_selected">#2f2f2f</color>
+  <color name="search_tab_text">#A4A4A4</color>
+
+  <color name="address_marker_circle_bg">#27E43431</color>
+  <color name="address_get_my_location">#E43431</color>
+  <color name="selected_address_tick_green">#23c26d</color>
+
+  <color name="summer">#ff0067</color>
+  <color name="starGreen">#61b876</color>
+  <color name="add_btn_color">#67C16F</color>
+
+  <color name="black_variant">#777777</color>
+  <color name="closes_text_color">#C82222 </color>
+  <color name="firesale_list_header">#787878</color>
+
+  <color name="firesale_gradient_color_one">#FAD961</color>
+  <color name="firesale_gradient_color_two">#F77B26 </color>
+  <color name="firesale_gradient_color_three">#F71C1C</color>
+
+  <color name="item_header_color">#4A4A4A</color>
+  <color name="item_header_color_two">#A5A5A5</color>
+  <color name="home_fragment_bg">#fff9fa</color>
+  <color name="black_variant_two">#2F2F2F</color>
+  <color name="divider_color">#E5E5E5</color>
+  <color name="restaurant_closed">#E05A5A</color>
+  <color name="divider_address_screen">#E2E2E2</color>
+
+  <color name="address_selected_bg">#F0CB5A</color>
+  <color name="address_tag_text_color">#D4D4D4</color>
+  <color name="green_saved_address">#67C16F</color>
+  <color name="tab_text_not_selected">#ABABAB</color>
+  <color name="tab_divider">#E6E6E6</color>
+
+  <color name="grey_variant">#9B9B9B</color>
+  <color name="grey_variant_add">#E3E3E3</color>
+  <color name="grey_variant_opacity">#EEEEEE</color>
+  <color name="green_variant">#4D9A53</color>
+
+  <color name="progress_gradient_one">#E53974</color>
+  <color name="progress_gradient_two">#FFD250</color>
+
+  <color name="area_color">#E2B737</color>
+  <color name="toran_cam_inside">#D3D3D3</color>
+
+  <color name="rippelColor">#0099CC</color>
+
+  <color name="placeholder_bg">#dddddd</color>
+  <color name="item_name">#0c0c0c</color>
+  <color name="description">#1a1a1a</color>
+  <color name="chef">#777</color>
+  <color name="timestamp">#777</color>
+
+  <color name="order_rcv_bg">#FBFBFB</color>
+  <color name="customise_popup_selection_color">#E6B92D</color>
+  <color name="customise_popup_cart_bg">#F2F2F2</color>
+
+  <color name="new_blue">#0984E3</color>
+  <color name="new_orange">#FF9900</color>
+  <color name="new_blue_light">#3DB5EA</color>
+  <color name="new_blue_lightt">#83C2DE</color>
+
+
+</resources>
+    <!--
+
+Blue- 00AEE7
+Selection blue- 6CCFF2
+Orange- F79D2E
+Grey for letters- 4F4C4A
+Light grey for buttons- EAEAEA
+
+-->
+
+    <!--
+
+-->

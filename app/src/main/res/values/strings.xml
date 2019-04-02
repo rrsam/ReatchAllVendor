@@ -1,0 +1,326 @@
+<resources>
+    <string name="app_name">ReatchAll Business</string>
+    <string name="maps_api_key">AIzaSyD78D-0AhBkmwrqdhbimJTES8eRGcdZBOM</string>
+
+    //AIzaSyAViPaBmX2pDTdiJD8GYjx4yBXyjVI5DZs
+
+    //fb signin
+    <string name="facebook_app_id">1789090054720915</string>
+    <string name="fb_login_protocol_scheme">fb1789090054720915</string>
+
+    <string name="rupee">`</string>
+    <string name="res">\u20B9</string>
+
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="drawer_open">Open navigation drawer</string>
+    <string name="drawer_close">Close navigation drawer</string>
+
+    <string-array name="navigation_drawer_items_array">
+        <item>Home</item>
+        <item>Services</item>
+        <item>Products</item>
+        <item>Notifications</item>
+        <item>Settings</item>
+        <item>About us</item>
+    </string-array>
+
+    <string name="prompt_spinner">Select</string>
+    <string name="catergories_spinner">Select a Category</string>
+    <string name="state_spinner">Select a State</string>
+    <string name="offers_spinner">Select any one</string>
+    <string name="sub_catergories_spinner">Select a Sub-Category</string>
+    <string name="payment_modes_spinner">Select Payment Modes</string>
+    <string name="plans_spinner">Select a Plan</string>
+    <string name="seller_type_spinner">Select Seller Type</string>
+    <string name="from_spinner">Select Opening Time</string>
+    <string name="to_spinner">Select Closing Time</string>
+    <string name="city_spinner">Select a City</string>
+    <string name="area_spinner">Select an Area</string>
+    <string name="select_offer_spinner">Select an Offer</string>
+    <string name="offer_type_spinner">Select an Offer Type</string>
+    <string name="discount_type_spinner">Select Discount Type</string>
+    <string name="home_del_terms">This document is published in accordance with the provisions of Rule 3 (1) of the
+        Information Technology (Intermediaries guidelines) Rules, 2011 that require publishing the rules and regulations,
+        privacy policy and Terms of Use for access or usage of www.ReatchAll.com website.The domain name www.ReatchAll.com
+        (hereinafter referred to as "Website") is owned by P.no 118, Flat No 402, 5th Floor Sai Silicon Heights,
+        Road No 6 Beside Ayyappa Society Park Ayyappa Society, Madhapur Hyderabad-500081. (herein after referred to
+        as "ReatchAll.com"). Your use of the Website and services and tools are governed by the following terms
+        and conditions ("Terms of Use") as applicable to the Website including the applicable policies which are
+        incorporated herein by way of reference. If You transact on the Website, you shall be subject to the policies that are
+        applicable to the Website for such transaction. By mere use of the Website, you shall be contracting with ReatchAll
+        Technologies Private Limited and these terms and conditions including the policies constitute your binding obligations,
+        with ReatchAll.com. For these Terms of Use, wherever the context so requires "You" or "User" shall mean any natural or
+        legal person who has agreed to become a user of the Website by providing Registration Data while registering on the Website
+        as Registered User using the computer systems. ReatchAll.com allows the User to surf the Website or making purchases without
+        registering on the Website. The term "We", "Us", "Our" shall mean ReatchAll Technologies private Limited. When you use any of
+        the services provided by Us through the Website, including but not limited to job postings, resume services etc. You will be
+        subject to the rules, guidelines, policies, terms, and conditions applicable to such service, and they shall be deemed
+        to be incorporated into this Terms of Use and shall be considered as part and parcel of this Terms of Use. We reserve the
+        right, at our sole discretion, to change, modify, add or remove portions of these Terms of Use, at any time without any prior
+        written notice to You. It is your responsibility to review these Terms of Use periodically for updates / changes.
+        Your continued use of the Website following the posting of changes will mean that you accept and agree to the revisions.
+        If you comply with these Terms of Use, we grant you a personal, non-exclusive, non-transferable, limited privilege to enter
+        and use the Website. ACCESSING, BROWSING OR OTHERWISE USING THE SITE INDICATES YOUR AGREEMENT TO ALL THE TERMS AND CONDITIONS
+        UNDER THESETERMS OF USE, SO PLEASE READ THE TERMS OF USE CAREFULLY BEFORE PROCEEDING. By impliedly or expressly accepting
+        these Terms of Use, You also accept and agree to be bound by ReatchAll.com Policies ((including but not limited to Privacy
+        Policy available on privacy policy) as amended from time to time.</string>
+
+    <string-array name="timings_array">
+
+        <item>00:00</item>
+        <item>00:30</item>
+        <item>01:00</item>
+        <item>01:30</item>
+        <item>02:00</item>
+        <item>02:30</item>
+        <item>03:00</item>
+        <item>03:30</item>
+        <item>04:00</item>
+        <item>04:30</item>
+        <item>05:00</item>
+        <item>05:30</item>
+        <item>06:00</item>
+        <item>06:30</item>
+        <item>07:00</item>
+        <item>07:30</item>
+        <item>08:00</item>
+        <item>08:30</item>
+        <item>09:00</item>
+        <item>09:30</item>
+        <item>10:00</item>
+        <item>10:30</item>
+        <item>11:00</item>
+        <item>11:30</item>
+        <item>12:00</item>
+        <item>12:30</item>
+        <item>13:00</item>
+        <item>13:30</item>
+        <item>14:00</item>
+        <item>14:30</item>
+        <item>15:00</item>
+        <item>15:30</item>
+        <item>16:00</item>
+        <item>16:30</item>
+        <item>17:00</item>
+        <item>17:30</item>
+        <item>18:00</item>
+        <item>18:30</item>
+        <item>19:00</item>
+        <item>19:30</item>
+        <item>20:00</item>
+        <item>20:30</item>
+        <item>21:00</item>
+        <item>21:30</item>
+        <item>22:00</item>
+        <item>22:30</item>
+        <item>23:00</item>
+        <item>23:30</item>
+    </string-array>
+
+
+    <string-array name="offers_array">
+        <item>Particular Item</item>
+        <item>Special Offer</item>
+        <item>On Overall Purchase</item>
+    </string-array>
+
+    <string-array name="offer_type">
+        <item>Flat</item>
+        <item>Upto</item>
+    </string-array>
+
+    <string-array name="city_array">
+        <item>Select your City</item>
+        <item>Hyderabad</item>
+        <item>Bangalore</item>
+        <item>Mumbai</item>
+        <item>Delhi</item>
+        <item>Chennai</item>
+    </string-array>
+
+    <string-array name="states_array">
+        <item>Select a State</item>
+        <item>Telangana</item>
+        <item>Andhra Pradesh</item>
+        <item>Karnataka</item>
+        <item>Maharastra</item>
+        <item>Kerala</item>
+        <item>Orissa</item>
+        <item>Tamil Nadu</item>
+    </string-array>
+
+
+    <string-array name="area_array">
+        <item>Select your Area</item>
+        <item>Madhapur</item>
+        <item>Ayyapa Society</item>
+        <item>Banjara Hills</item>
+        <item>Jubilee Hilks</item>
+        <item>Kondapur</item>
+        <item>Gachibowli</item>
+
+    </string-array>
+
+
+    <!--MODES OF PAYMENT ARRAY-->
+    <string-array name="modes_of_payment_array">
+        <item>Cash</item>
+        <item>Paytm</item>
+        <item>Credit/Debit Cards</item>
+        <item>Online</item>
+        <item>Other</item>
+    </string-array>
+
+    <string-array name="validity_array">
+        <item>one Time</item>
+        <item>One Day</item>
+        <item>One Week</item>
+        <item>One Month</item>
+        <item>Two Months</item>
+        <item>Three Months</item>
+        <item>4 Months</item>
+        <item>5 Months</item>
+        <item>6 Months</item>
+        <item>One Year</item>
+        <item>Two Years</item>
+        <item>Three Years</item>
+    </string-array>
+
+
+    <!--PLANS ARRAY-->
+    <string-array name="plans_array">
+        <item>Select a business Plan</item>
+        <item>Free</item>
+        <item>Silver</item>
+        <item>Gold</item>
+        <item>Platinum</item>
+    </string-array>
+
+    <string-array name="discounts_type">
+        <item>Rupees</item>
+        <item>Percentage</item>
+
+    </string-array>
+
+    <string-array name="item_quality_array">
+        <item>Premium</item>
+        <item>Good</item>
+        <item>Average</item>
+        <item>Best</item>
+        <item>Normal</item>
+
+    </string-array>
+
+
+    <string-array name="item_type">
+        <item>Loose</item>
+        <item>Packed</item>
+        <item>Combo Pack</item>
+    </string-array>
+
+
+    <string-array name="business_type_array">
+
+        <item>Select Business Type</item>
+        <item>Product Based</item>
+        <item>Service Based</item>
+
+
+    </string-array>
+
+
+    <!-- Navigation Drawer menu labels -->
+    <string name="nav_my_orders">My Orders</string>
+    <string name="nav_my_cash">My Cash</string>
+    <string name="nav_my_wishlist">My Wishlist</string>
+    <string name="nav_delivery_address">Delivery Address</string>
+    <string name="nav_notifications">Notifications</string>
+    <string name="nav_profile_settings">Profile Settings</string>
+    <string name="nav_privacy_settings">Privacy Settings</string>
+    <string name="nav_invite_earn">Invite &amp; Earn</string>
+    <string name="nav_ratings">Ratings &amp; Reviews</string>
+    <string name="nav_feedback">Feedback</string>
+    <string name="nav_terms">Terms &amp; Conditions</string>
+    <string name="nav_logout">Logout</string>
+
+
+    <string name="web_social">Website &amp; Social Media</string>
+    <string name="web_social_and">Website and Social Networks</string>
+    <string name="timings">Opening &amp; Closing Timings</string>
+
+
+    <string name="Rupee_symbol">\u20B9</string>
+    <string name="Rupee_text">\u20A8</string>
+
+    <!-- Toolbar titles when navigation menu item is selected -->
+    <string-array name="nav_item_activity_titles">
+        <item>My Orders</item>
+        <item>My Cash</item>
+        <item>My Wishlist</item>
+        <item>Delivery Address</item>
+        <item>Notifications</item>
+        <item>Profile Settings</item>
+        <item>Privacy Settings</item>
+        <item>Invite &amp; Earn</item>
+        <item>Ratings &amp; Reviews</item>
+        <item>Feedback</item>
+        <item>Terms &amp; Conditions</item>
+        <item>Logout</item>
+
+    </string-array>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="listId">listId</string>
+    <string name="businessDetails">businessDetails</string>
+
+    <string name="title_activity_vendor_login">VendorLoginActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+
+    <string-array name="hoursArray">
+
+        <item>1 hour</item>
+        <item>3 hours</item>
+        <item>6 hours</item>
+        <item>12 hours</item>
+        <item>24 hours</item>
+        <item>48 hours</item>
+
+    </string-array>
+
+    <string-array name="ordersArray">
+        <item>All Orders</item>
+        <item>Current Orders</item>
+        <item>Old Orders</item>
+        <item>Cancelled Orders</item>
+        <item>Custom Orders</item>
+    </string-array>
+
+    <string-array name="genderArray">
+
+        <item>Male</item>
+        <item>Female</item>
+
+    </string-array>
+
+    <string-array name="quantityArray">
+        <item>Grams</item>
+        <item>Kgs</item>
+        <item>Lts</item>
+        <item>Ml</item>
+        <item>None</item>
+
+    </string-array>
+
+    <string-array name="viewsArray">
+        <item>Todays Visitors</item>
+        <item>Last weeks Visitors</item>
+        <item>Last months Visitors</item>
+        <item>Total Visitors</item>
+    </string-array>
+
+</resources>

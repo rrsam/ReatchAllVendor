@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/vendor_login"
+    tools:context=".Registration.ChooseUserActivity">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#80000000">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_back_navigate"
+            android:id="@+id/back_arrow"
+            android:layout_margin="10dp"/>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_below="@+id/back_arrow">
+            <LinearLayout
+                android:id="@+id/parentLayout"
+                android:animateLayoutChanges="true"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_margin="20dp">
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    ><requestFocus/></View>
+
+                <fr.arnaudguyon.smartfontslib.FontTextView
+                    app:smart_font="fonts/Montserrat-Bold.ttf"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="MANAGER LOGIN"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_below="@+id/back_arrow"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="30dp"
+                    android:layout_gravity="center"
+                    android:textColor="@color/white"
+                    />
+
+                <fr.arnaudguyon.smartfontslib.FontTextView
+                    app:smart_font="fonts/Montserrat-Bold.ttf"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Mobile Number:"
+                    android:layout_marginTop="20dp"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    />
+
+                <fr.arnaudguyon.smartfontslib.FontEditText
+                    app:smart_font="fonts/Montserrat-Bold.ttf"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/phoneNumber"
+                    android:inputType="number"
+                    android:padding="5dp"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    android:background="@drawable/white_bottom_border"/>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:id="@+id/passwordLayout">
+                    <fr.arnaudguyon.smartfontslib.FontTextView
+                        app:smart_font="fonts/Montserrat-Bold.ttf"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Password:"
+                        android:layout_marginTop="20dp"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:id="@+id/passwordOrOtpTv"
+                        android:textColor="@color/white"
+                        />
+
+                    <fr.arnaudguyon.smartfontslib.FontEditText
+                        app:smart_font="fonts/Montserrat-Bold.ttf"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/passwordOrOtp"
+                        android:inputType="textPassword"
+                        android:padding="5dp"
+                        android:textColor="@color/white"
+                        android:textSize="14sp"
+                        android:background="@drawable/white_bottom_border"/>
+
+                </LinearLayout>
+
+
+                <fr.arnaudguyon.smartfontslib.FontButton
+                    app:smart_font="fonts/Montserrat-Bold.ttf"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/loginBtn"
+                    android:text="Continue"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:textSize="14sp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginRight="40dp"
+                    android:background="@drawable/white_rounded_bg"
+                    android:textColor="@color/black"/>
+
+
+            </LinearLayout>
+
+        </ScrollView>
+
+
+
+
+    </RelativeLayout>
+
+
+
+</RelativeLayout>

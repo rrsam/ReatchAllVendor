@@ -1,0 +1,854 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.reatchall.charan.reatchallVendor.Vendor.CreateBusiness.TestTimingsActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="20dp"
+            android:id="@+id/businessTimingsLayoutNew">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/icons_unchecked_checkbox"
+                    android:id="@+id/allUncheckIV"/>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:src="@drawable/icons_checked_checkbox"
+                    android:id="@+id/allcheckIV"/>
+
+                <fr.arnaudguyon.smartfontslib.FontTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/allCheckTV"
+                    android:text="Check all Days/Uncheck All days"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:layout_marginLeft="5dp"
+                    app:smart_font="fonts/Montserrat-Regular.ttf"
+                    />
+
+
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/icons_unchecked_checkbox"
+                    android:id="@+id/monUncheckIV"/>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:src="@drawable/icons_checked_checkbox"
+                    android:id="@+id/moncheckIV"/>
+
+                <fr.arnaudguyon.smartfontslib.FontTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/monCheckTV"
+                    android:text="Monday"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:layout_marginLeft="5dp"
+                    app:smart_font="fonts/Montserrat-Regular.ttf"
+                    />
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="invisible"
+                    android:src="@drawable/icons_unchecked_checkbox"
+                    />
+
+               <LinearLayout
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:orientation="vertical"
+                   android:layout_marginTop="10dp">
+
+                   <LinearLayout
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:weightSum="2">
+
+                       <fr.arnaudguyon.smartfontslib.FontTextView
+                           android:layout_width="0dp"
+                           android:layout_weight="1"
+                           android:layout_height="wrap_content"
+                           android:layout_gravity="center"
+                           android:gravity="center"
+                           android:textSize="12sp"
+                           app:smart_font="fonts/Montserrat-Regular.ttf"
+                           android:text="Open"/>
+
+                       <fr.arnaudguyon.smartfontslib.FontTextView
+                           android:layout_width="0dp"
+                           android:layout_weight="1"
+                           android:layout_height="wrap_content"
+                           android:layout_gravity="center"
+                           android:gravity="center"
+                           android:textSize="12sp"
+                           app:smart_font="fonts/Montserrat-Regular.ttf"
+                           android:text="Close"/>
+
+
+                   </LinearLayout>
+
+                   <LinearLayout
+                       android:layout_marginTop="10dp"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:layout_marginLeft="20dp"
+                       android:layout_marginRight="20dp"
+                       android:weightSum="2">
+
+                            <Spinner
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_gravity="center"
+                                android:gravity="center"
+                                android:id="@+id/monOpenSpinner"
+                                style="@style/SpinnerThemeTimings"
+                                android:layout_height="wrap_content"></Spinner>
+                               <android.support.v4.widget.Space
+                                   android:layout_width="10dp"
+                                   android:layout_height="match_parent" />
+                           <Spinner
+                               android:layout_width="0dp"
+                               android:layout_weight="1"
+                               android:layout_gravity="center"
+                               android:gravity="center"
+                               style="@style/SpinnerThemeTimings"
+                               android:id="@+id/monCloseSpinner"
+                               android:layout_height="wrap_content"></Spinner>
+
+                   </LinearLayout>
+               </LinearLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/icons_unchecked_checkbox"
+                    android:id="@+id/tueUncheckIV"/>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:src="@drawable/icons_checked_checkbox"
+                    android:id="@+id/tuecheckIV"/>
+
+                <fr.arnaudguyon.smartfontslib.FontTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tueCheckTV"
+                    android:text="Tuesday"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:layout_marginLeft="5dp"
+                    app:smart_font="fonts/Montserrat-Regular.ttf"
+                    />
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="invisible"
+                    android:src="@drawable/icons_unchecked_checkbox"
+                    />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="10dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:weightSum="2">
+
+                        <fr.arnaudguyon.smartfontslib.FontTextView
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:textSize="12sp"
+                            app:smart_font="fonts/Montserrat-Regular.ttf"
+                            android:text="Open"/>
+
+                        <fr.arnaudguyon.smartfontslib.FontTextView
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:textSize="12sp"
+                            app:smart_font="fonts/Montserrat-Regular.ttf"
+                            android:text="Close"/>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_marginTop="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:weightSum="2">
+
+                        <Spinner
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:id="@+id/tueOpenSpinner"
+                            style="@style/SpinnerThemeTimings"
+                            android:layout_height="wrap_content"></Spinner>
+                        <android.support.v4.widget.Space
+                            android:layout_width="10dp"
+                            android:layout_height="match_parent" />
+                        <Spinner
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            style="@style/SpinnerThemeTimings"
+                            android:id="@+id/tueCloseSpinner"
+                            android:layout_height="wrap_content"></Spinner>
+
+                    </LinearLayout>
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/icons_unchecked_checkbox"
+                    android:id="@+id/wedUncheckIV"/>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:src="@drawable/icons_checked_checkbox"
+                    android:id="@+id/wedcheckIV"/>
+
+                <fr.arnaudguyon.smartfontslib.FontTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/wedCheckTV"
+                    android:text="Wednesday"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:layout_marginLeft="5dp"
+                    app:smart_font="fonts/Montserrat-Regular.ttf"
+                    />
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="invisible"
+                    android:src="@drawable/icons_unchecked_checkbox"
+                    />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="10dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:weightSum="2">
+
+                        <fr.arnaudguyon.smartfontslib.FontTextView
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:textSize="12sp"
+                            app:smart_font="fonts/Montserrat-Regular.ttf"
+                            android:text="Open"/>
+
+                        <fr.arnaudguyon.smartfontslib.FontTextView
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:textSize="12sp"
+                            app:smart_font="fonts/Montserrat-Regular.ttf"
+                            android:text="Close"/>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_marginTop="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:weightSum="2">
+
+                        <Spinner
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:id="@+id/wedOpenSpinner"
+                            style="@style/SpinnerThemeTimings"
+                            android:layout_height="wrap_content"></Spinner>
+                        <android.support.v4.widget.Space
+                            android:layout_width="10dp"
+                            android:layout_height="match_parent" />
+                        <Spinner
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            style="@style/SpinnerThemeTimings"
+                            android:id="@+id/wedCloseSpinner"
+                            android:layout_height="wrap_content"></Spinner>
+
+                    </LinearLayout>
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/icons_unchecked_checkbox"
+                    android:id="@+id/thurUncheckIV"/>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:src="@drawable/icons_checked_checkbox"
+                    android:id="@+id/thurcheckIV"/>
+
+                <fr.arnaudguyon.smartfontslib.FontTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/thurCheckTV"
+                    android:text="Thursday"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:layout_marginLeft="5dp"
+                    app:smart_font="fonts/Montserrat-Regular.ttf"
+                    />
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="invisible"
+                    android:src="@drawable/icons_unchecked_checkbox"
+                    />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="10dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:weightSum="2">
+
+                        <fr.arnaudguyon.smartfontslib.FontTextView
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:textSize="12sp"
+                            app:smart_font="fonts/Montserrat-Regular.ttf"
+                            android:text="Open"/>
+
+                        <fr.arnaudguyon.smartfontslib.FontTextView
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:textSize="12sp"
+                            app:smart_font="fonts/Montserrat-Regular.ttf"
+                            android:text="Close"/>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_marginTop="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:weightSum="2">
+
+                        <Spinner
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:id="@+id/thurOpenSpinner"
+                            style="@style/SpinnerThemeTimings"
+                            android:layout_height="wrap_content"></Spinner>
+                        <android.support.v4.widget.Space
+                            android:layout_width="10dp"
+                            android:layout_height="match_parent" />
+                        <Spinner
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            style="@style/SpinnerThemeTimings"
+                            android:id="@+id/thurCloseSpinner"
+                            android:layout_height="wrap_content"></Spinner>
+
+                    </LinearLayout>
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/icons_unchecked_checkbox"
+                    android:id="@+id/friUncheckIV"/>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:src="@drawable/icons_checked_checkbox"
+                    android:id="@+id/fricheckIV"/>
+
+                <fr.arnaudguyon.smartfontslib.FontTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/friCheckTV"
+                    android:text="Friday"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:layout_marginLeft="5dp"
+                    app:smart_font="fonts/Montserrat-Regular.ttf"
+                    />
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="invisible"
+                    android:src="@drawable/icons_unchecked_checkbox"
+                    />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="10dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:weightSum="2">
+
+                        <fr.arnaudguyon.smartfontslib.FontTextView
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:textSize="12sp"
+                            app:smart_font="fonts/Montserrat-Regular.ttf"
+                            android:text="Open"/>
+
+                        <fr.arnaudguyon.smartfontslib.FontTextView
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:textSize="12sp"
+                            app:smart_font="fonts/Montserrat-Regular.ttf"
+                            android:text="Close"/>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_marginTop="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:weightSum="2">
+
+                        <Spinner
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:id="@+id/friOpenSpinner"
+                            style="@style/SpinnerThemeTimings"
+                            android:layout_height="wrap_content"></Spinner>
+                        <android.support.v4.widget.Space
+                            android:layout_width="10dp"
+                            android:layout_height="match_parent" />
+                        <Spinner
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            style="@style/SpinnerThemeTimings"
+                            android:id="@+id/friCloseSpinner"
+                            android:layout_height="wrap_content"></Spinner>
+
+                    </LinearLayout>
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/icons_unchecked_checkbox"
+                    android:id="@+id/satUncheckIV"/>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:src="@drawable/icons_checked_checkbox"
+                    android:id="@+id/satcheckIV"/>
+
+                <fr.arnaudguyon.smartfontslib.FontTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/satCheckTV"
+                    android:text="Saturday"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:layout_marginLeft="5dp"
+                    app:smart_font="fonts/Montserrat-Regular.ttf"
+                    />
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="invisible"
+                    android:src="@drawable/icons_unchecked_checkbox"
+                    />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="10dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:weightSum="2">
+
+                        <fr.arnaudguyon.smartfontslib.FontTextView
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:textSize="12sp"
+                            app:smart_font="fonts/Montserrat-Regular.ttf"
+                            android:text="Open"/>
+
+                        <fr.arnaudguyon.smartfontslib.FontTextView
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:textSize="12sp"
+                            app:smart_font="fonts/Montserrat-Regular.ttf"
+                            android:text="Close"/>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_marginTop="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:weightSum="2">
+
+                        <Spinner
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:id="@+id/satOpenSpinner"
+                            style="@style/SpinnerThemeTimings"
+                            android:layout_height="wrap_content"></Spinner>
+                        <android.support.v4.widget.Space
+                            android:layout_width="10dp"
+                            android:layout_height="match_parent" />
+                        <Spinner
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            style="@style/SpinnerThemeTimings"
+                            android:id="@+id/satCloseSpinner"
+                            android:layout_height="wrap_content"></Spinner>
+
+                    </LinearLayout>
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/icons_unchecked_checkbox"
+                    android:id="@+id/sunUncheckIV"/>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:src="@drawable/icons_checked_checkbox"
+                    android:id="@+id/suncheckIV"/>
+
+                <fr.arnaudguyon.smartfontslib.FontTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/sunCheckTV"
+                    android:text="Sunday"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:layout_marginLeft="5dp"
+                    app:smart_font="fonts/Montserrat-Regular.ttf"
+                    />
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="invisible"
+                    android:src="@drawable/icons_unchecked_checkbox"
+                    />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="10dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:weightSum="2">
+
+                        <fr.arnaudguyon.smartfontslib.FontTextView
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:textSize="12sp"
+                            app:smart_font="fonts/Montserrat-Regular.ttf"
+                            android:text="Open"/>
+
+                        <fr.arnaudguyon.smartfontslib.FontTextView
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:textSize="12sp"
+                            app:smart_font="fonts/Montserrat-Regular.ttf"
+                            android:text="Close"/>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_marginTop="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:weightSum="2">
+
+                        <Spinner
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:id="@+id/sunOpenSpinner"
+                            style="@style/SpinnerThemeTimings"
+                            android:layout_height="wrap_content"></Spinner>
+                        <android.support.v4.widget.Space
+                            android:layout_width="10dp"
+                            android:layout_height="match_parent" />
+                        <Spinner
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            style="@style/SpinnerThemeTimings"
+                            android:id="@+id/sunCloseSpinner"
+                            android:layout_height="wrap_content"></Spinner>
+
+                    </LinearLayout>
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+
+            <fr.arnaudguyon.smartfontslib.FontButton
+                android:id="@+id/submit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="40dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/blue_rounded"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="Submit"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                app:smart_font="fonts/Montserrat-Regular.ttf" />
+        </LinearLayout>
+
+    </ScrollView>
+
+
+
+</LinearLayout>

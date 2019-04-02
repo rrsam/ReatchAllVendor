@@ -1,0 +1,459 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context="com.reatchall.charan.reatchallVendor.Vendor.VendorContactUsActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        >
+        <android.support.v7.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/profileToolBar">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginRight="2dp"
+                    android:layout_centerVertical="true"
+                    android:id="@+id/back_arrow"
+                    android:src="@drawable/ic_back_navigate"/>
+                <fr.arnaudguyon.smartfontslib.FontTextView
+                    app:smart_font="fonts/Montserrat-Regular.ttf"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Add Item"
+                    android:textSize="16sp"
+                    android:textColor="@color/white"
+                    android:layout_centerVertical="true"
+                    android:id="@+id/title_toolbar"
+                    android:layout_centerInParent="true"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:layout_toRightOf="@+id/back_arrow"
+                    />
+            </RelativeLayout>
+        </android.support.v7.widget.Toolbar>
+    </android.support.design.widget.AppBarLayout>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                ><requestFocus/></View>
+
+            <LinearLayout
+                android:id="@+id/title"
+                android:focusableInTouchMode="true"
+                android:layout_width="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:orientation="vertical">
+
+                <fr.arnaudguyon.smartfontslib.FontTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text="@string/web_social_and"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    app:smart_font="fonts/Montserrat-Bold.ttf" />
+
+                <View
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="3dp"
+                    android:layout_height="2dp"
+                    android:background="@color/dark_orange"
+                    />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:orientation="vertical"
+               android:id="@+id/webSocialLayout">
+
+
+                   <fr.arnaudguyon.smartfontslib.FontTextView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:layout_marginLeft="20dp"
+                       android:layout_marginRight="20dp"
+                       android:layout_marginTop="20dp"
+                       android:gravity="center"
+                       android:text="Website URL :"
+                       android:textColor="@color/black"
+                       android:textSize="14sp"
+                       app:smart_font="fonts/Montserrat-Regular.ttf" />
+
+                   <RelativeLayout
+                       android:layout_marginLeft="20dp"
+                       android:layout_marginRight="20dp"
+                       android:layout_width="match_parent"
+                       android:background="@drawable/black_bottom_border"
+                       android:layout_height="wrap_content">
+
+                       <fr.arnaudguyon.smartfontslib.FontEditText
+                           android:id="@+id/website"
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:inputType="text"
+                           android:background="@android:color/transparent"
+                           android:padding="10dp"
+                           android:textColor="@color/black"
+                           android:textSize="14sp"
+                           android:layout_toLeftOf="@+id/webICon"
+                           app:smart_font="fonts/Montserrat-Regular.ttf" ></fr.arnaudguyon.smartfontslib.FontEditText>
+
+
+                       <ImageView
+                           android:id="@+id/webICon"
+                           android:layout_marginRight="10dp"
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:src="@drawable/icon_web"
+                           android:layout_alignParentRight="true"/>
+
+                   </RelativeLayout>
+
+
+                   <fr.arnaudguyon.smartfontslib.FontTextView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:layout_marginLeft="20dp"
+                       android:layout_marginRight="20dp"
+                       android:layout_marginTop="20dp"
+                       android:gravity="center"
+                       android:text="Facebook URL :"
+                       android:textColor="@color/black"
+                       android:textSize="14sp"
+                       app:smart_font="fonts/Montserrat-Regular.ttf" />
+                   <RelativeLayout
+                       android:layout_marginLeft="20dp"
+                       android:layout_marginRight="20dp"
+                       android:layout_width="match_parent"
+                       android:background="@drawable/black_bottom_border"
+                       android:layout_height="wrap_content">
+
+                       <fr.arnaudguyon.smartfontslib.FontEditText
+                           android:id="@+id/facebook"
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:inputType="text"
+                           android:background="@android:color/transparent"
+                           android:padding="10dp"
+                           android:textColor="@color/black"
+                           android:textSize="14sp"
+                           android:layout_toLeftOf="@+id/fbICon"
+                           app:smart_font="fonts/Montserrat-Regular.ttf" />
+
+
+                       <ImageView
+                           android:id="@+id/fbICon"
+                           android:layout_marginRight="10dp"
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:src="@drawable/icon_facebook"
+                           android:layout_alignParentRight="true"/>
+
+                   </RelativeLayout>
+
+                   <fr.arnaudguyon.smartfontslib.FontTextView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:layout_marginLeft="20dp"
+                       android:layout_marginRight="20dp"
+                       android:layout_marginTop="20dp"
+                       android:gravity="center"
+                       android:text="Linkedin URL :"
+                       android:textColor="@color/black"
+                       android:textSize="14sp"
+                       app:smart_font="fonts/Montserrat-Regular.ttf" />
+                   <RelativeLayout
+                       android:layout_marginLeft="20dp"
+                       android:layout_marginRight="20dp"
+                       android:layout_width="match_parent"
+                       android:background="@drawable/black_bottom_border"
+                       android:layout_height="wrap_content">
+
+                       <fr.arnaudguyon.smartfontslib.FontEditText
+                           android:id="@+id/linkedIn"
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:inputType="text"
+                           android:background="@android:color/transparent"
+                           android:padding="10dp"
+                           android:textColor="@color/black"
+                           android:textSize="14sp"
+                           android:layout_toLeftOf="@+id/linkedInICon"
+                           app:smart_font="fonts/Montserrat-Regular.ttf" />
+
+
+                       <ImageView
+                           android:id="@+id/linkedInICon"
+                           android:layout_marginRight="10dp"
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:src="@drawable/icon_linkedin"
+                           android:layout_alignParentRight="true"/>
+
+                   </RelativeLayout>
+
+                   <fr.arnaudguyon.smartfontslib.FontTextView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:layout_marginLeft="20dp"
+                       android:layout_marginRight="20dp"
+                       android:layout_marginTop="20dp"
+                       android:gravity="center"
+                       android:text="Youtube URL :"
+                       android:textColor="@color/black"
+                       android:textSize="14sp"
+                       app:smart_font="fonts/Montserrat-Regular.ttf" />
+                   <RelativeLayout
+                       android:layout_marginLeft="20dp"
+                       android:layout_marginRight="20dp"
+                       android:layout_width="match_parent"
+                       android:background="@drawable/black_bottom_border"
+                       android:layout_height="wrap_content">
+
+                       <fr.arnaudguyon.smartfontslib.FontEditText
+                           android:id="@+id/youtubelink"
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:inputType="text"
+                           android:background="@android:color/transparent"
+                           android:padding="10dp"
+                           android:textColor="@color/black"
+                           android:textSize="14sp"
+                           android:layout_toLeftOf="@+id/youtubelinkICon"
+                           app:smart_font="fonts/Montserrat-Regular.ttf" />
+
+
+                       <ImageView
+                           android:id="@+id/youtubelinkICon"
+                           android:layout_marginRight="10dp"
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:src="@drawable/icon_youtube"
+                           android:layout_alignParentRight="true"/>
+
+                   </RelativeLayout>
+
+
+
+                   <fr.arnaudguyon.smartfontslib.FontTextView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:layout_marginLeft="20dp"
+                       android:layout_marginRight="20dp"
+                       android:layout_marginTop="20dp"
+                       android:gravity="center"
+                       android:text="Twitter URL :"
+                       android:textColor="@color/black"
+                       android:textSize="14sp"
+                       app:smart_font="fonts/Montserrat-Regular.ttf" />
+                   <RelativeLayout
+                       android:layout_marginLeft="20dp"
+                       android:layout_marginRight="20dp"
+                       android:layout_width="match_parent"
+                       android:background="@drawable/black_bottom_border"
+                       android:layout_height="wrap_content">
+
+                       <fr.arnaudguyon.smartfontslib.FontEditText
+                           android:id="@+id/twitter"
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:inputType="text"
+                           android:background="@android:color/transparent"
+                           android:padding="10dp"
+                           android:textColor="@color/black"
+                           android:textSize="14sp"
+                           android:layout_toLeftOf="@+id/twitterICon"
+                           app:smart_font="fonts/Montserrat-Regular.ttf" />
+
+
+                       <ImageView
+                           android:id="@+id/twitterICon"
+                           android:layout_marginRight="10dp"
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:src="@drawable/icon_twitter"
+                           android:layout_alignParentRight="true"/>
+
+                   </RelativeLayout>
+
+
+                   <fr.arnaudguyon.smartfontslib.FontTextView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:layout_marginLeft="20dp"
+                       android:layout_marginRight="20dp"
+                       android:layout_marginTop="20dp"
+                       android:gravity="center"
+                       android:text="Google+ URL :"
+                       android:textColor="@color/black"
+                       android:textSize="14sp"
+                       app:smart_font="fonts/Montserrat-Regular.ttf" />
+                   <RelativeLayout
+                       android:layout_marginLeft="20dp"
+                       android:layout_marginRight="20dp"
+                       android:layout_width="match_parent"
+                       android:background="@drawable/black_bottom_border"
+                       android:layout_height="wrap_content">
+
+                       <fr.arnaudguyon.smartfontslib.FontEditText
+                           android:id="@+id/googleplus"
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:inputType="text"
+                           android:background="@android:color/transparent"
+                           android:padding="10dp"
+                           android:textColor="@color/black"
+                           android:textSize="14sp"
+                           android:layout_toLeftOf="@+id/googleplusICon"
+                           app:smart_font="fonts/Montserrat-Regular.ttf" />
+
+
+                       <ImageView
+                           android:id="@+id/googleplusICon"
+                           android:layout_marginRight="10dp"
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:src="@drawable/icon_google_plus"
+                           android:layout_alignParentRight="true"/>
+
+                   </RelativeLayout>
+
+                <fr.arnaudguyon.smartfontslib.FontTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="20dp"
+                    android:gravity="center"
+                    android:text="Instagram URL :"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    app:smart_font="fonts/Montserrat-Regular.ttf" />
+                <RelativeLayout
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_width="match_parent"
+                    android:background="@drawable/black_bottom_border"
+                    android:layout_height="wrap_content">
+
+                    <fr.arnaudguyon.smartfontslib.FontEditText
+                        android:id="@+id/instagram"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="text"
+                        android:background="@android:color/transparent"
+                        android:padding="10dp"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:layout_toLeftOf="@+id/instagramICon"
+                        app:smart_font="fonts/Montserrat-Regular.ttf" />
+
+
+                    <ImageView
+                        android:id="@+id/instagramICon"
+                        android:layout_marginRight="10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/icon_instagram"
+                        android:layout_alignParentRight="true"/>
+
+                </RelativeLayout>
+
+
+
+                   //instagram
+                   <fr.arnaudguyon.smartfontslib.FontEditText
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:layout_marginLeft="20dp"
+                       android:layout_marginRight="20dp"
+                       android:layout_marginTop="10dp"
+                       android:background="@drawable/grey_rounded"
+                       android:hint="Instagram link"
+                       android:inputType="text"
+                       android:padding="15dp"
+                       android:visibility="gone"
+                       android:textColor="@color/black"
+                       android:textSize="14sp"
+                       app:smart_font="fonts/Montserrat-Regular.ttf" />
+
+
+
+
+                   <LinearLayout
+                       android:orientation="horizontal"
+                       android:id="@+id/saveWebDetails"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:layout_gravity="center"
+                       android:layout_marginBottom="20dp"
+                       android:background="@color/red_new"
+                       android:layout_marginTop="20dp"
+                       android:paddingTop="10dp"
+                       android:paddingBottom="10dp"
+                       android:paddingRight="20dp"
+                       android:paddingLeft="20dp"
+                       >
+
+                       <fr.arnaudguyon.smartfontslib.FontTextView
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:text="SUBMIT"
+                           app:smart_font="fonts/Montserrat-Bold.ttf"
+                           android:textColor="@color/white"
+                           android:layout_gravity="center"
+                           android:textSize="16sp"/>
+
+                       <ImageView
+                           android:layout_gravity="center"
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:visibility="gone"
+                           android:src="@drawable/ic_navigate_next_white"
+                           />
+
+                   </LinearLayout>
+
+           </LinearLayout>
+
+
+        </LinearLayout>
+
+    </ScrollView>
+</LinearLayout>
+
+

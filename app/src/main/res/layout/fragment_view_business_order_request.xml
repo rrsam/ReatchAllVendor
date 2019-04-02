@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <fr.arnaudguyon.smartfontslib.FontTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:text="Please Upload Your Custom Order Request"
+        android:padding="8dp"
+        android:textAllCaps="false"
+        android:textStyle="bold"
+        android:textSize="14sp"
+        android:layout_marginTop="5dp"
+        />
+
+    <fr.arnaudguyon.smartfontslib.FontTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/dashed_black_border"
+        android:textColor="@color/black"
+        android:text="Upload Your Image"
+        android:padding="20dp"
+        android:textAllCaps="false"
+        android:textStyle="bold"
+        android:textSize="14sp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:id="@+id/uploadImage"/>
+    <fr.arnaudguyon.smartfontslib.FontTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/orange"
+        android:textColor="@color/white"
+        android:text="Place Order"
+        android:padding="8dp"
+        android:textAllCaps="false"
+        android:textStyle="bold"
+        android:textSize="14sp"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center"
+        android:id="@+id/placeOrder"/>
+</LinearLayout>

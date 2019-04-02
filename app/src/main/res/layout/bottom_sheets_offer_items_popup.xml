@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:behavior_hideable="true"
+    app:behavior_peekHeight="300dp"
+    android:orientation="vertical"
+    android:elevation="20dp"
+    android:id="@+id/searchBottomSheet"
+    app:layout_behavior="com.reatchall.charan.reatchallVendor.Utils.UserLockBottomSheetBehavior"
+    >
+
+
+    <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        xmlns:card_view="http://schemas.android.com/tools"
+        app:cardCornerRadius="4dp"
+        card_view:cardBackgroundColor="@android:color/white"
+        card_view:cardUseCompatPadding="true"
+        android:clipToPadding="false"
+        android:layout_height="match_parent"
+        android:paddingBottom="30dp"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_marginTop="10dp"
+                android:layout_width="45dp"
+                android:layout_height="20dp"
+                android:scaleType="fitXY"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_down_arrow_grey"/>
+
+            <fr.arnaudguyon.smartfontslib.FontTextView
+                app:smart_font="fonts/Montserrat-Regular.ttf"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Review Items"
+                android:textSize="14sp"
+                android:id="@+id/title"
+                android:textColor="@color/blue_dark"
+                android:layout_centerVertical="true"
+                android:gravity="center"
+                android:singleLine="true"
+                android:layout_marginTop="3dp"
+                />
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="4"
+                android:id="@+id/header"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:orientation="horizontal">
+
+                <fr.arnaudguyon.smartfontslib.FontTextView
+                    android:layout_weight="2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:text="Item"
+                    android:textColor="@color/blue_dark"
+                    android:textSize="12sp"
+                    android:layout_gravity="center"
+                    android:gravity="start"
+                    android:padding="5dp"
+                    app:smart_font="fonts/Montserrat-Regular.ttf" />
+
+                <fr.arnaudguyon.smartfontslib.FontTextView
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:text="Price"
+                    android:textColor="@color/blue_dark"
+                    android:textSize="12sp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    app:smart_font="fonts/Montserrat-Regular.ttf" />
+
+                <fr.arnaudguyon.smartfontslib.FontTextView
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:text="After Discount"
+                    android:textColor="@color/blue_dark"
+                    android:textSize="12sp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    app:smart_font="fonts/Montserrat-Regular.ttf" />
+
+
+            </LinearLayout>
+
+
+            <android.support.v7.widget.RecyclerView
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="0dp"
+                android:layout_marginRight="0dp"
+                android:id="@+id/multipleRestaurantsRcv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
+
+            <LinearLayout
+                android:layout_alignParentBottom="true"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="2"
+                android:id="@+id/optionsLayout"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <fr.arnaudguyon.smartfontslib.FontTextView
+                    android:id="@+id/edit"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:text="Edit"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:padding="20dp"
+                    android:background="@color/blue_dark"
+                    app:smart_font="fonts/Montserrat-Regular.ttf" />
+
+                <fr.arnaudguyon.smartfontslib.FontTextView
+                    android:id="@+id/confirm"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:text="Confirm"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:padding="20dp"
+                    android:background="@color/green_saved_address"
+                    app:smart_font="fonts/Montserrat-Regular.ttf" />
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>

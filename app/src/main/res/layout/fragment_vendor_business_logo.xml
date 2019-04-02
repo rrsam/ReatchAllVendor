@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".Vendor.Fragments.VendorBusinessLogoFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="30dp"
+        android:paddingBottom="30dp"
+        android:visibility="gone"
+        android:background="@drawable/dashed_black_border_bg"
+        android:orientation="vertical">
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/icons_picture"/>
+
+        <fr.arnaudguyon.smartfontslib.FontTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="20dp"
+            android:gravity="center"
+            android:text="Click here to upload Logo"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            app:smart_font="fonts/Montserrat-Regular.ttf" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:orientation="vertical"
+        android:background="@drawable/dashed_black_border_bg"
+        android:padding="10dp"
+        android:id="@+id/addImageLayout"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+        >
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:scaleType="fitXY"
+            android:layout_gravity="center"
+            android:src="@drawable/icon_upload_pics"/>
+
+        <fr.arnaudguyon.smartfontslib.FontTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:text="Click here to upload Logo"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            app:smart_font="fonts/Montserrat-Regular.ttf" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="30dp"
+        android:id="@+id/addedImageLayout">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/coming_soon"
+                android:id="@+id/imageIV"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                />
+            <ImageView
+                android:id="@+id/clearImage"
+                android:layout_alignParentRight="true"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:background="@drawable/yellow_circle"
+                android:src="@drawable/ic_close"/>
+        </RelativeLayout>
+
+
+
+        <fr.arnaudguyon.smartfontslib.FontTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="Click here to choose another image"
+            android:id="@+id/changeImageBtn"
+            android:textColor="@color/blue_dark"
+            android:textSize="14sp"
+            android:layout_marginTop="10dp"
+            app:smart_font="fonts/Montserrat-Bold.ttf" />
+    </LinearLayout>
+
+    <fr.arnaudguyon.smartfontslib.FontButton
+        android:id="@+id/saveLogo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SAVE"
+        android:textAllCaps="false"
+        android:layout_marginTop="25dp"
+        android:textColor="@color/white"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:textSize="14sp"
+        android:background="@color/red_new"
+        android:gravity="center"
+        android:layout_gravity="center"
+        app:smart_font="fonts/Montserrat-Bold.ttf"
+        />
+
+
+</LinearLayout>

@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp"
+    android:background="@color/white_light">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/light_yellow"
+        android:padding="10dp">
+
+        <fr.arnaudguyon.smartfontslib.FontTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:text="#WR23231"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:id="@+id/orderID"
+            app:smart_font="fonts/Montserrat-Regular.ttf" />
+
+
+        <fr.arnaudguyon.smartfontslib.FontTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:text="DELIVERED"
+            android:textAllCaps="true"
+            android:background="@color/dark_orange"
+            android:padding="10dp"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:id="@+id/orderStatus"
+            app:smart_font="fonts/Montserrat-Regular.ttf" />
+
+
+
+    </RelativeLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/orderItemList">
+    </android.support.v7.widget.RecyclerView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+        <fr.arnaudguyon.smartfontslib.FontTextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:text="Delivery Charges"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:id="@+id/deliveryCharges"
+            android:layout_gravity="center"
+            android:gravity="start"
+            app:smart_font="fonts/Montserrat-Regular.ttf" />
+
+            <fr.arnaudguyon.smartfontslib.FontTextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:text="Rs. 30"
+                android:textColor="@color/red_other"
+                android:textSize="14sp"
+                android:layout_gravity="center"
+                android:gravity="end"
+                android:paddingRight="10dp"
+                android:id="@+id/deliveryChargesPrice"
+                app:smart_font="fonts/Montserrat-Regular.ttf" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            android:layout_marginTop="10dp">
+
+            <fr.arnaudguyon.smartfontslib.FontTextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:text="Taxes"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:id="@+id/taxesCharges"
+                android:layout_gravity="center"
+                android:gravity="start"
+                app:smart_font="fonts/Montserrat-Regular.ttf" />
+
+            <fr.arnaudguyon.smartfontslib.FontTextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:text="Rs. 50"
+                android:textColor="@color/red_other"
+                android:textSize="14sp"
+                android:layout_gravity="center"
+                android:gravity="end"
+                android:paddingRight="10dp"
+                android:id="@+id/taxesChargesPrice"
+                app:smart_font="fonts/Montserrat-Regular.ttf" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            android:layout_marginTop="10dp">
+
+            <fr.arnaudguyon.smartfontslib.FontTextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:text="Total"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:id="@+id/totalCharges"
+                android:layout_gravity="center"
+                android:gravity="start"
+                app:smart_font="fonts/Montserrat-Regular.ttf" />
+
+            <fr.arnaudguyon.smartfontslib.FontTextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:text="Rs. 500"
+                android:textColor="@color/red_other"
+                android:textSize="16sp"
+                android:layout_gravity="center"
+                android:gravity="end"
+                android:paddingRight="10dp"
+                android:id="@+id/totalChargesPrice"
+                app:smart_font="fonts/Montserrat-Regular.ttf" />
+        </LinearLayout>
+
+        <fr.arnaudguyon.smartfontslib.FontTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:text="Ordered Time : 20/08/2018 08:00 AM"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:id="@+id/orderedTime"
+            android:gravity="start"
+            android:layout_marginTop="20dp"
+            app:smart_font="fonts/Montserrat-Regular.ttf" />
+
+        <fr.arnaudguyon.smartfontslib.FontTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:text="Delivered Time : 20/08/2018 08:00 PM"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:id="@+id/deliveredTime"
+            android:gravity="start"
+            android:layout_marginTop="5dp"
+            app:smart_font="fonts/Montserrat-Regular.ttf" />
+
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Intro.VideoScreenActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/profileToolBar"
+        >
+        <android.support.v7.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+                <fr.arnaudguyon.smartfontslib.FontTextView
+                    app:smart_font="fonts/Montserrat-Bold.ttf"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Reatchall Vendor"
+                    android:textSize="16sp"
+                    android:textColor="@color/white"
+                    android:id="@+id/title_toolbar"
+                    android:layout_marginLeft="10dp"
+                    android:layout_centerInParent="true"
+                    />
+            </RelativeLayout>
+        </android.support.v7.widget.Toolbar>
+    </android.support.design.widget.AppBarLayout>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/profileToolBar"
+        android:layout_above="@+id/loginLayout">
+
+
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="match_parent">
+
+            <fr.arnaudguyon.smartfontslib.FontTextView
+                app:smart_font="fonts/Montserrat-Bold.ttf"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="We recommend you to watch the following video before you continue"
+                android:textSize="14sp"
+                android:gravity="center"
+                android:layout_margin="20dp"
+                android:textColor="@color/black"
+                />
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@color/light_yellow">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/ic_video_library_white"/>
+
+
+            </RelativeLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:weightSum="3">
+
+                <fr.arnaudguyon.smartfontslib.FontTextView
+                    app:smart_font="fonts/Montserrat-Bold.ttf"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="HINDI"
+                    android:textSize="14sp"
+                    android:gravity="center"
+                    android:textColor="@color/white"
+                    android:padding="10dp"
+                    android:id="@+id/hindi"
+                    android:background="@color/blue_dark"
+                    />
+
+                <fr.arnaudguyon.smartfontslib.FontTextView
+                    app:smart_font="fonts/Montserrat-Bold.ttf"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="TELUGU"
+                    android:textSize="14sp"
+                    android:gravity="center"
+                    android:textColor="@color/white"
+                    android:padding="10dp"
+                    android:id="@+id/telugu"
+                    android:background="@color/blue_dark"
+                    />
+
+                <fr.arnaudguyon.smartfontslib.FontTextView
+                    app:smart_font="fonts/Montserrat-Bold.ttf"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="ENGLISH"
+                    android:textSize="14sp"
+                    android:gravity="center"
+                    android:textColor="@color/white"
+                    android:padding="10dp"
+                    android:id="@+id/english"
+                    android:background="@color/blue_dark"
+                    />
+
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+
+
+
+
+            <RelativeLayout
+                android:layout_alignParentBottom="true"
+                android:background="@color/red_other"
+                android:padding="10dp"
+                android:id="@+id/loginLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <fr.arnaudguyon.smartfontslib.FontTextView
+                    app:smart_font="fonts/Montserrat-Bold.ttf"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="CONTINUE"
+                    android:textSize="16sp"
+                    android:textColor="@color/white"
+                    android:id="@+id/continueLogin"
+                    android:layout_marginLeft="10dp"
+                    android:layout_centerInParent="true"
+                    />
+            </RelativeLayout>
+
+</RelativeLayout>

@@ -1,0 +1,68 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    tools:context="com.reatchall.charan.reatchallVendor.Vendor.VendorBannerImagesFragment">
+
+
+
+    <com.gigamole.infinitecycleviewpager.HorizontalInfiniteCycleViewPager
+        android:id="@+id/vicvp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:icvp_interpolator="@android:anim/overshoot_interpolator"
+        app:icvp_center_page_scale_offset="0dp"
+        android:layout_gravity="center"
+        android:layout_above="@+id/linearLayout"
+        android:layout_marginBottom="20dp"
+        app:icvp_scroll_duration="300"/>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <fr.arnaudguyon.smartfontslib.FontButton
+            app:smart_font="fonts/Montserrat-Regular.ttf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:shadowColor="#72000101"
+            android:shadowDx="1.5"
+            android:shadowDy="2.598076211353316"
+            android:shadowRadius="40"
+            android:textSize="15sp"
+            android:textColor="#ffffff"
+            android:text="Delete"
+            android:layout_gravity="center"
+            android:paddingRight="20dp"
+            android:paddingLeft="20dp"
+            android:id="@+id/buyTickets"
+            android:background="@drawable/blue_rounded"
+            />
+        <fr.arnaudguyon.smartfontslib.FontButton
+            app:smart_font="fonts/Montserrat-Regular.ttf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:shadowColor="#72000101"
+            android:shadowDx="1.5"
+            android:shadowDy="2.598076211353316"
+            android:shadowRadius="40"
+            android:textSize="15sp"
+            android:paddingRight="20dp"
+            android:paddingLeft="20dp"
+            android:textColor="#ffffff"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:text="Upload"
+            android:id="@+id/joinEvent"
+            android:background="@drawable/blue_rounded"
+            />
+
+    </LinearLayout>
+
+</RelativeLayout>

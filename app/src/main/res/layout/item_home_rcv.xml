@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginLeft="20dp"
+   >
+
+    <ImageView
+        android:layout_centerInParent="true"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/ic_dummy"
+        android:scaleType="fitCenter"
+        android:id="@+id/list_image"
+        />
+
+    <fr.arnaudguyon.smartfontslib.FontTextView
+        app:smart_font="fonts/Montserrat-Regular.ttf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="abc"
+        android:layout_centerHorizontal="true"
+        android:textSize="15sp"
+        android:textColor="@color/black"
+        android:id="@+id/text"
+        android:layout_below="@+id/list_image"
+        android:layout_marginTop="10dp"
+        />
+
+</RelativeLayout>

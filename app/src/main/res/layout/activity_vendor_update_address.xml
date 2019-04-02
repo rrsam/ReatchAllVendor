@@ -1,0 +1,568 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.reatchall.charan.reatchallVendor.Vendor.VendorBusinessProfileActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        >
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/profileToolBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/back_arrow"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="5dp"
+                    android:src="@drawable/ic_back_navigate" />
+
+                <fr.arnaudguyon.smartfontslib.FontTextView
+                    android:id="@+id/title_toolbar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:text="Create Business"
+                    android:layout_centerHorizontal="true"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    app:smart_font="fonts/Montserrat-Regular.ttf" />
+            </RelativeLayout>
+        </android.support.v7.widget.Toolbar>
+    </android.support.design.widget.AppBarLayout>
+
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:id="@+id/parentLayout">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/managerLayout"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:orientation="vertical">
+
+                    <fr.arnaudguyon.smartfontslib.FontTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:text="Business Address"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        app:smart_font="fonts/Montserrat-Bold.ttf" />
+
+                    <View
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_marginTop="3dp"
+                        android:layout_height="2dp"
+                        android:background="@color/dark_orange"
+                        />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="20dp"
+                    android:id="@+id/othersManagerLayout">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="20dp">
+                        <fr.arnaudguyon.smartfontslib.FontTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="Door No :"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"
+                            app:smart_font="fonts/Montserrat-Regular.ttf" />
+
+                        <fr.arnaudguyon.smartfontslib.FontTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="*"
+                            android:textColor="@color/red"
+                            android:textSize="16sp"
+                            app:smart_font="fonts/Montserrat-Regular.ttf" />
+
+                    </LinearLayout>
+
+
+                    <fr.arnaudguyon.smartfontslib.FontEditText
+                        android:id="@+id/doorNo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/black_bottom_border"
+                        android:hint=""
+                        android:inputType="text"
+                        android:padding="15dp"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        app:smart_font="fonts/Montserrat-Regular.ttf" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="20dp">
+                        <fr.arnaudguyon.smartfontslib.FontTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="Street :"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"
+                            app:smart_font="fonts/Montserrat-Regular.ttf" />
+
+                        <fr.arnaudguyon.smartfontslib.FontTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="*"
+                            android:textColor="@color/red"
+                            android:textSize="16sp"
+                            app:smart_font="fonts/Montserrat-Regular.ttf" />
+
+                    </LinearLayout>
+
+
+                    <fr.arnaudguyon.smartfontslib.FontEditText
+                        android:id="@+id/streetLocality"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/black_bottom_border"
+                        android:hint=""
+                        android:inputType="textPostalAddress"
+                        android:padding="15dp"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        app:smart_font="fonts/Montserrat-Regular.ttf" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="20dp">
+                        <fr.arnaudguyon.smartfontslib.FontTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="Landmark :"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"
+                            app:smart_font="fonts/Montserrat-Regular.ttf" />
+
+                        <fr.arnaudguyon.smartfontslib.FontTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="*"
+                            android:textColor="@color/red"
+                            android:textSize="16sp"
+                            app:smart_font="fonts/Montserrat-Regular.ttf" />
+
+                    </LinearLayout>
+
+
+                    <fr.arnaudguyon.smartfontslib.FontEditText
+                        android:id="@+id/landmark"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/black_bottom_border"
+                        android:hint=""
+                        android:inputType="textPostalAddress"
+                        android:padding="15dp"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        app:smart_font="fonts/Montserrat-Regular.ttf" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="20dp">
+                        <fr.arnaudguyon.smartfontslib.FontTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="Country :"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"
+                            app:smart_font="fonts/Montserrat-Regular.ttf" />
+
+                        <fr.arnaudguyon.smartfontslib.FontTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="*"
+                            android:textColor="@color/red"
+                            android:textSize="16sp"
+                            app:smart_font="fonts/Montserrat-Regular.ttf" />
+
+                    </LinearLayout>
+
+
+                    <fr.arnaudguyon.smartfontslib.FontEditText
+                        android:id="@+id/countryName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/black_bottom_border"
+                        android:hint=""
+                        android:inputType="text"
+                        android:padding="15dp"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        app:smart_font="fonts/Montserrat-Regular.ttf" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="20dp">
+                        <fr.arnaudguyon.smartfontslib.FontTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="State :"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"
+                            app:smart_font="fonts/Montserrat-Regular.ttf" />
+
+                        <fr.arnaudguyon.smartfontslib.FontTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="*"
+                            android:textColor="@color/red"
+                            android:textSize="16sp"
+                            app:smart_font="fonts/Montserrat-Regular.ttf" />
+
+                    </LinearLayout>
+
+
+                    <fr.arnaudguyon.smartfontslib.FontTextView
+                        android:id="@+id/stateName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/black_bottom_border"
+                        android:hint=""
+                        android:inputType="text"
+                        android:padding="15dp"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:focusable="false"
+                        android:clickable="true"
+                        android:focusableInTouchMode="false"
+                        app:smart_font="fonts/Montserrat-Regular.ttf" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="20dp">
+                        <fr.arnaudguyon.smartfontslib.FontTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="District :"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"
+                            app:smart_font="fonts/Montserrat-Regular.ttf" />
+
+                        <fr.arnaudguyon.smartfontslib.FontTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="*"
+                            android:textColor="@color/red"
+                            android:textSize="16sp"
+                            app:smart_font="fonts/Montserrat-Regular.ttf" />
+
+                    </LinearLayout>
+
+
+                    <fr.arnaudguyon.smartfontslib.FontTextView
+                        android:id="@+id/districtName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/black_bottom_border"
+                        android:hint=""
+                        android:inputType="text"
+                        android:padding="15dp"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:focusable="false"
+                        android:clickable="true"
+                        android:focusableInTouchMode="false"
+                        app:smart_font="fonts/Montserrat-Regular.ttf" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="20dp">
+                        <fr.arnaudguyon.smartfontslib.FontTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="City :"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"
+                            app:smart_font="fonts/Montserrat-Regular.ttf" />
+
+                        <fr.arnaudguyon.smartfontslib.FontTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="*"
+                            android:textColor="@color/red"
+                            android:textSize="16sp"
+                            app:smart_font="fonts/Montserrat-Regular.ttf" />
+
+                    </LinearLayout>
+
+
+                    <fr.arnaudguyon.smartfontslib.FontEditText
+                        android:id="@+id/cityName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/black_bottom_border"
+                        android:hint=""
+                        android:inputType="text"
+                        android:padding="15dp"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        app:smart_font="fonts/Montserrat-Regular.ttf" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="20dp">
+                        <fr.arnaudguyon.smartfontslib.FontTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="Pincode :"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"
+                            app:smart_font="fonts/Montserrat-Regular.ttf" />
+
+                        <fr.arnaudguyon.smartfontslib.FontTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="*"
+                            android:textColor="@color/red"
+                            android:textSize="16sp"
+                            app:smart_font="fonts/Montserrat-Regular.ttf" />
+
+                    </LinearLayout>
+
+
+                    <fr.arnaudguyon.smartfontslib.FontEditText
+                        android:id="@+id/pincode"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/black_bottom_border"
+                        android:hint=""
+                        android:inputType="number"
+                        android:padding="15dp"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        app:smart_font="fonts/Montserrat-Regular.ttf" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+
+                        android:layout_marginTop="20dp">
+                        <fr.arnaudguyon.smartfontslib.FontTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="Address :"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"
+                            app:smart_font="fonts/Montserrat-Regular.ttf" />
+
+                        <fr.arnaudguyon.smartfontslib.FontTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="*"
+                            android:textColor="@color/red"
+                            android:textSize="16sp"
+                            app:smart_font="fonts/Montserrat-Regular.ttf" />
+
+                    </LinearLayout>
+
+                    <fr.arnaudguyon.smartfontslib.FontEditText
+                        android:id="@+id/addressBusiness"
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/grey_border"
+                        android:inputType="text|textMultiLine"
+                        android:scrollbars="vertical"
+                        android:scrollHorizontally="false"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        app:smart_font="fonts/Montserrat-Regular.ttf" />
+
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="20dp">
+                        <fr.arnaudguyon.smartfontslib.FontTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="Location on map :"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"
+                            app:smart_font="fonts/Montserrat-Regular.ttf" />
+
+                        <fr.arnaudguyon.smartfontslib.FontTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="*"
+                            android:textColor="@color/red"
+                            android:textSize="16sp"
+                            app:smart_font="fonts/Montserrat-Regular.ttf" />
+
+                    </LinearLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/getCurrentLocation"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:padding="5dp"
+                        android:background="@color/dark_orange">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/ic_gps_fixed_white"
+                            android:layout_centerVertical="true"
+                            android:id="@+id/gpsIcon"/>
+                        <fr.arnaudguyon.smartfontslib.FontTextView
+                            app:smart_font="fonts/Montserrat-Regular.ttf"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Modify your Shop Location"
+                            android:textSize="12sp"
+                            android:layout_centerVertical="true"
+                            android:layout_toRightOf="@id/gpsIcon"
+                            android:layout_marginLeft="10dp"
+                            android:textColor="@color/white"/>
+
+                    </RelativeLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:id="@+id/mapLayout">
+
+                        <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+                            xmlns:tools="http://schemas.android.com/tools"
+                            android:layout_width="match_parent"
+                            android:layout_height="150dp"
+                            android:id="@+id/map"
+                            tools:context=".MapsActivity"
+                            android:name="com.google.android.gms.maps.SupportMapFragment" />
+                    </LinearLayout>
+
+
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:id="@+id/updateAddress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="20dp"
+                    android:background="@color/dark_orange"
+                    android:layout_marginTop="20dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:paddingRight="20dp"
+                    android:paddingLeft="20dp"
+                    >
+
+                    <fr.arnaudguyon.smartfontslib.FontTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Update"
+                        app:smart_font="fonts/Montserrat-Bold.ttf"
+                        android:textColor="@color/white"
+                        android:layout_gravity="center"
+                        android:textSize="16sp"/>
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+
+
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+</LinearLayout>

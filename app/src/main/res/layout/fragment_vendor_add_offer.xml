@@ -1,0 +1,53 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.reatchall.charan.reatchallVendor.Vendor.VendorAddOfferFragment">
+
+
+    <Spinner
+        android:id="@+id/offerSpinner"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:background="@drawable/grey_rounded"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:prompt="@string/offers_spinner" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:id="@+id/addOfferDesc"
+        android:hint="Offer Description"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:background="@drawable/cancel_grey_border"
+        android:padding="15dp"
+        android:textSize="18sp"
+        android:inputType="text"/>
+
+
+    <Button
+        android:id="@+id/submitOffer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Submit"
+        android:textAllCaps="false"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/white"
+        android:padding="10dp"
+        android:textSize="18sp"
+        android:background="@drawable/blue_rounded"
+        android:gravity="center"
+        android:layout_gravity="center"
+        />
+
+</LinearLayout>

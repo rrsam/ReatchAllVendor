@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp"
+    android:paddingTop="5dp"
+    android:paddingBottom="5dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <fr.arnaudguyon.smartfontslib.FontTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ITEM NAME"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        android:id="@+id/itemTitle"
+        android:layout_centerVertical="true"
+        app:smart_font="fonts/Montserrat-Regular.ttf" />
+
+
+    <ImageView
+        android:layout_centerVertical="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_file_download_black"
+        android:layout_alignParentRight="true"
+        android:id="@+id/itemDownload"/>
+
+    <ImageView
+        android:layout_centerVertical="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_done_black"
+        android:layout_alignParentRight="true"
+        android:visibility="gone"
+        android:id="@+id/itemDownloaddone"/>
+
+</RelativeLayout>

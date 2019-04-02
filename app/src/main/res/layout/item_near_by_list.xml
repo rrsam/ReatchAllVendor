@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="210dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="5"
+        android:background="#80bebebe"
+        android:orientation="horizontal">
+
+
+        <FrameLayout
+            android:layout_weight="2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content">
+
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/coming_soon"
+                android:layout_centerVertical="true"
+                android:scaleType="fitXY"
+                android:id="@+id/thumbnail"
+                />
+
+            <!--
+             android:background="#80bebebe"
+            -->
+
+            <fr.arnaudguyon.smartfontslib.FontTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:padding="10dp"
+                android:gravity="bottom"
+                android:textStyle="bold"
+                android:layout_gravity="bottom"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="5dp"
+                android:id="@+id/open_or_close"
+                android:textSize="14sp"
+                android:text="OPEN"/>
+
+        </FrameLayout>
+
+
+
+
+        <RelativeLayout
+            android:id="@+id/details_layout"
+            android:layout_weight="3"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp">
+
+
+            <fr.arnaudguyon.smartfontslib.FontTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:id="@+id/title"
+                android:layout_marginTop="10dp"
+                android:textSize="15sp"
+                android:text="Reatchall Technologies Pvt Ltd"/>
+
+
+            <RatingBar
+                android:id="@+id/rating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:rating="3.5"
+                android:layout_marginTop="10dp"
+                android:layout_below="@id/title"
+                style="@style/Widget.AppCompat.RatingBar.Small"/>
+
+            <fr.arnaudguyon.smartfontslib.FontTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:id="@+id/rating_number"
+                android:textSize="13sp"
+                android:layout_toRightOf="@+id/rating"
+                android:layout_below="@id/title"
+                android:layout_marginTop="10dp"
+                android:text="3.5"/>
+            <fr.arnaudguyon.smartfontslib.FontTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/orange"
+                android:id="@+id/review"
+                android:textSize="13sp"
+                android:layout_toRightOf="@+id/rating_number"
+                android:layout_marginLeft="10dp"
+                android:layout_below="@id/title"
+                android:layout_marginTop="10dp"
+                android:text="400 reviews"/>
+
+            <fr.arnaudguyon.smartfontslib.FontTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:background="@color/orange"
+                android:padding="5dp"
+                android:layout_below="@id/rating"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/white"
+                android:id="@+id/offers"
+                android:textSize="15sp"
+                android:text="Offers Available"/>
+
+
+            <fr.arnaudguyon.smartfontslib.FontTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:layout_below="@id/offers"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/black"
+                android:id="@+id/description"
+                android:textSize="13sp"
+                android:maxLength="44"
+                android:text="We will provide best quality at low cost..."/>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:weightSum="3"
+                android:layout_below="@id/description"
+                android:divider="@drawable/vertical_divider"
+                android:showDividers="middle"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="5dp"
+                >
+
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:id="@+id/heartLayout"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    >
+
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:id="@+id/image_heart_red"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/ic_heart_red"
+                        android:visibility="invisible"/>
+
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:id="@+id/image_heart"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/ic_heart_white"
+                        android:visibility="visible"/>
+
+                </RelativeLayout>
+
+
+
+
+
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_weight="1"
+                    android:id="@+id/share"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/ic_share_black"
+                    android:layout_gravity="center"
+                    android:visibility="visible"/>
+
+
+
+
+                <fr.arnaudguyon.smartfontslib.FontTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="2 Km"
+                    android:id="@+id/distance"
+                    android:textColor="@color/black"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:textSize="20sp"/>
+
+            </LinearLayout>
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+
+</RelativeLayout>

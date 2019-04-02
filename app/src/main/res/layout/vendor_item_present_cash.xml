@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/topView"
+        android:background="@color/light_grey">
+
+        <fr.arnaudguyon.smartfontslib.FontTextView
+            app:smart_font="fonts/Montserrat-Regular.ttf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Order Id 5467448"
+            android:textSize="14sp"
+            android:textColor="@color/black"
+            android:id="@+id/orderId"
+            android:padding="5dp"
+
+            />
+        <fr.arnaudguyon.smartfontslib.FontTextView
+            app:smart_font="fonts/Montserrat-Regular.ttf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="18th Feb 20:25"
+            android:layout_alignParentRight="true"
+            android:id="@+id/order_dateTime"
+            android:textSize="14sp"
+            android:textColor="@color/black"
+            android:layout_centerVertical="true"
+            android:padding="5dp"
+            />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/topView"
+        android:layout_margin="10dp"
+        android:id="@+id/middleView">
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@color/black"
+            android:id="@+id/OrderImageView"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"/>
+
+        <fr.arnaudguyon.smartfontslib.FontTextView
+            app:smart_font="fonts/Montserrat-Regular.ttf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Order Status"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/order_status"
+            android:textSize="14sp"
+            android:textColor="@color/black"
+            android:layout_centerVertical="true"
+            android:padding="5dp"
+            />
+
+        <fr.arnaudguyon.smartfontslib.FontTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Rupee_symbol"
+            android:id="@+id/order_price_symbol"
+            android:layout_toLeftOf="@+id/order_price"
+            android:textSize="25sp"
+            android:textColor="@color/black"
+            android:layout_centerVertical="true"
+            android:visibility="gone"
+            android:padding="5dp"
+            />
+        <fr.arnaudguyon.smartfontslib.FontTextView
+            app:smart_font="fonts/Montserrat-Regular.ttf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="500.00"
+            android:layout_alignParentRight="true"
+            android:id="@+id/order_price"
+            android:textSize="14sp"
+            android:textColor="@color/black"
+            android:layout_centerVertical="true"
+            android:visibility="gone"
+            android:padding="5dp"
+            />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:id="@+id/BottomView"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        android:gravity="center"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_below="@+id/middleView"
+        android:layout_height="wrap_content">
+
+        <fr.arnaudguyon.smartfontslib.FontTextView
+            app:smart_font="fonts/Montserrat-Regular.ttf"
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:text="Order Details"
+            android:textSize="14sp"
+            android:textColor="@color/white"
+            android:id="@+id/orderDetails"
+            android:background="@color/grey"
+            android:padding="5dp"
+
+            />
+
+
+
+    </LinearLayout>
+
+</RelativeLayout>

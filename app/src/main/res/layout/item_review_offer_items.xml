@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="4"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:orientation="horizontal">
+
+        <fr.arnaudguyon.smartfontslib.FontTextView
+            android:id="@+id/itemName"
+            android:layout_weight="2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:text="Item"
+            android:textColor="@color/blue_dark"
+            android:textSize="12sp"
+            android:layout_gravity="center"
+            android:gravity="start"
+            android:padding="5dp"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:ellipsize="end"
+            app:smart_font="fonts/Montserrat-Regular.ttf" />
+
+        <fr.arnaudguyon.smartfontslib.FontTextView
+            android:id="@+id/itemPrice"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:text="Price"
+            android:textColor="@color/blue_dark"
+            android:textSize="12sp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            app:smart_font="fonts/Montserrat-Regular.ttf" />
+
+        <fr.arnaudguyon.smartfontslib.FontTextView
+            android:id="@+id/finalPrice"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:text="After Discount"
+            android:textColor="@color/blue_dark"
+            android:textSize="12sp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            app:smart_font="fonts/Montserrat-Regular.ttf" />
+
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_height="wrap_content">
+    <fr.arnaudguyon.smartfontslib.FontTextView
+        app:smart_font="fonts/Montserrat-ExtraBold.otf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Offer 1"
+        android:textStyle="bold"
+        android:textSize="14sp"
+        android:textColor="@color/black"
+        android:id="@+id/offerTitle"
+        />
+
+    <fr.arnaudguyon.smartfontslib.FontTextView
+        app:smart_font="fonts/Montserrat-Regular.ttf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2000 to 3000 above 10% off"
+        android:textSize="16sp"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/black"
+        android:id="@+id/offerDesc"
+
+        />
+</LinearLayout>

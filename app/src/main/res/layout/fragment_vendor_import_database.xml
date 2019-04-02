@@ -1,0 +1,76 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    tools:context="com.reatchall.charan.reatchallVendor.Vendor.VendorImportDatabaseFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/orders_tabs"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_below="@+id/relativeLayout1"
+        android:weightSum="4">
+
+        <fr.arnaudguyon.smartfontslib.FontTextView
+            app:smart_font="fonts/Montserrat-Regular.ttf"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:text="Item Wise"
+            android:textStyle="bold"
+            android:textSize="12sp"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:id="@+id/itemWise"
+            android:layout_centerVertical="true"
+            android:background="@color/grey"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            />
+
+        <fr.arnaudguyon.smartfontslib.FontTextView
+            app:smart_font="fonts/Montserrat-Regular.ttf"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:text="List Wise"
+            android:textSize="12sp"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:id="@+id/listWise"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:paddingLeft="2dp"
+            android:paddingRight="2dp"
+            />
+        <fr.arnaudguyon.smartfontslib.FontTextView
+            app:smart_font="fonts/Montserrat-Regular.ttf"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:text="Whole database"
+            android:textSize="12sp"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:id="@+id/wholeDatabase"
+            android:padding="10dp"
+            />
+
+        <fr.arnaudguyon.smartfontslib.FontTextView
+            app:smart_font="fonts/Montserrat-Regular.ttf"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:text="Recently updated"
+            android:textSize="12sp"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:id="@+id/recentlyUpdated"
+            android:padding="10dp"
+            />
+    </LinearLayout>
+</LinearLayout>

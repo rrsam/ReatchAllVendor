@@ -1,0 +1,424 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        >
+        <android.support.v7.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/profileToolBar">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginRight="3dp"
+                    android:layout_centerVertical="true"
+                    android:id="@+id/back_arrow"
+                    android:src="@drawable/ic_back_navigate"/>
+                <fr.arnaudguyon.smartfontslib.FontTextView
+                    app:smart_font="fonts/Montserrat-Regular.ttf"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Contact Us"
+                    android:textSize="16sp"
+                    android:textColor="@color/white"
+                    android:layout_centerVertical="true"
+                    android:id="@+id/title_toolbar"
+                    android:layout_centerInParent="true"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:layout_toRightOf="@+id/back_arrow"
+                    />
+            </RelativeLayout>
+        </android.support.v7.widget.Toolbar>
+    </android.support.design.widget.AppBarLayout>
+
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:orientation="vertical">
+
+                <fr.arnaudguyon.smartfontslib.FontTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text="Edit Offer"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    app:smart_font="fonts/Montserrat-Bold.ttf" />
+
+                <View
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="3dp"
+                    android:layout_height="2dp"
+                    android:background="@color/dark_orange"
+                    />
+
+            </LinearLayout>
+
+
+
+            <fr.arnaudguyon.smartfontslib.FontTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp"
+                android:text="Select Offer :"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                app:smart_font="fonts/Montserrat-Regular.ttf" />
+
+
+            <Spinner
+                android:id="@+id/selectOfferSpinner"
+                android:padding="10dp"
+                style="@style/SpinnerThemeNew"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_width="match_parent"
+                android:prompt="@string/select_offer_spinner"
+                android:layout_height="wrap_content"></Spinner>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:id="@+id/minimumAmountLayout">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="20dp">
+                    <fr.arnaudguyon.smartfontslib.FontTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Minimum Amount :"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        app:smart_font="fonts/Montserrat-Regular.ttf" />
+
+                </LinearLayout>
+
+
+
+                <fr.arnaudguyon.smartfontslib.FontEditText
+                    android:id="@+id/minimumAmount"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:background="@drawable/black_bottom_border"
+                    android:inputType="number"
+                    android:padding="15dp"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    app:smart_font="fonts/Montserrat-Regular.ttf" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:id="@+id/selectItemsLayout">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="20dp">
+                    <fr.arnaudguyon.smartfontslib.FontTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Select Items :"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:id="@+id/subCategoryTV"
+                        app:smart_font="fonts/Montserrat-Regular.ttf" />
+
+                </LinearLayout>
+
+                <com.reatchall.charan.reatchallVendor.Utils.MultiSpinnerFilter.MultiSpinnerSearch
+                    android:id="@+id/selectItemsSpinner"
+                    android:padding="10dp"
+                    style="@style/SpinnerThemeNew"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+
+
+
+            <fr.arnaudguyon.smartfontslib.FontTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp"
+                android:text="Offer Type :"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                app:smart_font="fonts/Montserrat-Regular.ttf" />
+
+
+            <Spinner
+                android:id="@+id/offerTypeSpinner"
+                android:padding="10dp"
+                style="@style/SpinnerThemeNew"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_width="match_parent"
+                android:prompt="@string/catergories_spinner"
+                android:layout_height="wrap_content"></Spinner>
+
+
+            <fr.arnaudguyon.smartfontslib.FontTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp"
+                android:text="Select Discount Type :"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                app:smart_font="fonts/Montserrat-Regular.ttf" />
+
+
+            <Spinner
+                android:id="@+id/discountSpinner"
+                android:padding="10dp"
+                style="@style/SpinnerThemeNew"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_width="match_parent"
+                android:prompt="@string/discount_type_spinner"
+                android:layout_height="wrap_content"></Spinner>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp">
+                <fr.arnaudguyon.smartfontslib.FontTextView
+                    android:id="@+id/discountTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Discount (In Rupees) :"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    app:smart_font="fonts/Montserrat-Regular.ttf" />
+
+            </LinearLayout>
+
+
+
+            <fr.arnaudguyon.smartfontslib.FontEditText
+                android:id="@+id/discountValue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/black_bottom_border"
+                android:inputType="number"
+                android:padding="15dp"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                app:smart_font="fonts/Montserrat-Regular.ttf" />
+
+
+
+            <fr.arnaudguyon.smartfontslib.FontTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp"
+                android:text="Offer Starts at:"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                app:smart_font="fonts/Montserrat-Regular.ttf" />
+
+
+            <LinearLayout
+                android:weightSum="3"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="10dp">
+
+                <fr.arnaudguyon.smartfontslib.FontEditText
+                    android:id="@+id/startDate"
+                    android:layout_width="0dp"
+                    android:layout_weight="2"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/black_bottom_border"
+                    android:inputType="number"
+                    android:padding="15dp"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:focusable="false"
+                    android:clickable="true"
+                    android:editable="false"
+                    android:hint="Start Date"
+                    app:smart_font="fonts/Montserrat-Regular.ttf" />
+
+                <View
+                    android:layout_width="20dp"
+                    android:layout_height="match_parent"/>
+
+                <fr.arnaudguyon.smartfontslib.FontEditText
+                    android:id="@+id/startTime"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/black_bottom_border"
+                    android:inputType="number"
+                    android:padding="15dp"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:focusable="false"
+                    android:clickable="true"
+                    android:editable="false"
+                    android:hint="Start Time"
+                    app:smart_font="fonts/Montserrat-Regular.ttf" />
+            </LinearLayout>
+
+            <fr.arnaudguyon.smartfontslib.FontTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp"
+                android:text="Offer Ends at:"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:focusable="false"
+                android:clickable="true"
+                android:editable="false"
+                app:smart_font="fonts/Montserrat-Regular.ttf" />
+
+
+            <LinearLayout
+                android:weightSum="3"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="10dp">
+
+                <fr.arnaudguyon.smartfontslib.FontEditText
+                    android:id="@+id/endDate"
+                    android:layout_width="0dp"
+                    android:layout_weight="2"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/black_bottom_border"
+                    android:inputType="number"
+                    android:padding="15dp"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:focusable="false"
+                    android:clickable="true"
+                    android:editable="false"
+                    android:hint="End Date"
+                    app:smart_font="fonts/Montserrat-Regular.ttf" />
+
+                <View
+                    android:layout_width="20dp"
+                    android:layout_height="match_parent"/>
+                <fr.arnaudguyon.smartfontslib.FontEditText
+                    android:id="@+id/endTime"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/black_bottom_border"
+                    android:inputType="number"
+                    android:padding="15dp"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:focusable="false"
+                    android:clickable="true"
+                    android:editable="false"
+                    android:hint="End Time"
+                    app:smart_font="fonts/Montserrat-Regular.ttf" />
+            </LinearLayout>
+
+            <fr.arnaudguyon.smartfontslib.FontButton
+                android:id="@+id/addOffer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="UPDATE"
+                android:textAllCaps="false"
+                android:layout_margin="20dp"
+                android:textColor="@color/white"
+                android:paddingTop="10dp"
+                android:paddingRight="20dp"
+                android:paddingLeft="20dp"
+                android:paddingBottom="10dp"
+                android:textSize="16sp"
+                android:background="@color/dark_orange"
+                android:gravity="center"
+                android:layout_gravity="center"
+                app:smart_font="fonts/Montserrat-Bold.ttf"
+                />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+</LinearLayout>

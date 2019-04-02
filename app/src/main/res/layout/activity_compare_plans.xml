@@ -1,0 +1,1494 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".Vendor.Plans.ComparePlansActivity">
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        >
+        <android.support.v7.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/profileToolBar">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginRight="3dp"
+                    android:layout_centerVertical="true"
+                    android:id="@+id/back_arrow"
+                    android:src="@drawable/ic_back_navigate"/>
+                <fr.arnaudguyon.smartfontslib.FontTextView
+                    app:smart_font="fonts/Montserrat-Regular.ttf"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Contact Us"
+                    android:textSize="16sp"
+                    android:textColor="@color/white"
+                    android:layout_centerVertical="true"
+                    android:id="@+id/title_toolbar"
+                    android:layout_centerInParent="true"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:layout_toRightOf="@+id/back_arrow"
+                    />
+            </RelativeLayout>
+        </android.support.v7.widget.Toolbar>
+    </android.support.design.widget.AppBarLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true"
+        android:scrollbarStyle="outsideInset"
+        android:scrollbars="horizontal|vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:focusableInTouchMode="true"
+                android:orientation="vertical">
+
+                <fr.arnaudguyon.smartfontslib.FontTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text="Compare Business Plans"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    app:smart_font="fonts/Montserrat-Bold.ttf" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="3dp"
+                    android:background="@color/dark_orange" />
+
+            </LinearLayout>
+
+
+            <HorizontalScrollView
+                android:id="@+id/horizontalView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:paddingRight="10dp"
+                android:scrollbars="horizontal|vertical">
+
+                <TableLayout
+                    android:id="@+id/tlGridTable"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="30dp"
+                    android:background="@color/black"
+                    android:paddingTop="1dp"
+                    >
+
+                    <TableRow
+                        android:layout_height="wrap_content"
+                        android:background="#000000"
+                        android:paddingBottom="1dp"
+                        android:paddingRight="1dp">
+
+                        <fr.arnaudguyon.smartfontslib.FontTextView
+                            android:layout_height="match_parent"
+                            android:id="@+id/converTextView"
+                            android:layout_marginLeft="1dp"
+                            android:background="#FFF"
+                            android:paddingBottom="10dp"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="20dp"
+                            android:paddingTop="10dp"
+                            android:text=""
+                            android:textSize="14sp"
+                            android:visibility="visible"
+                            app:smart_font="fonts/Montserrat-Bold.ttf" />
+
+                        <fr.arnaudguyon.smartfontslib.FontTextView
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="1dp"
+                            android:background="#FFF"
+                            android:gravity="center"
+                            android:paddingBottom="10dp"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="20dp"
+                            android:paddingTop="10dp"
+                            android:text="FREE"
+                            android:textSize="14sp"
+                            app:smart_font="fonts/Montserrat-Bold.ttf" />
+
+                        <fr.arnaudguyon.smartfontslib.FontTextView
+                            android:layout_marginLeft="1dp"
+                            android:layout_height="match_parent"
+                            android:background="#FFF"
+                            android:gravity="center"
+                            android:paddingBottom="10dp"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="20dp"
+                            android:paddingTop="10dp"
+                            android:text="SILVER"
+                            android:textSize="14sp"
+                            app:smart_font="fonts/Montserrat-Bold.ttf" />
+
+                        <fr.arnaudguyon.smartfontslib.FontTextView
+                            android:layout_marginLeft="1dp"
+                            android:layout_height="match_parent"
+                            android:background="#FFF"
+                            android:gravity="center"
+                            android:paddingBottom="10dp"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="20dp"
+                            android:paddingTop="10dp"
+                            android:text="GOLD"
+                            android:textSize="14sp"
+                            app:smart_font="fonts/Montserrat-Bold.ttf" />
+
+                        <fr.arnaudguyon.smartfontslib.FontTextView
+                            android:layout_marginLeft="1dp"
+                            android:layout_height="match_parent"
+                            android:background="#FFF"
+                            android:gravity="center"
+                            android:paddingBottom="10dp"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="20dp"
+                            android:paddingTop="10dp"
+                            android:text="PLATINUM"
+                            android:textSize="14sp"
+                            app:smart_font="fonts/Montserrat-Bold.ttf" />
+                    </TableRow>
+                    <TableRow
+                        android:layout_height="wrap_content"
+                        android:background="#000000"
+                        android:paddingBottom="1dp"
+                        android:paddingRight="1dp">
+
+                        <fr.arnaudguyon.smartfontslib.FontTextView
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="1dp"
+                            android:background="#FFF"
+                            android:paddingBottom="10dp"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="20dp"
+                            android:paddingTop="10dp"
+                            android:text="Vendor Dashboard"
+                            android:textSize="14sp"
+                            app:smart_font="fonts/Montserrat-Bold.ttf" />
+
+
+                        <ImageView
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="1dp"
+                            android:background="@color/white"
+                            android:gravity="center"
+                            android:paddingBottom="4dp"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="20dp"
+                            android:paddingTop="4dp"
+                            android:src="@drawable/ic_tick_black" />
+
+                        <ImageView
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="1dp"
+                            android:background="@color/white"
+                            android:gravity="center"
+                            android:paddingBottom="4dp"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="20dp"
+                            android:paddingTop="4dp"
+                            android:src="@drawable/ic_tick_black" />
+
+                        <ImageView
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="1dp"
+                            android:background="@color/white"
+                            android:gravity="center"
+                            android:paddingBottom="4dp"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="20dp"
+                            android:paddingTop="4dp"
+                            android:src="@drawable/ic_tick_black" />
+
+                        <ImageView
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="1dp"
+                            android:background="@color/white"
+                            android:gravity="center"
+                            android:paddingBottom="4dp"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="20dp"
+                            android:paddingTop="4dp"
+                            android:src="@drawable/ic_tick_black" />
+                    </TableRow>
+                    <TableRow
+                        android:layout_height="wrap_content"
+                        android:background="#000000"
+                        android:paddingBottom="1dp"
+                        android:paddingRight="1dp">
+
+                        <fr.arnaudguyon.smartfontslib.FontTextView
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="1dp"
+                            android:background="#FFF"
+                            android:paddingBottom="10dp"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="20dp"
+                            android:paddingTop="10dp"
+                            android:text="Business Deals"
+                            android:textSize="14sp"
+                            app:smart_font="fonts/Montserrat-Bold.ttf" />
+
+
+                        <ImageView
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="1dp"
+                            android:background="@color/white"
+                            android:gravity="center"
+                            android:paddingBottom="4dp"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="20dp"
+                            android:paddingTop="4dp"
+                            android:src="@drawable/ic_tick_black" />
+
+                        <ImageView
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="1dp"
+                            android:background="@color/white"
+                            android:gravity="center"
+                            android:paddingBottom="4dp"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="20dp"
+                            android:paddingTop="4dp"
+                            android:src="@drawable/ic_tick_black" />
+
+                        <ImageView
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="1dp"
+                            android:background="@color/white"
+                            android:gravity="center"
+                            android:paddingBottom="4dp"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="20dp"
+                            android:paddingTop="4dp"
+                            android:src="@drawable/ic_tick_black" />
+
+                        <ImageView
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="1dp"
+                            android:background="@color/white"
+                            android:gravity="center"
+                            android:paddingBottom="4dp"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="20dp"
+                            android:paddingTop="4dp"
+                            android:src="@drawable/ic_tick_black" />
+                    </TableRow>
+                    <TableRow
+                        android:layout_height="wrap_content"
+                        android:background="#000000"
+                        android:paddingBottom="1dp"
+                        android:paddingRight="1dp">
+
+                        <fr.arnaudguyon.smartfontslib.FontTextView
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="1dp"
+                            android:background="#FFF"
+                            android:paddingBottom="10dp"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="20dp"
+                            android:paddingTop="10dp"
+                            android:text="Offer Zone"
+                            android:textSize="14sp"
+                            app:smart_font="fonts/Montserrat-Bold.ttf" />
+
+
+                        <fr.arnaudguyon.smartfontslib.FontTextView
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="1dp"
+                            android:background="#FFF"
+                            android:gravity="center"
+                            android:paddingBottom="10dp"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="20dp"
+                            android:paddingTop="10dp"
+                            android:text="limited"
+                            android:textColor="@color/dark_orange"
+                            android:textSize="14sp"
+                            app:smart_font="fonts/Montserrat-Bold.ttf" />
+
+                        <ImageView
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="1dp"
+                            android:background="@color/white"
+                            android:gravity="center"
+                            android:paddingBottom="4dp"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="20dp"
+                            android:paddingTop="4dp"
+                            android:src="@drawable/ic_tick_black" />
+
+                        <ImageView
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="1dp"
+                            android:background="@color/white"
+                            android:gravity="center"
+                            android:paddingBottom="4dp"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="20dp"
+                            android:paddingTop="4dp"
+                            android:src="@drawable/ic_tick_black" />
+
+                        <ImageView
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="1dp"
+                            android:background="@color/white"
+                            android:gravity="center"
+                            android:paddingBottom="4dp"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="20dp"
+                            android:paddingTop="4dp"
+                            android:src="@drawable/ic_tick_black" />
+                    </TableRow>
+                    <TableRow
+                        android:layout_height="wrap_content"
+                        android:background="#000000"
+                        android:paddingBottom="1dp"
+                        android:paddingRight="1dp">
+
+                        <fr.arnaudguyon.smartfontslib.FontTextView
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="1dp"
+                            android:background="#FFF"
+                            android:paddingBottom="10dp"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="20dp"
+                            android:paddingTop="10dp"
+                            android:text="Search Visibility"
+                            android:textSize="14sp"
+                            android:visibility="visible"
+                            app:smart_font="fonts/Montserrat-Bold.ttf" />
+
+                        <fr.arnaudguyon.smartfontslib.FontTextView
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="1dp"
+                            android:background="#FFF"
+                            android:gravity="center"
+                            android:paddingBottom="10dp"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="20dp"
+                            android:paddingTop="10dp"
+                            android:text="low"
+                            android:textColor="@color/dark_orange"
+                            android:textSize="14sp"
+                            app:smart_font="fonts/Montserrat-Bold.ttf" />
+
+                        <fr.arnaudguyon.smartfontslib.FontTextView
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="1dp"
+                            android:background="#FFF"
+                            android:gravity="center"
+                            android:paddingBottom="10dp"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="20dp"
+                            android:paddingTop="10dp"
+                            android:text="moderate"
+                            android:textColor="@color/dark_orange"
+                            android:textSize="14sp"
+                            app:smart_font="fonts/Montserrat-Bold.ttf" />
+
+                        <fr.arnaudguyon.smartfontslib.FontTextView
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="1dp"
+                            android:background="#FFF"
+                            android:gravity="center"
+                            android:paddingBottom="10dp"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="20dp"
+                            android:paddingTop="10dp"
+                            android:text="next to platinum"
+                            android:textColor="@color/dark_orange"
+                            android:textSize="14sp"
+                            app:smart_font="fonts/Montserrat-Bold.ttf" />
+
+                        <fr.arnaudguyon.smartfontslib.FontTextView
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="1dp"
+                            android:background="#FFF"
+                            android:gravity="center"
+                            android:paddingBottom="10dp"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="20dp"
+                            android:paddingTop="10dp"
+                            android:text="first priority"
+                            android:textColor="@color/dark_orange"
+                            android:textSize="14sp"
+                            app:smart_font="fonts/Montserrat-Bold.ttf" />
+                    </TableRow>
+                    <TableRow
+                        android:layout_height="wrap_content"
+                        android:background="#000000"
+                        android:paddingBottom="1dp"
+                        android:paddingRight="1dp">
+
+                        <fr.arnaudguyon.smartfontslib.FontTextView
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="1dp"
+                            android:background="#FFF"
+                            android:paddingBottom="10dp"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="20dp"
+                            android:paddingTop="10dp"
+                            android:text="Shop status"
+                            android:textSize="14sp"
+                            app:smart_font="fonts/Montserrat-Bold.ttf" />
+
+
+                        <ImageView
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="1dp"
+                            android:background="@color/white"
+                            android:gravity="center"
+                            android:paddingBottom="4dp"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="20dp"
+                            android:paddingTop="4dp"
+                            android:src="@drawable/ic_tick_black" />
+
+                        <ImageView
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="1dp"
+                            android:background="@color/white"
+                            android:gravity="center"
+                            android:paddingBottom="4dp"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="20dp"
+                            android:paddingTop="4dp"
+                            android:src="@drawable/ic_tick_black" />
+
+                        <ImageView
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="1dp"
+                            android:background="@color/white"
+                            android:gravity="center"
+                            android:paddingBottom="4dp"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="20dp"
+                            android:paddingTop="4dp"
+                            android:src="@drawable/ic_tick_black" />
+
+                        <ImageView
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="1dp"
+                            android:background="@color/white"
+                            android:gravity="center"
+                            android:paddingBottom="4dp"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="20dp"
+                            android:paddingTop="4dp"
+                            android:src="@drawable/ic_tick_black" />
+                    </TableRow>
+                    <TableRow
+                        android:layout_height="wrap_content"
+                        android:background="#000000"
+                        android:paddingBottom="1dp"
+                        android:paddingRight="1dp">
+
+                        <fr.arnaudguyon.smartfontslib.FontTextView
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="1dp"
+                            android:background="#FFF"
+                            android:paddingBottom="10dp"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="20dp"
+                            android:paddingTop="10dp"
+                            android:text="No. of Ads"
+                            android:textSize="14sp"
+                            android:visibility="visible"
+                            app:smart_font="fonts/Montserrat-Bold.ttf" />
+
+                        <fr.arnaudguyon.smartfontslib.FontTextView
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="1dp"
+                            android:background="#FFF"
+                            android:gravity="center"
+                            android:paddingBottom="10dp"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="20dp"
+                            android:paddingTop="10dp"
+                            android:text="4"
+                            android:textColor="@color/dark_orange"
+                            android:textSize="14sp"
+                            app:smart_font="fonts/Montserrat-Bold.ttf" />
+
+                        <fr.arnaudguyon.smartfontslib.FontTextView
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="1dp"
+                            android:background="#FFF"
+                            android:gravity="center"
+                            android:paddingBottom="10dp"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="20dp"
+                            android:paddingTop="10dp"
+                            android:text="12"
+                            android:textColor="@color/dark_orange"
+                            android:textSize="14sp"
+                            app:smart_font="fonts/Montserrat-Bold.ttf" />
+
+                        <fr.arnaudguyon.smartfontslib.FontTextView
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="1dp"
+                            android:background="#FFF"
+                            android:gravity="center"
+                            android:paddingBottom="10dp"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="20dp"
+                            android:paddingTop="10dp"
+                            android:text="20"
+                            android:textColor="@color/dark_orange"
+                            android:textSize="14sp"
+                            app:smart_font="fonts/Montserrat-Bold.ttf" />
+
+                        <fr.arnaudguyon.smartfontslib.FontTextView
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="1dp"
+                            android:background="#FFF"
+                            android:gravity="center"
+                            android:paddingBottom="10dp"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="20dp"
+                            android:paddingTop="10dp"
+                            android:text="unlimited"
+                            android:textColor="@color/dark_orange"
+                            android:textSize="14sp"
+                            app:smart_font="fonts/Montserrat-Bold.ttf" />
+                    </TableRow>
+                    <TableRow
+                        android:layout_height="wrap_content"
+                        android:background="#000000"
+                        android:paddingBottom="1dp"
+                        android:paddingRight="1dp">
+
+                        <fr.arnaudguyon.smartfontslib.FontTextView
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="1dp"
+                            android:background="#FFF"
+                            android:paddingBottom="10dp"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="20dp"
+                            android:paddingTop="10dp"
+                            android:text="Product Lists"
+                            android:textSize="14sp"
+                            app:smart_font="fonts/Montserrat-Bold.ttf" />
+
+
+                        <fr.arnaudguyon.smartfontslib.FontTextView
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="1dp"
+                            android:background="#FFF"
+                            android:gravity="center"
+                            android:paddingBottom="10dp"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="20dp"
+                            android:paddingTop="10dp"
+                            android:text="limited"
+                            android:textColor="@color/dark_orange"
+                            android:textSize="14sp"
+                            app:smart_font="fonts/Montserrat-Bold.ttf" />
+
+                        <ImageView
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="1dp"
+                            android:background="@color/white"
+                            android:gravity="center"
+                            android:paddingBottom="4dp"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="20dp"
+                            android:paddingTop="4dp"
+                            android:src="@drawable/ic_tick_black" />
+
+                        <ImageView
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="1dp"
+                            android:background="@color/white"
+                            android:gravity="center"
+                            android:paddingBottom="4dp"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="20dp"
+                            android:paddingTop="4dp"
+                            android:src="@drawable/ic_tick_black" />
+
+                        <ImageView
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="1dp"
+                            android:background="@color/white"
+                            android:gravity="center"
+                            android:paddingBottom="4dp"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="20dp"
+                            android:paddingTop="4dp"
+                            android:src="@drawable/ic_tick_black" />
+                    </TableRow>
+                    <TableRow
+                        android:layout_height="wrap_content"
+                        android:background="#000000"
+                        android:paddingBottom="1dp"
+                        android:paddingRight="1dp">
+
+                        <fr.arnaudguyon.smartfontslib.FontTextView
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="1dp"
+                            android:background="#FFF"
+                            android:paddingBottom="10dp"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="20dp"
+                            android:paddingTop="10dp"
+                            android:text="CMS"
+                            android:textSize="14sp"
+                            app:smart_font="fonts/Montserrat-Bold.ttf" />
+
+
+                        <ImageView
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="1dp"
+                            android:background="@color/white"
+                            android:gravity="center"
+                            android:paddingBottom="4dp"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="20dp"
+                            android:paddingTop="4dp"
+                            android:src="@drawable/ic_tick_black" />
+
+                        <ImageView
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="1dp"
+                            android:background="@color/white"
+                            android:gravity="center"
+                            android:paddingBottom="4dp"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="20dp"
+                            android:paddingTop="4dp"
+                            android:src="@drawable/ic_tick_black" />
+
+                        <ImageView
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="1dp"
+                            android:background="@color/white"
+                            android:gravity="center"
+                            android:paddingBottom="4dp"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="20dp"
+                            android:paddingTop="4dp"
+                            android:src="@drawable/ic_tick_black" />
+
+                        <ImageView
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="1dp"
+                            android:background="@color/white"
+                            android:gravity="center"
+                            android:paddingBottom="4dp"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="20dp"
+                            android:paddingTop="4dp"
+                            android:src="@drawable/ic_tick_black" />
+                    </TableRow>
+                    <TableRow
+                        android:layout_height="wrap_content"
+                        android:background="#000000"
+                        android:paddingBottom="1dp"
+                        android:paddingRight="1dp">
+
+                        <fr.arnaudguyon.smartfontslib.FontTextView
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="1dp"
+                            android:background="#FFF"
+                            android:paddingBottom="10dp"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="20dp"
+                            android:paddingTop="10dp"
+                            android:text="Contact Details"
+                            android:textSize="14sp"
+                            app:smart_font="fonts/Montserrat-Bold.ttf" />
+
+
+                        <fr.arnaudguyon.smartfontslib.FontTextView
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="1dp"
+                            android:background="#FFF"
+                            android:gravity="center"
+                            android:paddingBottom="10dp"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="20dp"
+                            android:paddingTop="10dp"
+                            android:text="hidden"
+                            android:textColor="@color/dark_orange"
+                            android:textSize="14sp"
+                            app:smart_font="fonts/Montserrat-Bold.ttf" />
+
+                        <fr.arnaudguyon.smartfontslib.FontTextView
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="1dp"
+                            android:background="#FFF"
+                            android:gravity="center"
+                            android:paddingBottom="10dp"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="20dp"
+                            android:paddingTop="10dp"
+                            android:text="visible/hidden"
+                            android:textColor="@color/dark_orange"
+                            android:textSize="14sp"
+                            app:smart_font="fonts/Montserrat-Bold.ttf" />
+
+                        <ImageView
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="1dp"
+                            android:background="@color/white"
+                            android:gravity="center"
+                            android:paddingBottom="4dp"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="20dp"
+                            android:paddingTop="4dp"
+                            android:src="@drawable/ic_tick_black" />
+
+                        <ImageView
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="1dp"
+                            android:background="@color/white"
+                            android:gravity="center"
+                            android:paddingBottom="4dp"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="20dp"
+                            android:paddingTop="4dp"
+                            android:src="@drawable/ic_tick_black" />
+                    </TableRow>
+                    <TableRow
+                        android:layout_height="wrap_content"
+                        android:background="#000000"
+                        android:paddingBottom="1dp"
+                        android:paddingRight="1dp">
+
+                        <fr.arnaudguyon.smartfontslib.FontTextView
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="1dp"
+                            android:background="#FFF"
+                            android:paddingBottom="10dp"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="20dp"
+                            android:paddingTop="10dp"
+                            android:text="Location Access"
+                            android:textSize="14sp"
+                            app:smart_font="fonts/Montserrat-Bold.ttf" />
+
+
+                        <ImageView
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="1dp"
+                            android:background="@color/white"
+                            android:gravity="center"
+                            android:paddingBottom="4dp"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="20dp"
+                            android:paddingTop="4dp"
+                            android:src="@drawable/ic_tick_black" />
+
+                        <ImageView
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="1dp"
+                            android:background="@color/white"
+                            android:gravity="center"
+                            android:paddingBottom="4dp"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="20dp"
+                            android:paddingTop="4dp"
+                            android:src="@drawable/ic_tick_black" />
+
+                        <ImageView
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="1dp"
+                            android:background="@color/white"
+                            android:gravity="center"
+                            android:paddingBottom="4dp"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="20dp"
+                            android:paddingTop="4dp"
+                            android:src="@drawable/ic_tick_black" />
+
+                        <ImageView
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="1dp"
+                            android:background="@color/white"
+                            android:gravity="center"
+                            android:paddingBottom="4dp"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="20dp"
+                            android:paddingTop="4dp"
+                            android:src="@drawable/ic_tick_black" />
+                    </TableRow>
+                    <TableRow
+                        android:layout_height="wrap_content"
+                        android:background="#000000"
+                        android:paddingBottom="1dp"
+                        android:paddingRight="1dp">
+
+                        <fr.arnaudguyon.smartfontslib.FontTextView
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="1dp"
+                            android:background="#FFF"
+                            android:paddingBottom="10dp"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="20dp"
+                            android:paddingTop="10dp"
+                            android:text="Social Media sharing"
+                            android:textSize="14sp"
+                            app:smart_font="fonts/Montserrat-Bold.ttf" />
+
+
+                        <ImageView
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="1dp"
+                            android:background="@color/white"
+                            android:gravity="center"
+                            android:paddingBottom="4dp"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="20dp"
+                            android:paddingTop="4dp"
+                            android:src="@drawable/ic_tick_black" />
+
+                        <ImageView
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="1dp"
+                            android:background="@color/white"
+                            android:gravity="center"
+                            android:paddingBottom="4dp"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="20dp"
+                            android:paddingTop="4dp"
+                            android:src="@drawable/ic_tick_black" />
+
+                        <ImageView
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="1dp"
+                            android:background="@color/white"
+                            android:gravity="center"
+                            android:paddingBottom="4dp"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="20dp"
+                            android:paddingTop="4dp"
+                            android:src="@drawable/ic_tick_black" />
+
+                        <ImageView
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="1dp"
+                            android:background="@color/white"
+                            android:gravity="center"
+                            android:paddingBottom="4dp"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="20dp"
+                            android:paddingTop="4dp"
+                            android:src="@drawable/ic_tick_black" />
+                    </TableRow>
+                    <TableRow
+                        android:layout_height="wrap_content"
+                        android:background="#000000"
+                        android:paddingBottom="1dp"
+                        android:paddingRight="1dp">
+
+                        <fr.arnaudguyon.smartfontslib.FontTextView
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="1dp"
+                            android:background="#FFF"
+                            android:paddingBottom="10dp"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="20dp"
+                            android:paddingTop="10dp"
+                            android:text="Email Campaign"
+                            android:textSize="14sp"
+                            app:smart_font="fonts/Montserrat-Bold.ttf" />
+
+
+                        <ImageView
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="1dp"
+                            android:background="@color/white"
+                            android:gravity="center"
+                            android:paddingBottom="4dp"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="20dp"
+                            android:paddingTop="4dp"
+                            android:src="@drawable/ic_cross_black" />
+
+                        <ImageView
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="1dp"
+                            android:background="@color/white"
+                            android:gravity="center"
+                            android:paddingBottom="4dp"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="20dp"
+                            android:paddingTop="4dp"
+                            android:src="@drawable/ic_cross_black" />
+
+                        <ImageView
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="1dp"
+                            android:background="@color/white"
+                            android:gravity="center"
+                            android:paddingBottom="4dp"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="20dp"
+                            android:paddingTop="4dp"
+                            android:src="@drawable/ic_cross_black" />
+
+                        <ImageView
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="1dp"
+                            android:background="@color/white"
+                            android:gravity="center"
+                            android:paddingBottom="4dp"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="20dp"
+                            android:paddingTop="4dp"
+                            android:src="@drawable/ic_tick_black" />
+                    </TableRow>
+                    <TableRow
+                        android:layout_height="wrap_content"
+                        android:background="#000000"
+                        android:paddingBottom="1dp"
+                        android:paddingRight="1dp">
+
+                        <fr.arnaudguyon.smartfontslib.FontTextView
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="1dp"
+                            android:background="#FFF"
+                            android:paddingBottom="10dp"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="20dp"
+                            android:paddingTop="10dp"
+                            android:text="Home Deliveries"
+                            android:textSize="14sp"
+                            app:smart_font="fonts/Montserrat-Bold.ttf" />
+
+
+                        <ImageView
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="1dp"
+                            android:background="@color/white"
+                            android:gravity="center"
+                            android:paddingBottom="4dp"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="20dp"
+                            android:paddingTop="4dp"
+                            android:src="@drawable/ic_cross_black" />
+
+                        <ImageView
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="1dp"
+                            android:background="@color/white"
+                            android:gravity="center"
+                            android:paddingBottom="4dp"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="20dp"
+                            android:paddingTop="4dp"
+                            android:src="@drawable/ic_cross_black" />
+
+                        <ImageView
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="1dp"
+                            android:background="@color/white"
+                            android:gravity="center"
+                            android:paddingBottom="4dp"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="20dp"
+                            android:paddingTop="4dp"
+                            android:src="@drawable/ic_tick_black" />
+
+                        <ImageView
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="1dp"
+                            android:background="@color/white"
+                            android:gravity="center"
+                            android:paddingBottom="4dp"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="20dp"
+                            android:paddingTop="4dp"
+                            android:src="@drawable/ic_tick_black" />
+                    </TableRow>
+                    <TableRow
+                        android:layout_height="wrap_content"
+                        android:background="#000000"
+                        android:paddingBottom="1dp"
+                        android:paddingRight="1dp">
+
+                        <fr.arnaudguyon.smartfontslib.FontTextView
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="1dp"
+                            android:background="#FFF"
+                            android:paddingBottom="10dp"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="20dp"
+                            android:paddingTop="10dp"
+                            android:text="Leads"
+                            android:textSize="14sp"
+                            app:smart_font="fonts/Montserrat-Bold.ttf" />
+
+
+                        <ImageView
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="1dp"
+                            android:background="@color/white"
+                            android:gravity="center"
+                            android:paddingBottom="4dp"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="20dp"
+                            android:paddingTop="4dp"
+                            android:src="@drawable/ic_cross_black" />
+
+                        <ImageView
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="1dp"
+                            android:background="@color/white"
+                            android:gravity="center"
+                            android:paddingBottom="4dp"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="20dp"
+                            android:paddingTop="4dp"
+                            android:src="@drawable/ic_cross_black" />
+
+                        <ImageView
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="1dp"
+                            android:background="@color/white"
+                            android:gravity="center"
+                            android:paddingBottom="4dp"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="20dp"
+                            android:paddingTop="4dp"
+                            android:src="@drawable/ic_tick_black" />
+
+                        <ImageView
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="1dp"
+                            android:background="@color/white"
+                            android:gravity="center"
+                            android:paddingBottom="4dp"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="20dp"
+                            android:paddingTop="4dp"
+                            android:src="@drawable/ic_tick_black" />
+                    </TableRow>
+                    <TableRow
+                        android:layout_height="wrap_content"
+                        android:background="#000000"
+                        android:paddingBottom="1dp"
+                        android:paddingRight="1dp">
+
+                        <fr.arnaudguyon.smartfontslib.FontTextView
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="1dp"
+                            android:background="#FFF"
+                            android:paddingBottom="10dp"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="20dp"
+                            android:paddingTop="10dp"
+                            android:text="Chatting"
+                            android:textSize="14sp"
+                            app:smart_font="fonts/Montserrat-Bold.ttf" />
+
+
+                        <ImageView
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="1dp"
+                            android:background="@color/white"
+                            android:gravity="center"
+                            android:paddingBottom="4dp"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="20dp"
+                            android:paddingTop="4dp"
+                            android:src="@drawable/ic_cross_black" />
+
+                        <ImageView
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="1dp"
+                            android:background="@color/white"
+                            android:gravity="center"
+                            android:paddingBottom="4dp"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="20dp"
+                            android:paddingTop="4dp"
+                            android:src="@drawable/ic_tick_black" />
+
+                        <ImageView
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="1dp"
+                            android:background="@color/white"
+                            android:gravity="center"
+                            android:paddingBottom="4dp"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="20dp"
+                            android:paddingTop="4dp"
+                            android:src="@drawable/ic_tick_black" />
+
+                        <ImageView
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="1dp"
+                            android:background="@color/white"
+                            android:gravity="center"
+                            android:paddingBottom="4dp"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="20dp"
+                            android:paddingTop="4dp"
+                            android:src="@drawable/ic_tick_black" />
+                    </TableRow>
+                    <TableRow
+                        android:layout_height="wrap_content"
+                        android:background="#000000"
+                        android:paddingBottom="1dp"
+                        android:paddingRight="1dp">
+
+                        <fr.arnaudguyon.smartfontslib.FontTextView
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="1dp"
+                            android:background="#FFF"
+                            android:paddingBottom="10dp"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="20dp"
+                            android:paddingTop="10dp"
+                            android:text="Notifications"
+                            android:textSize="14sp"
+                            app:smart_font="fonts/Montserrat-Bold.ttf" />
+
+
+                        <ImageView
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="1dp"
+                            android:background="@color/white"
+                            android:gravity="center"
+                            android:paddingBottom="4dp"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="20dp"
+                            android:paddingTop="4dp"
+                            android:src="@drawable/ic_cross_black" />
+
+                        <ImageView
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="1dp"
+                            android:background="@color/white"
+                            android:gravity="center"
+                            android:paddingBottom="4dp"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="20dp"
+                            android:paddingTop="4dp"
+                            android:src="@drawable/ic_cross_black" />
+
+                        <ImageView
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="1dp"
+                            android:background="@color/white"
+                            android:gravity="center"
+                            android:paddingBottom="4dp"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="20dp"
+                            android:paddingTop="4dp"
+                            android:src="@drawable/ic_tick_black" />
+
+                        <ImageView
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="1dp"
+                            android:background="@color/white"
+                            android:gravity="center"
+                            android:paddingBottom="4dp"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="20dp"
+                            android:paddingTop="4dp"
+                            android:src="@drawable/ic_tick_black" />
+                    </TableRow>
+                    <TableRow
+                        android:layout_height="wrap_content"
+                        android:background="#000000"
+                        android:paddingBottom="1dp"
+                        android:paddingRight="1dp">
+
+                        <fr.arnaudguyon.smartfontslib.FontTextView
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="1dp"
+                            android:background="#FFF"
+                            android:paddingBottom="10dp"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="20dp"
+                            android:paddingTop="10dp"
+                            android:text="Banner Images"
+                            android:textSize="14sp"
+                            app:smart_font="fonts/Montserrat-Bold.ttf" />
+
+
+                        <fr.arnaudguyon.smartfontslib.FontTextView
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="1dp"
+                            android:background="#FFF"
+                            android:gravity="center"
+                            android:paddingBottom="10dp"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="20dp"
+                            android:paddingTop="10dp"
+                            android:text="limited"
+                            android:textColor="@color/dark_orange"
+                            android:textSize="14sp"
+                            app:smart_font="fonts/Montserrat-Bold.ttf" />
+
+                        <fr.arnaudguyon.smartfontslib.FontTextView
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="1dp"
+                            android:background="#FFF"
+                            android:gravity="center"
+                            android:paddingBottom="10dp"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="20dp"
+                            android:paddingTop="10dp"
+                            android:text="moderate"
+                            android:textColor="@color/dark_orange"
+                            android:textSize="14sp"
+                            app:smart_font="fonts/Montserrat-Bold.ttf" />
+
+                        <fr.arnaudguyon.smartfontslib.FontTextView
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="1dp"
+                            android:background="#FFF"
+                            android:gravity="center"
+                            android:paddingBottom="10dp"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="20dp"
+                            android:paddingTop="10dp"
+                            android:text="full"
+                            android:textColor="@color/dark_orange"
+                            android:textSize="14sp"
+                            app:smart_font="fonts/Montserrat-Bold.ttf" />
+
+                        <ImageView
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="1dp"
+                            android:background="@color/white"
+                            android:gravity="center"
+                            android:paddingBottom="4dp"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="20dp"
+                            android:paddingTop="4dp"
+                            android:src="@drawable/ic_tick_black" />
+                    </TableRow>
+                    <TableRow
+                        android:layout_height="wrap_content"
+                        android:background="#000000"
+                        android:paddingBottom="1dp"
+                        android:paddingRight="1dp">
+
+                        <fr.arnaudguyon.smartfontslib.FontTextView
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="1dp"
+                            android:background="#FFF"
+                            android:paddingBottom="10dp"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="20dp"
+                            android:paddingTop="10dp"
+                            android:text="Home Page View"
+                            android:textSize="14sp"
+                            app:smart_font="fonts/Montserrat-Bold.ttf" />
+
+
+                        <ImageView
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="1dp"
+                            android:background="@color/white"
+                            android:gravity="center"
+                            android:paddingBottom="4dp"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="20dp"
+                            android:paddingTop="4dp"
+                            android:src="@drawable/ic_tick_black" />
+
+                        <ImageView
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="1dp"
+                            android:background="@color/white"
+                            android:gravity="center"
+                            android:paddingBottom="4dp"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="20dp"
+                            android:paddingTop="4dp"
+                            android:src="@drawable/ic_tick_black" />
+
+                        <ImageView
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="1dp"
+                            android:background="@color/white"
+                            android:gravity="center"
+                            android:paddingBottom="4dp"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="20dp"
+                            android:paddingTop="4dp"
+                            android:src="@drawable/ic_tick_black" />
+
+                        <ImageView
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="1dp"
+                            android:background="@color/white"
+                            android:gravity="center"
+                            android:paddingBottom="4dp"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="20dp"
+                            android:paddingTop="4dp"
+                            android:src="@drawable/ic_tick_black" />
+                    </TableRow>
+                    <TableRow
+                        android:layout_height="wrap_content"
+                        android:background="#000000"
+                        android:paddingBottom="1dp"
+                        android:paddingRight="1dp">
+
+                        <fr.arnaudguyon.smartfontslib.FontTextView
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="1dp"
+                            android:background="#FFF"
+                            android:paddingBottom="10dp"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="20dp"
+                            android:paddingTop="10dp"
+                            android:text="View Count"
+                            android:textSize="14sp"
+                            app:smart_font="fonts/Montserrat-Bold.ttf" />
+
+
+                        <ImageView
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="1dp"
+                            android:background="@color/white"
+                            android:gravity="center"
+                            android:paddingBottom="4dp"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="20dp"
+                            android:paddingTop="4dp"
+                            android:src="@drawable/ic_tick_black" />
+
+                        <ImageView
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="1dp"
+                            android:background="@color/white"
+                            android:gravity="center"
+                            android:paddingBottom="4dp"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="20dp"
+                            android:paddingTop="4dp"
+                            android:src="@drawable/ic_tick_black" />
+
+                        <ImageView
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="1dp"
+                            android:background="@color/white"
+                            android:gravity="center"
+                            android:paddingBottom="4dp"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="20dp"
+                            android:paddingTop="4dp"
+                            android:src="@drawable/ic_tick_black" />
+
+                        <ImageView
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="1dp"
+                            android:background="@color/white"
+                            android:gravity="center"
+                            android:paddingBottom="4dp"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="20dp"
+                            android:paddingTop="4dp"
+                            android:src="@drawable/ic_tick_black" />
+                    </TableRow>
+                    <TableRow
+                        android:layout_height="wrap_content"
+                        android:background="#000000"
+                        android:paddingBottom="1dp"
+                        android:paddingRight="1dp">
+
+                        <fr.arnaudguyon.smartfontslib.FontTextView
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="1dp"
+                            android:background="#FFF"
+                            android:paddingBottom="10dp"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="20dp"
+                            android:paddingTop="10dp"
+                            android:text="View Count"
+                            android:textSize="14sp"
+                            app:smart_font="fonts/Montserrat-Bold.ttf" />
+
+
+                        <ImageView
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="1dp"
+                            android:background="@color/white"
+                            android:gravity="center"
+                            android:paddingBottom="4dp"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="20dp"
+                            android:paddingTop="4dp"
+                            android:src="@drawable/ic_tick_black" />
+
+                        <ImageView
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="1dp"
+                            android:background="@color/white"
+                            android:gravity="center"
+                            android:paddingBottom="4dp"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="20dp"
+                            android:paddingTop="4dp"
+                            android:src="@drawable/ic_tick_black" />
+
+                        <ImageView
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="1dp"
+                            android:background="@color/white"
+                            android:gravity="center"
+                            android:paddingBottom="4dp"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="20dp"
+                            android:paddingTop="4dp"
+                            android:src="@drawable/ic_tick_black" />
+
+                        <ImageView
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="1dp"
+                            android:background="@color/white"
+                            android:gravity="center"
+                            android:paddingBottom="4dp"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="20dp"
+                            android:paddingTop="4dp"
+                            android:src="@drawable/ic_tick_black" />
+                    </TableRow>
+                </TableLayout>
+
+            </HorizontalScrollView>
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+</LinearLayout>

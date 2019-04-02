@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:padding="10dp"
+    android:layout_height="wrap_content">
+
+    <fr.arnaudguyon.smartfontslib.FontTextView
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:text="Item Name"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:id="@+id/itemName"
+        android:layout_gravity="center"
+        android:gravity="start"
+        app:smart_font="fonts/Montserrat-Regular.ttf" />
+
+    <fr.arnaudguyon.smartfontslib.FontTextView
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:text="Rs. 50"
+        android:textColor="@color/red_other"
+        android:textSize="14sp"
+        android:layout_gravity="center"
+        android:gravity="end"
+        android:paddingRight="10dp"
+        android:id="@+id/itemPrice"
+        app:smart_font="fonts/Montserrat-Regular.ttf" />
+</LinearLayout>
