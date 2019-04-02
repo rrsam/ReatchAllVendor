@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.reatchall.charan.reatchallVendor.R;
+import com.reatchall.charan.reatchallVendor.Utils.PrefManager;
 import com.reatchall.charan.reatchallVendor.Vendor.Models.BusinessDetails;
 import com.reatchall.charan.reatchallVendor.Vendor.Offers.VendorOfferZoneNewActivity;
 
@@ -28,7 +29,9 @@ public class VendorDashBoardNewActivity extends AppCompatActivity {
     LinearLayout notifications,importDatabase,cmsManage;
     LinearLayout feedBack,contactUs,webSocial,businessProofs,ads;
     LinearLayout businessPromotions,homeDelivery;
-    BusinessDetails businessDashboard = null;
+    BusinessDetails businessDetails = null;
+
+    private PrefManager prefManager;
 
     LinearLayout addManager,accessManagement,changeAddress,services,changeImages;
 
@@ -44,20 +47,22 @@ public class VendorDashBoardNewActivity extends AppCompatActivity {
                 finish();
             }
         });
+        prefManager = new PrefManager(this);
+        businessDetails = getIntent().getExtras().getParcelable("businessDetails");
+        if(businessDetails != null){
 
-        businessDashboard = getIntent().getExtras().getParcelable("businessDetails");
-        if(businessDashboard != null){
-
-            Log.e(TAG, "onCreate:ID "+businessDashboard.getBusinessId() +"NAME"+businessDashboard.getBusinessName());
-            titleToolbar.setText(businessDashboard.getBusinessName());
+            Log.e(TAG, "onCreate:ID "+businessDetails.getBusinessId() +"NAME"+businessDetails.getBusinessName());
+            titleToolbar.setText(businessDetails.getBusinessName());
         }
+
+        Log.e(TAG, "onCreate: vendorId "+ prefManager.getVendorId(VendorDashBoardNewActivity.this));
 
         services=(LinearLayout) findViewById(R.id.services);
         services.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), VendorServicesActivity.class);
-                intent.putExtra("businessDetails",businessDashboard);
+                intent.putExtra("businessDetails",businessDetails);
                 startActivity(intent);
             }
         });
@@ -67,7 +72,7 @@ public class VendorDashBoardNewActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), VendorAccessManagementActivity.class);
-                intent.putExtra("businessDetails",businessDashboard);
+                intent.putExtra("businessDetails",businessDetails);
                 startActivity(intent);
             }
         });
@@ -77,7 +82,7 @@ public class VendorDashBoardNewActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), VendorUpdateAddressActivity.class);
-                intent.putExtra("businessDetails",businessDashboard);
+                intent.putExtra("businessDetails",businessDetails);
                 startActivity(intent);
             }
         });
@@ -87,7 +92,7 @@ public class VendorDashBoardNewActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), VendorAddManagerActivity.class);
-                intent.putExtra("businessDetails",businessDashboard);
+                intent.putExtra("businessDetails",businessDetails);
                 startActivity(intent);
             }
         });
@@ -97,7 +102,7 @@ public class VendorDashBoardNewActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), VendorBusinessNotificationsActivity.class);
-                intent.putExtra("businessDetails",businessDashboard);
+                intent.putExtra("businessDetails",businessDetails);
                 startActivity(intent);
             }
         });
@@ -109,7 +114,7 @@ public class VendorDashBoardNewActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 Intent intent = new Intent(getApplicationContext(), VendorImportDatabaseActivity.class);
-                intent.putExtra("businessDetails",businessDashboard);
+                intent.putExtra("businessDetails",businessDetails);
                 startActivity(intent);
             }
         });
@@ -119,7 +124,7 @@ public class VendorDashBoardNewActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), VendorMyCashActivity.class);
-                intent.putExtra("businessDetails",businessDashboard);
+                intent.putExtra("businessDetails",businessDetails);
                 startActivity(intent);
             }
         });
@@ -129,7 +134,7 @@ public class VendorDashBoardNewActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), VendorOpenCloseStatusActivity.class);
-                intent.putExtra("businessDetails",businessDashboard);
+                intent.putExtra("businessDetails",businessDetails);
                 startActivity(intent);
             }
         });
@@ -139,7 +144,7 @@ public class VendorDashBoardNewActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), VendorOfferZoneNewActivity.class);
-                intent.putExtra("businessDetails",businessDashboard);
+                intent.putExtra("businessDetails",businessDetails);
                 startActivity(intent);
             }
         });
@@ -150,7 +155,7 @@ public class VendorDashBoardNewActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), VendorViewCountActivity.class);
-                intent.putExtra("businessDetails",businessDashboard);
+                intent.putExtra("businessDetails",businessDetails);
                 startActivity(intent);
             }
         });
@@ -160,7 +165,7 @@ public class VendorDashBoardNewActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), VendorsAppoinmentListActivity.class);
-                intent.putExtra("businessDetails",businessDashboard);
+                intent.putExtra("businessDetails",businessDetails);
                 startActivity(intent);
             }
         });
@@ -170,7 +175,7 @@ public class VendorDashBoardNewActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), VendorRatingsActivity.class);
-                intent.putExtra("businessDetails",businessDashboard);
+                intent.putExtra("businessDetails",businessDetails);
                 startActivity(intent);
             }
         });
@@ -179,7 +184,7 @@ public class VendorDashBoardNewActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), VendorBusinessProfileActivity.class);
-                intent.putExtra("businessDetails",businessDashboard);
+                intent.putExtra("businessDetails",businessDetails);
                 startActivity(intent);
 
             }
@@ -190,7 +195,7 @@ public class VendorDashBoardNewActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), VendorBusinessPlanActivity.class);
-                intent.putExtra("businessDetails",businessDashboard);
+                intent.putExtra("businessDetails",businessDetails);
                 startActivity(intent);
             }
         });
@@ -200,7 +205,7 @@ public class VendorDashBoardNewActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), VendorPrivacySettingsActivity.class);
-                intent.putExtra("businessDetails",businessDashboard);
+                intent.putExtra("businessDetails",businessDetails);
                 startActivity(intent);
 
             }
@@ -212,7 +217,7 @@ public class VendorDashBoardNewActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), VendorCreateListActivity.class);
-                intent.putExtra("businessDetails",businessDashboard);
+                intent.putExtra("businessDetails",businessDetails);
                 startActivity(intent);
             }
         });
@@ -221,9 +226,9 @@ public class VendorDashBoardNewActivity extends AppCompatActivity {
         addItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               /* Intent intent = new Intent(getApplicationContext(), VendorAddItemsActivity.class);
-                intent.putExtra("businessDetails",businessDashboard);
-                startActivity(intent);*/
+                Intent intent = new Intent(getApplicationContext(), VendorCustomerActivity.class);
+                intent.putExtra("businessDetails",businessDetails);
+                startActivity(intent);
             }
         });
 
@@ -233,7 +238,7 @@ public class VendorDashBoardNewActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), BusinessAllProductsActivity.class);
                 //Intent intent = new Intent(getApplicationContext(), VendorMyProductsActivity.class);
-                intent.putExtra("businessDetails",businessDashboard);
+                intent.putExtra("businessDetails",businessDetails);
                 intent.putExtra("toggle",1);
                 startActivity(intent);
             }
@@ -247,7 +252,7 @@ public class VendorDashBoardNewActivity extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), VendorMyProductsActivity.class);
                 intent.putExtra("listId","abc");
                 intent.putExtra("toggle",2);
-                intent.putExtra("businessDetails",businessDashboard);
+                intent.putExtra("businessDetails",businessDetails);
                 startActivity(intent);
             }
         });
@@ -257,7 +262,7 @@ public class VendorDashBoardNewActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), VendorBusinessAnalysisActivity.class);
-                intent.putExtra("businessDetails",businessDashboard);
+                intent.putExtra("businessDetails",businessDetails);
                 startActivity(intent);
             }
         });
@@ -268,7 +273,7 @@ public class VendorDashBoardNewActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), VendorOrderAnalysisActivity.class);
-                intent.putExtra("businessDetails",businessDashboard);
+                intent.putExtra("businessDetails",businessDetails);
                 startActivity(intent);
             }
         });
@@ -279,7 +284,7 @@ public class VendorDashBoardNewActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), VendorBusinessSettingsNewActivity.class);
-                intent.putExtra("businessDetails",businessDashboard);
+                intent.putExtra("businessDetails",businessDetails);
                 startActivity(intent);
             }
         });
@@ -289,7 +294,7 @@ public class VendorDashBoardNewActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), VendorBusinessSettingsActivity.class);
-                intent.putExtra("businessDetails",businessDashboard);
+                intent.putExtra("businessDetails",businessDetails);
                 startActivity(intent);
             }
         });
@@ -300,7 +305,7 @@ public class VendorDashBoardNewActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), VendorNewHomeDelActivity.class);
-                intent.putExtra("businessDetails",businessDashboard);
+                intent.putExtra("businessDetails",businessDetails);
                 startActivity(intent);
                 finish();
             }
@@ -311,7 +316,7 @@ public class VendorDashBoardNewActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), VendorPromotionsActivity.class);
-                intent.putExtra("businessDetails",businessDashboard);
+                intent.putExtra("businessDetails",businessDetails);
                 startActivity(intent);
             }
         });
@@ -321,7 +326,7 @@ public class VendorDashBoardNewActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), VendorBusinessProofsActivity.class);
-                intent.putExtra("businessDetails",businessDashboard);
+                intent.putExtra("businessDetails",businessDetails);
                 startActivity(intent);
             }
         });
@@ -340,7 +345,7 @@ public class VendorDashBoardNewActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), VendorWebsiteSocialActivity.class);
-                intent.putExtra("businessDetails",businessDashboard);
+                intent.putExtra("businessDetails",businessDetails);
                 startActivity(intent);
             }
         });
@@ -350,7 +355,7 @@ public class VendorDashBoardNewActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), VendorContactUsActivity.class);
-                intent.putExtra("businessDetails",businessDashboard);
+                intent.putExtra("businessDetails",businessDetails);
                 startActivity(intent);
             }
         });
@@ -360,7 +365,7 @@ public class VendorDashBoardNewActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), VendorCmsManageActivity.class);
-                intent.putExtra("businessDetails",businessDashboard);
+                intent.putExtra("businessDetails",businessDetails);
                 startActivity(intent);
             }
         });
@@ -370,7 +375,7 @@ public class VendorDashBoardNewActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), VendorFeedbackActivity.class);
-                intent.putExtra("businessDetails",businessDashboard);
+                intent.putExtra("businessDetails",businessDetails);
                 startActivity(intent);
             }
         });

@@ -45,4 +45,93 @@
         </android.support.v7.widget.Toolbar>
     </android.support.design.widget.AppBarLayout>
 
+    <LinearLayout
+        android:id="@+id/title"
+        android:focusableInTouchMode="true"
+        android:layout_width="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical">
+
+        <fr.arnaudguyon.smartfontslib.FontTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="Customer Details"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            app:smart_font="fonts/Montserrat-Bold.ttf" />
+
+        <View
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_width="match_parent"
+            android:layout_marginTop="3dp"
+            android:layout_height="2dp"
+            android:background="@color/dark_orange"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:weightSum="2">
+
+
+
+        <fr.arnaudguyon.smartfontslib.FontTextView
+            app:smart_font="fonts/Montserrat-Regular.ttf"
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:textColor="@color/black_variant_two"
+            android:text="My Customers"
+            android:background="@drawable/address_tag_selected_bg"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:gravity="center"
+            android:id="@+id/mycustomer_list"
+            />
+
+        <View
+            android:layout_width="10dp"
+            android:layout_height="match_parent"/>
+
+        <fr.arnaudguyon.smartfontslib.FontTextView
+            app:smart_font="fonts/Montserrat-Regular.ttf"
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:textColor="@color/address_tag_text_color"
+            android:text="Add Customer"
+            android:background="@drawable/address_tag_un_selected_bg"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:gravity="center"
+            android:id="@+id/add_customer"
+            />
+
+    </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="20dp"
+        android:id="@+id/rv_customers"/>
+
 </LinearLayout>

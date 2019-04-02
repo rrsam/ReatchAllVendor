@@ -1087,7 +1087,7 @@
                         android:layout_weight="1"
                         android:orientation="vertical"
                         android:layout_height="match_parent"
-                        android:id="@+id/addCustomer"
+                        android:id="@+id/myCustomers"
                         android:background="@color/light_grey">
 
 
@@ -1103,7 +1103,7 @@
                             app:smart_font="fonts/Montserrat-Regular.ttf"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:text="Add Customer"
+                            android:text="My Customers"
                             android:textSize="12sp"
                             android:layout_gravity="center"
                             android:gravity="center"
