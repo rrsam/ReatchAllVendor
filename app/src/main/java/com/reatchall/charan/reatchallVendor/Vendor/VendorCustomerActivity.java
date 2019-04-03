@@ -7,9 +7,11 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.MenuInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.PopupMenu;
 
 import com.android.volley.Request;
 import com.android.volley.Response;
@@ -37,7 +39,7 @@ public class VendorCustomerActivity extends AppCompatActivity {
     FontTextView titleToolbar;
     private static final String TAG = "VendorCustomerActivity";
 
-    private FontTextView txtMyListCustomer,txtAddCustomer;
+    private FontTextView txtMyListCustomer,txtAddCustomer,txtSort,txtSelect,txtActions;
 
     private PrefManager prefManager;
 
@@ -85,6 +87,10 @@ public class VendorCustomerActivity extends AppCompatActivity {
         txtAddCustomer = findViewById(R.id.add_customer);
         rvCustomers = findViewById(R.id.rv_customers);
 
+        txtSort=(FontTextView)findViewById(R.id.txtSort);
+        txtSelect=(FontTextView)findViewById(R.id.txtSelect);
+        txtActions=(FontTextView)findViewById(R.id.txtActions);
+
         txtAddCustomer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -93,6 +99,26 @@ public class VendorCustomerActivity extends AppCompatActivity {
                 intent.putExtra("businessDetails",businessDetails);
                 startActivity(intent);
 
+            }
+        });
+
+        txtSort.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PopupMenu popup = new PopupMenu(VendorCustomerActivity.this, v);
+                MenuInflater inflater = popup.getMenuInflater();
+                inflater.inflate(R.menu.sort_menu, popup.getMenu());
+                popup.show();
+            }
+        });
+
+        txtActions.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PopupMenu popup = new PopupMenu(VendorCustomerActivity.this, v);
+                MenuInflater inflater = popup.getMenuInflater();
+                inflater.inflate(R.menu.customer_menu, popup.getMenu());
+                popup.show();
             }
         });
 

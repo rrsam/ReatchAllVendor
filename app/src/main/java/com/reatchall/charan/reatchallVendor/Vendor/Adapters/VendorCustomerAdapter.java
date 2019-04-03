@@ -15,6 +15,7 @@ import com.reatchall.charan.reatchallVendor.Vendor.Models.Customer;
 import java.util.ArrayList;
 import java.util.Currency;
 
+import fr.arnaudguyon.smartfontslib.FontCheckBox;
 import fr.arnaudguyon.smartfontslib.FontTextView;
 
 public class VendorCustomerAdapter extends RecyclerView.Adapter<VendorCustomerAdapter.VendorCustomerHolder> {
@@ -48,18 +49,13 @@ public class VendorCustomerAdapter extends RecyclerView.Adapter<VendorCustomerAd
     class VendorCustomerHolder extends RecyclerView.ViewHolder {
 
         private FontTextView txtName;
-        private ImageView ivMore;
+        private FontCheckBox ivMore;
 
         public VendorCustomerHolder(View itemView) {
             super(itemView);
             txtName = itemView.findViewById(R.id.item_customer_name);
             ivMore = itemView.findViewById(R.id.item_customer_more);
-            ivMore.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
 
-                }
-            });
         }
     }
 }

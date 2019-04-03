@@ -46,15 +46,15 @@ public class VendorPromotionsVideoAdapter extends RecyclerView.Adapter<VendorPro
 
         holder.squareImageView.setImageBitmap(bmThumbnail);
         holder.squareImageView.setVisibility(View.VISIBLE);
-        holder.squareImageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                videoPlayerManager.playNewVideo(null,holder.videoPlayerView,arrayList.get(position));
-                holder.playIcon.setVisibility(View.INVISIBLE);
-                holder.deleteVideo.setVisibility(View.INVISIBLE);
-            }
-        });
+//        holder.squareImageView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//
+//                videoPlayerManager.playNewVideo(null,holder.videoPlayerView,arrayList.get(position));
+//                holder.playIcon.setVisibility(View.INVISIBLE);
+//                holder.deleteVideo.setVisibility(View.INVISIBLE);
+//            }
+//        });
 
         holder.videoPlayerView.addMediaPlayerListener(new SimpleMainThreadMediaPlayerListener(){
             @Override

@@ -16,6 +16,60 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
+            <fr.arnaudguyon.smartfontslib.FontTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="20dp"
+                android:gravity="center"
+                android:text="Promo Title :"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                app:smart_font="fonts/Montserrat-Regular.ttf" />
+
+            <fr.arnaudguyon.smartfontslib.FontEditText
+                android:id="@+id/promoVideoTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/black_bottom_border"
+                android:inputType="text"
+                android:padding="10dp"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                app:smart_font="fonts/Montserrat-Regular.ttf" />
+
+            <fr.arnaudguyon.smartfontslib.FontTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="20dp"
+                android:gravity="center"
+                android:text="Promo Description :"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                app:smart_font="fonts/Montserrat-Regular.ttf" />
+
+            <fr.arnaudguyon.smartfontslib.FontEditText
+                android:id="@+id/promoVideoDesc"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="20dp"
+                android:gravity="start"
+                android:background="@drawable/black_border_transparent"
+                android:inputType="textMultiLine"
+                android:padding="10dp"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                app:smart_font="fonts/Montserrat-Regular.ttf" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

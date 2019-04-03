@@ -23,7 +23,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:smart_font="fonts/Montserrat-Regular.ttf" />
 
-    <ImageView
+    <fr.arnaudguyon.smartfontslib.FontCheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_info"

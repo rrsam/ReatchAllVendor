@@ -218,7 +218,7 @@ public class VendorBusinessLogoFragment extends Fragment {
     private void setupAws(){
         credentials = new BasicAWSCredentials(Constants.S3_ACCESS_KEY_ID,Constants.S3_SECRET_ACCESS_KEY);
         s3 = new AmazonS3Client(credentials);
-        s3.setRegion(Region.getRegion(Regions.US_EAST_1));
+        s3.setRegion(Region.getRegion(Regions.AP_SOUTH_1));
         transferUtility = new TransferUtility(s3, context);
     }
 

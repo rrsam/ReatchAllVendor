@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -10,7 +10,7 @@
     app:cardUseCompatPadding="true"
     android:layout_marginBottom="10dp"
     android:clipToPadding="false">
-    <LinearLayout
+    <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="1dp"
@@ -18,100 +18,120 @@
 
         <ImageView
             android:id="@+id/productImage"
-            android:src="@color/placeholder_bg"
             android:layout_width="100dp"
+            android:layout_height="match_parent"
             android:scaleType="centerCrop"
-            android:layout_height="match_parent" />
+            android:src="@color/placeholder_bg"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
             android:background="@color/white"
+            android:orientation="vertical"
             android:padding="5dp"
-            android:orientation="vertical">
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/fontCheckBox"
+            app:layout_constraintStart_toEndOf="@id/productImage"
+            app:layout_constraintTop_toTopOf="parent">
+
             <fr.arnaudguyon.smartfontslib.FontTextView
-                app:smart_font="fonts/Montserrat-Regular.ttf"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="14sp"
-                android:singleLine="true"
-                android:maxLines="1"
-                android:ellipsize="end"
-                android:textColor="@color/black"
                 android:id="@+id/productName"
-                android:text="Product Name"/>
-            <fr.arnaudguyon.smartfontslib.FontTextView
-                android:layout_marginTop="5dp"
-                app:smart_font="fonts/Montserrat-Regular.ttf"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="12sp"
-                android:singleLine="true"
-                android:maxLines="1"
                 android:ellipsize="end"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:text="Product Name"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                app:smart_font="fonts/Montserrat-Regular.ttf" />
+
+            <fr.arnaudguyon.smartfontslib.FontTextView
                 android:id="@+id/listName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:text="List Name"
                 android:textColor="@color/grey_dark"
-                android:text="List Name"/>
+                android:textSize="12sp"
+                app:smart_font="fonts/Montserrat-Regular.ttf" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="10dp"
                 android:layout_gravity="center"
+                android:layout_marginTop="10dp"
                 android:gravity="center"
+                android:orientation="horizontal"
                 android:weightSum="2">
 
 
                 <LinearLayout
-                    android:orientation="horizontal"
                     android:id="@+id/editLayout"
                     android:layout_width="0dp"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:layout_height="wrap_content">
+                    android:orientation="horizontal">
 
                     <ImageView
-                        android:src="@drawable/ic_edit_orange"
                         android:layout_width="15dp"
-                        android:layout_height="15dp" />
+                        android:layout_height="15dp"
+                        android:src="@drawable/ic_edit_orange" />
 
                     <fr.arnaudguyon.smartfontslib.FontTextView
-                        android:layout_marginLeft="5dp"
-                        app:smart_font="fonts/Montserrat-Regular.ttf"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="12sp"
+                        android:layout_marginLeft="5dp"
+                        android:text="edit"
                         android:textColor="@color/orange_new"
-                        android:text="edit"/>
+                        android:textSize="12sp"
+                        app:smart_font="fonts/Montserrat-Regular.ttf" />
                 </LinearLayout>
 
                 <LinearLayout
-                    android:orientation="horizontal"
                     android:id="@+id/removeLayout"
                     android:layout_width="0dp"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:layout_height="wrap_content">
+                    android:orientation="horizontal">
 
                     <ImageView
-                        android:src="@drawable/ic_delete_red"
                         android:layout_width="15dp"
-                        android:layout_height="15dp"/>
+                        android:layout_height="15dp"
+                        android:src="@drawable/ic_delete_red" />
 
                     <fr.arnaudguyon.smartfontslib.FontTextView
-                        android:layout_marginLeft="5dp"
-                        app:smart_font="fonts/Montserrat-Regular.ttf"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="12sp"
+                        android:layout_marginLeft="5dp"
+                        android:text="delete"
                         android:textColor="@color/red_new"
-                        android:text="delete"/>
+                        android:textSize="12sp"
+                        app:smart_font="fonts/Montserrat-Regular.ttf" />
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
 
+        <fr.arnaudguyon.smartfontslib.FontCheckBox
+            android:id="@+id/fontCheckBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-
-    </LinearLayout>
+    </android.support.constraint.ConstraintLayout>
 
 </android.support.v7.widget.CardView>

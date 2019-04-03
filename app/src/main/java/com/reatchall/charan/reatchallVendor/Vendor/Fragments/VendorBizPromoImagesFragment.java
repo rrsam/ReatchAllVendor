@@ -66,6 +66,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
+import fr.arnaudguyon.smartfontslib.FontEditText;
 import fr.arnaudguyon.smartfontslib.FontTextView;
 
 
@@ -102,6 +103,8 @@ public class VendorBizPromoImagesFragment extends Fragment {
 
     FontTextView saveLogo;
 
+    FontEditText etTitle,etDescripiton;
+
     public VendorBizPromoImagesFragment() {
         // Required empty public constructor
     }
@@ -112,6 +115,8 @@ public class VendorBizPromoImagesFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         view= inflater.inflate(R.layout.fragment_vendor_biz_promo_images, container, false);
+
+
         return  view;
     }
 
@@ -124,12 +129,17 @@ public class VendorBizPromoImagesFragment extends Fragment {
         vendorPromotionsActivity.highlightTab(1);
         customProgressDialog = new CustomProgressDialog(context);
         prefManager = new PrefManager(context);
+
         itemImagesRcv=(RecyclerView)view.findViewById(R.id.itemImagesRcv);
+        etTitle=(FontEditText) view.findViewById(R.id.promoImageTitle);
+        etDescripiton=(FontEditText)view.findViewById(R.id.promoImageDesc);
+
         itemImagesRcv.setNestedScrollingEnabled(false);
         itemImagesRcv.setLayoutManager(new LinearLayoutManager(context,LinearLayoutManager.VERTICAL,true));
         vendorBizBannersAdapter = new VendorBizPromoImagesAdapter(context,arrayList,VendorBizPromoImagesFragment.this);
         itemImagesRcv.setAdapter(vendorBizBannersAdapter);
         saveLogo = (FontTextView)view.findViewById(R.id.saveLogo);
+
 
         customProgressDialog.showDialog();
         getImages();
@@ -142,12 +152,20 @@ public class VendorBizPromoImagesFragment extends Fragment {
         saveLogo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(selectedImagesFiles.size()>0){
-                    customProgressDialog.showDialog();
-                    compressImagesNupload();
+                if(!etTitle.getText().toString().isEmpty()) {
+                    if(!etDescripiton.getText().toString().isEmpty()) {
+                        if (selectedImagesFiles.size() > 0) {
+                            customProgressDialog.showDialog();
+                            compressImagesNupload();
+                        } else {
+                            customProgressDialog.showDialog();
+                            formString();
+                        }
+                    }else{
+                        Toast.makeText(vendorPromotionsActivity, "Please enter Promo Description", Toast.LENGTH_LONG).show();
+                    }
                 }else{
-                    customProgressDialog.showDialog();
-                    formString();
+                    Toast.makeText(vendorPromotionsActivity, "Please enter Promo Title", Toast.LENGTH_LONG).show();
                 }
             }
         });
@@ -169,11 +187,17 @@ public class VendorBizPromoImagesFragment extends Fragment {
         CustomJsonRequest customJsonRequest = new CustomJsonRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
+                Log.e(TAG, "onResponse: " + response.toString());
                 customProgressDialog.hideDialog();
                 try {
                     if(response.getBoolean("success")){
                         arrayList = new ArrayList<>();
-                        JSONArray basicDetails = response.getJSONObject("msg").getJSONArray("images");
+                        JSONObject msg = response.getJSONObject("msg");
+                        String title = msg.getString("title");
+                        String descripiton = msg.getString("description");
+                        etTitle.setText(title);
+                        etDescripiton.setText(descripiton);
+                        JSONArray basicDetails = msg.getJSONArray("images");
                             for (int i = 0; i < basicDetails.length(); i++) {
                                 arrayList.add(new BannerImages(null, basicDetails.getJSONObject(i).getString("url"), false));
                                 selectedImagesFiles.add(null);
@@ -216,7 +240,7 @@ public class VendorBizPromoImagesFragment extends Fragment {
     private void setupAws(){
         credentials = new BasicAWSCredentials(Constants.S3_ACCESS_KEY_ID,Constants.S3_SECRET_ACCESS_KEY);
         s3 = new AmazonS3Client(credentials);
-        s3.setRegion(Region.getRegion(Regions.US_EAST_1));
+        s3.setRegion(Region.getRegion(Regions.AP_SOUTH_1));
         transferUtility = new TransferUtility(s3, context);
     }
 
@@ -329,6 +353,8 @@ public class VendorBizPromoImagesFragment extends Fragment {
             JSONObject postItemJson = new JSONObject();
 
             postItemJson.put("business_id",businessDashboard.getBusinessId());
+            postItemJson.put("title",etTitle.getText().toString().trim());
+            postItemJson.put("description",etDescripiton.getText().toString().trim());
 
             JSONArray itemImagesJsonArray = new JSONArray();
             for(int i=0;i<imageUploadArrayList.size();i++){

@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context="com.reatchall.charan.reatchallVendor.Vendor.VendorMyProductsActivity">
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="56dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         >
         <android.support.v7.widget.Toolbar
             android:layout_width="match_parent"
@@ -40,6 +42,17 @@
                     android:singleLine="true"
                     android:layout_toRightOf="@+id/back_arrow"
                     />
+
+                <fr.arnaudguyon.smartfontslib.FontTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/add_btn_bg"
+                    android:padding="10dp"
+                    android:id="@+id/add_btn"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginRight="15dp"
+                    app:smart_font="fonts/Montserrat-Regular.ttf"
+                    android:text="ADD"/>
             </RelativeLayout>
         </android.support.v7.widget.Toolbar>
     </android.support.design.widget.AppBarLayout>
@@ -47,7 +60,11 @@
 
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        android:layout_marginTop="56dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -124,13 +141,58 @@
 
             <android.support.v7.widget.RecyclerView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:id="@+id/myProducts_rcv"
-                android:paddingTop="20dp"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp"></android.support.v7.widget.RecyclerView>
+                android:layout_marginBottom="50dp"></android.support.v7.widget.RecyclerView>
         </LinearLayout>
     </android.support.v4.widget.NestedScrollView>
 
 
-</LinearLayout>
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <fr.arnaudguyon.smartfontslib.FontTextView
+            android:id="@+id/txtSort"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Sort"
+            android:gravity="center"
+            android:padding="20dp"
+            android:background="@drawable/black_border_products"
+            app:layout_constraintBaseline_toBaselineOf="@+id/txtSelect"
+            app:layout_constraintEnd_toStartOf="@+id/txtSelect"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <fr.arnaudguyon.smartfontslib.FontTextView
+            android:id="@+id/txtSelect"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Select"
+            android:gravity="center"
+            android:padding="20dp"
+            android:background="@drawable/black_border_products"
+            app:layout_constraintBaseline_toBaselineOf="@+id/txtActions"
+            app:layout_constraintEnd_toStartOf="@+id/txtActions"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/txtSort" />
+
+        <fr.arnaudguyon.smartfontslib.FontTextView
+            android:id="@+id/txtActions"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Actions"
+            android:gravity="center"
+            android:padding="20dp"
+            android:background="@drawable/black_border_products"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/txtSelect" />
+
+    </android.support.constraint.ConstraintLayout>
+
+</android.support.constraint.ConstraintLayout>

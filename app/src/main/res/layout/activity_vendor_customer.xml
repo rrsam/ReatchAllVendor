@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -10,6 +10,10 @@
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:id="@+id/appBarLayout"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         >
         <android.support.v7.widget.Toolbar
             android:layout_width="match_parent"
@@ -47,13 +51,16 @@
 
     <LinearLayout
         android:id="@+id/title"
-        android:focusableInTouchMode="true"
         android:layout_width="wrap_content"
-        android:layout_centerHorizontal="true"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
         android:layout_gravity="center"
-        android:layout_marginTop="20dp"
-        android:orientation="vertical">
+        android:layout_marginTop="16dp"
+        android:focusableInTouchMode="true"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/appBarLayout">
 
         <fr.arnaudguyon.smartfontslib.FontTextView
             android:layout_width="wrap_content"
@@ -66,13 +73,12 @@
             app:smart_font="fonts/Montserrat-Bold.ttf" />
 
         <View
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
             android:layout_width="match_parent"
-            android:layout_marginTop="3dp"
             android:layout_height="2dp"
-            android:background="@color/dark_orange"
-            />
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginRight="10dp"
+            android:background="@color/dark_orange" />
 
     </LinearLayout>
 
@@ -81,6 +87,10 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center"
+        android:id="@+id/llLayout"
+        app:layout_constraintTop_toBottomOf="@id/title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
@@ -129,9 +139,59 @@
     </LinearLayout>
 
     <android.support.v7.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:id="@+id/rv_customers"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_margin="20dp"
-        android:id="@+id/rv_customers"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/llLayout" />
 
-</LinearLayout>
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <fr.arnaudguyon.smartfontslib.FontTextView
+            android:id="@+id/txtSort"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Sort"
+            android:gravity="center"
+            android:padding="20dp"
+            android:background="@drawable/black_border_products"
+            app:layout_constraintBaseline_toBaselineOf="@+id/txtSelect"
+            app:layout_constraintEnd_toStartOf="@+id/txtSelect"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <fr.arnaudguyon.smartfontslib.FontTextView
+            android:id="@+id/txtSelect"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Select"
+            android:gravity="center"
+            android:padding="20dp"
+            android:background="@drawable/black_border_products"
+            app:layout_constraintBaseline_toBaselineOf="@+id/txtActions"
+            app:layout_constraintEnd_toStartOf="@+id/txtActions"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/txtSort" />
+
+        <fr.arnaudguyon.smartfontslib.FontTextView
+            android:id="@+id/txtActions"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Actions"
+            android:gravity="center"
+            android:padding="20dp"
+            android:background="@drawable/black_border_products"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/txtSelect" />
+
+    </android.support.constraint.ConstraintLayout>
+
+</android.support.constraint.ConstraintLayout>
