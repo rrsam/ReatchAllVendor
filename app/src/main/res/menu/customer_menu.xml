@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/customer_menu_notify"
+        android:title="Notify"
+        app:actionViewClass="fr.arnaudguyon.smartfontslib.FontTextView"/>
+
+    <item android:id="@+id/customer_menu_delete"
+        android:title="Delete"
+        app:actionViewClass="fr.arnaudguyon.smartfontslib.FontTextView"/>
+
+</menu>
