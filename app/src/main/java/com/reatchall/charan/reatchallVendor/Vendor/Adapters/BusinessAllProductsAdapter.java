@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
@@ -16,6 +17,7 @@ import com.reatchall.charan.reatchallVendor.Vendor.interfaces.ILoadProducts;
 
 import java.util.ArrayList;
 
+import fr.arnaudguyon.smartfontslib.FontCheckBox;
 import fr.arnaudguyon.smartfontslib.FontTextView;
 
 public class BusinessAllProductsAdapter extends RecyclerView.Adapter<BusinessAllProductsAdapter.BusinessAllProductsViewHolder> {
@@ -23,11 +25,15 @@ public class BusinessAllProductsAdapter extends RecyclerView.Adapter<BusinessAll
     Context context;
     ArrayList<NewProduct> allProductsArrayList;
     ILoadProducts iLoadProductsList;
+    OncheckChangeListener mListener;
+    OnItemClickListener mItemClickListener;
 
-    public BusinessAllProductsAdapter(Context context, ArrayList<NewProduct> allProductsArrayList, ILoadProducts iLoadProductsList) {
+    public BusinessAllProductsAdapter(Context context, ArrayList<NewProduct> allProductsArrayList, ILoadProducts iLoadProductsList,OncheckChangeListener mListener,OnItemClickListener mItemClickListener) {
         this.context = context;
         this.allProductsArrayList = allProductsArrayList;
         this.iLoadProductsList = iLoadProductsList;
+        this.mListener = mListener;
+        this.mItemClickListener = mItemClickListener;
     }
 
     @Override
@@ -76,6 +82,8 @@ public class BusinessAllProductsAdapter extends RecyclerView.Adapter<BusinessAll
         ImageView productImage;
         FontTextView productName;
         FontTextView listName;
+        FontCheckBox selectItem;
+
         public BusinessAllProductsViewHolder(View itemView) {
             super(itemView);
             editLayout=(LinearLayout)itemView.findViewById(R.id.editLayout);
@@ -83,6 +91,31 @@ public class BusinessAllProductsAdapter extends RecyclerView.Adapter<BusinessAll
             productImage=(ImageView)itemView.findViewById(R.id.productImage);
             productName=(FontTextView)itemView.findViewById(R.id.productName);
             listName=(FontTextView)itemView.findViewById(R.id.listName);
+            selectItem = (FontCheckBox)itemView.findViewById(R.id.fontCheckBox);
+
+            selectItem.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                    mListener.onCheckedChangedListener(isChecked,allProductsArrayList.get(getAdapterPosition()));
+                }
+            });
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    mItemClickListener.onItemClicked(allProductsArrayList.get(getAdapterPosition()));
+                }
+            });
         }
+
+
+
+    }
+    public interface OncheckChangeListener{
+        void onCheckedChangedListener(boolean isChecked,NewProduct mProduct);
+    }
+
+    public interface OnItemClickListener{
+        void onItemClicked(NewProduct mProduct);
     }
 }

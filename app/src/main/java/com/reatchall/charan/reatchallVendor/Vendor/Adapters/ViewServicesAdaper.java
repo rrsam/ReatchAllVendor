@@ -7,11 +7,13 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 import com.bumptech.glide.Glide;
 import com.reatchall.charan.reatchallVendor.R;
+import com.reatchall.charan.reatchallVendor.Vendor.Models.NewProduct;
 import com.reatchall.charan.reatchallVendor.Vendor.Models.VendorService;
 import com.reatchall.charan.reatchallVendor.Vendor.VendorServicesActivity;
 
@@ -19,16 +21,19 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 
+import fr.arnaudguyon.smartfontslib.FontCheckBox;
 import fr.arnaudguyon.smartfontslib.FontTextView;
 
 public class ViewServicesAdaper extends RecyclerView.Adapter<ViewServicesAdaper.ViewServicesViewHolder> {
 
     Context context;
     ArrayList<VendorService> vendorServiceArrayList;
+    OnStatusCheckListener mListener;
 
-    public ViewServicesAdaper(Context context, ArrayList<VendorService> vendorServiceArrayList) {
+    public ViewServicesAdaper(Context context, ArrayList<VendorService> vendorServiceArrayList,OnStatusCheckListener mListener) {
         this.context = context;
         this.vendorServiceArrayList = vendorServiceArrayList;
+        this.mListener = mListener;
     }
 
     @NonNull
@@ -67,12 +72,25 @@ public class ViewServicesAdaper extends RecyclerView.Adapter<ViewServicesAdaper.
     public class ViewServicesViewHolder extends RecyclerView.ViewHolder {
         ImageView serviceIv;
         FontTextView serviceName;
+        FontCheckBox serviceSelect;
         RelativeLayout viewAppnmts;
         public ViewServicesViewHolder(View itemView) {
             super(itemView);
             serviceIv =(ImageView)itemView.findViewById(R.id.serviceIv);
             serviceName =(FontTextView) itemView.findViewById(R.id.serviceName);
+            serviceSelect =(FontCheckBox) itemView.findViewById(R.id.serviceSelect);
             viewAppnmts =(RelativeLayout) itemView.findViewById(R.id.viewAppnmts);
+            serviceSelect.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                    mListener.onCheckedChangedListener(isChecked,vendorServiceArrayList.get(getAdapterPosition()));
+                }
+            });
+
         }
+    }
+
+    public interface OnStatusCheckListener{
+        void onCheckedChangedListener(boolean isChecked,VendorService mVendorService);
     }
 }

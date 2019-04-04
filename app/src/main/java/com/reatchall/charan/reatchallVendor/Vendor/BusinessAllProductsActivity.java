@@ -1,5 +1,6 @@
 package com.reatchall.charan.reatchallVendor.Vendor;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -14,6 +15,8 @@ import android.widget.LinearLayout;
 import android.widget.PopupMenu;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.reatchall.charan.reatchallVendor.R;
 import com.reatchall.charan.reatchallVendor.Utils.ConfirmationDialog;
@@ -35,7 +38,7 @@ import java.util.ArrayList;
 
 import fr.arnaudguyon.smartfontslib.FontTextView;
 
-public class BusinessAllProductsActivity extends AppCompatActivity implements ILoadProducts, PopupMenu.OnMenuItemClickListener {
+public class BusinessAllProductsActivity extends AppCompatActivity implements ILoadProducts, PopupMenu.OnMenuItemClickListener, BusinessAllProductsAdapter.OncheckChangeListener, BusinessAllProductsAdapter.OnItemClickListener {
 
     private static final String TAG = "BusinessAllProductsActi";
     ImageView backArrow;
@@ -43,10 +46,9 @@ public class BusinessAllProductsActivity extends AppCompatActivity implements IL
 
     RecyclerView recyclerView;
     ArrayList<AllProducts> arrayList = new ArrayList<>();
-    ArrayList<NewProduct> productsArrayList = new ArrayList<>();
+    ArrayList<NewProduct> productsArrayList;
     BusinessAllProductsAdapter businessAllProductsAdapter;
     BusinessDetails businessDetails = null;
-    String updateListNameString=null;
 
     int toggle;
     FontTextView subTitle,txtSort,txtSelect,txtActions,addBtn;
@@ -56,12 +58,14 @@ public class BusinessAllProductsActivity extends AppCompatActivity implements IL
 
     CustomProgressDialog customProgressDialog;
     LinearLayout saveControllerDetails;
+    ArrayList<String> itemsIdList = new ArrayList<>();
+    private Context mContext;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_business_all_products);
-
+        mContext = BusinessAllProductsActivity.this;
         backArrow=(ImageView)findViewById(R.id.back_arrow);
         backArrow.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,10 +85,6 @@ public class BusinessAllProductsActivity extends AppCompatActivity implements IL
         businessDetails = getIntent().getExtras().getParcelable("businessDetails");
         toggle=getIntent().getExtras().getInt("toggle");
 
-        recyclerView=(RecyclerView)findViewById(R.id.myProducts_rcv);
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setNestedScrollingEnabled(false);
-        recyclerView.setLayoutManager(new LinearLayoutManager(BusinessAllProductsActivity.this,LinearLayoutManager.VERTICAL, false));
 
 
         if(toggle==2){
@@ -104,9 +104,14 @@ public class BusinessAllProductsActivity extends AppCompatActivity implements IL
             Log.e(TAG, "onCreate:ID "+businessDetails.getBusinessId() +"NAME"+businessDetails.getBusinessName());
         }
 
-        customProgressDialog= new CustomProgressDialog(BusinessAllProductsActivity.this);
-        customProgressDialog.showDialog();
+        recyclerView=(RecyclerView)findViewById(R.id.myProducts_rcv);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setNestedScrollingEnabled(false);
+        recyclerView.setLayoutManager(new LinearLayoutManager(BusinessAllProductsActivity.this,LinearLayoutManager.VERTICAL, false));
 
+
+        customProgressDialog= new CustomProgressDialog(BusinessAllProductsActivity.this);
+        loadAllProducts();
         txtSort.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -138,12 +143,13 @@ public class BusinessAllProductsActivity extends AppCompatActivity implements IL
             }
         });
 
-        txtSort.performClick();
+
     }
 
 
     private void setUpRecyclerView(){
-         businessAllProductsAdapter=new BusinessAllProductsAdapter(BusinessAllProductsActivity.this,productsArrayList,BusinessAllProductsActivity.this);
+        businessAllProductsAdapter=new BusinessAllProductsAdapter(BusinessAllProductsActivity.this,productsArrayList,BusinessAllProductsActivity.this,
+                BusinessAllProductsActivity.this,BusinessAllProductsActivity.this);
         recyclerView.setAdapter(businessAllProductsAdapter);
     }
 
@@ -227,16 +233,29 @@ public class BusinessAllProductsActivity extends AppCompatActivity implements IL
     public boolean onMenuItemClick(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.sort_menu_all:
+                subTitle.setText("All Products");
                 loadAllProducts();
                 return true;
             case R.id.sort_menu_active:
+                subTitle.setText("Active Products");
                 loadActiveProducts();
                 return true;
             case R.id.sort_menu_inactive:
+                subTitle.setText("Inactive Products");
                 loadInActiveProducts();
                 return true;
             case R.id.sort_menu_pending:
+                subTitle.setText("Pending Products");
                 loadPendingProducts();
+                return true;
+            case R.id.products_menu_active:
+                  makeproductsactive();
+                return true;
+            case R.id.products_menu_deactive:
+                 makeproductsdeactive();
+                return true;
+            case R.id.products_menu_delete:
+                 makeproductsdelete();
                 return true;
             default:
                 return false;
@@ -244,85 +263,72 @@ public class BusinessAllProductsActivity extends AppCompatActivity implements IL
     }
 
 
+
+
     private void loadAllProducts(){
+        customProgressDialog.showDialog();
         String url = Constants.BASE_URL+"vendor/get-items-by-businessid/"+businessDetails.getBusinessId();
         CustomJsonRequest customJsonRequest = new CustomJsonRequest(com.android.volley.Request.Method.GET, url, null, new com.android.volley.Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
+
                 JSONArray msg = null;
                 try {
+                    boolean success = response.getBoolean("success");
+                    if (success) {
                     msg = response.getJSONArray("msg");
 
-                    productsArrayList.clear();
+                    productsArrayList  = new ArrayList<>();
 
                     for(int i =0;i<msg.length();i++){
                         JSONObject list = msg.getJSONObject(i);
                         if(list.has("list_id")){
                             if(list.getJSONArray("images").length()>0){
-                                if(list.getBoolean("single")){
-                                    productsArrayList.add(new NewProduct(list.getString("_id"),list.getString("name"),list.getString("list_id"),
-                                            list.getString("vendor_id"),list.getString("business_id"),list.getString("description"),
-                                            list.getString("brand"),list.getString("units"),list.getInt("quantity"),
-                                            list.getDouble("price"),list.getBoolean("single"),0,list.getJSONArray("images").getJSONObject(0).getString("url")));
-                                }else{
-                                    productsArrayList.add(new NewProduct(list.getString("_id"),list.getString("name"),list.getString("list_id"),
-                                            list.getString("vendor_id"),list.getString("business_id"),list.getString("description"),
-                                            list.getString("brand"),list.getString("units"),list.getInt("quantity"),
-                                            list.getDouble("price"),list.getBoolean("single"),list.getInt("pack"),list.getJSONArray("images").getJSONObject(0).getString("url")));
-                                }
+                                productsArrayList.add(new NewProduct(list.getString("_id"),list.getString("name"),list.getString("list_id"),
+                                        list.getString("vendor_id"),list.getString("business_id"),list.getString("description"),
+                                        list.getString("brand"),list.getString("units"),list.getInt("quantity"),
+                                        list.getDouble("price"),true,0,list.getJSONArray("images").getJSONObject(0).getString("url")));
+
                             }else{
-                                if(list.getBoolean("single")){
-                                    productsArrayList.add(new NewProduct(list.getString("_id"),list.getString("name"),list.getString("list_id"),
-                                            list.getString("vendor_id"),list.getString("business_id"),list.getString("description"),
-                                            list.getString("brand"),list.getString("units"),list.getInt("quantity"),
-                                            list.getDouble("price"),list.getBoolean("single"),0,""));
-                                }else{
-                                    productsArrayList.add(new NewProduct(list.getString("_id"),list.getString("name"),list.getString("list_id"),
-                                            list.getString("vendor_id"),list.getString("business_id"),list.getString("description"),
-                                            list.getString("brand"),list.getString("units"),list.getInt("quantity"),
-                                            list.getDouble("price"),list.getBoolean("single"),list.getInt("pack"),""));
-                                }
+                                productsArrayList.add(new NewProduct(list.getString("_id"),list.getString("name"),list.getString("list_id"),
+                                        list.getString("vendor_id"),list.getString("business_id"),list.getString("description"),
+                                        list.getString("brand"),list.getString("units"),list.getInt("quantity"),
+                                        list.getDouble("price"),true,0,""));
+
                             }
                         }else{
                             if(list.getJSONArray("images").length()>0){
-                                if(list.getBoolean("single")){
-                                    productsArrayList.add(new NewProduct(list.getString("_id"),list.getString("name"),"",
-                                            list.getString("vendor_id"),list.getString("business_id"),list.getString("description"),
-                                            list.getString("brand"),list.getString("units"),list.getInt("quantity"),
-                                            list.getDouble("price"),list.getBoolean("single"),0,list.getJSONArray("images").getJSONObject(0).getString("url")));
-                                }else{
-                                    productsArrayList.add(new NewProduct(list.getString("_id"),list.getString("name"),"",
-                                            list.getString("vendor_id"),list.getString("business_id"),list.getString("description"),
-                                            list.getString("brand"),list.getString("units"),list.getInt("quantity"),
-                                            list.getDouble("price"),list.getBoolean("single"),list.getInt("pack"),list.getJSONArray("images").getJSONObject(0).getString("url")));
-                                }
+                                productsArrayList.add(new NewProduct(list.getString("_id"),list.getString("name"),"",
+                                        list.getString("vendor_id"),list.getString("business_id"),list.getString("description"),
+                                        list.getString("brand"),list.getString("units"),list.getInt("quantity"),
+                                        list.getDouble("price"),true,0,list.getJSONArray("images").getJSONObject(0).getString("url")));
+
                             }else{
-                                if(list.getBoolean("single")){
-                                    productsArrayList.add(new NewProduct(list.getString("_id"),list.getString("name"),"",
-                                            list.getString("vendor_id"),list.getString("business_id"),list.getString("description"),
-                                            list.getString("brand"),list.getString("units"),list.getInt("quantity"),
-                                            list.getDouble("price"),list.getBoolean("single"),0,""));
-                                }else{
-                                    productsArrayList.add(new NewProduct(list.getString("_id"),list.getString("name"),"",
-                                            list.getString("vendor_id"),list.getString("business_id"),list.getString("description"),
-                                            list.getString("brand"),list.getString("units"),list.getInt("quantity"),
-                                            list.getDouble("price"),list.getBoolean("single"),list.getInt("pack"),""));
-                                }
+                                productsArrayList.add(new NewProduct(list.getString("_id"),list.getString("name"),"",
+                                        list.getString("vendor_id"),list.getString("business_id"),list.getString("description"),
+                                        list.getString("brand"),list.getString("units"),list.getInt("quantity"),
+                                        list.getDouble("price"),true,0,""));
+
                             }
                         }
                     }
+                    setUpRecyclerView();
+
+                }else{
+                        productsArrayList.clear();
+                        businessAllProductsAdapter.notifyDataSetChanged();
+                    Toast.makeText(BusinessAllProductsActivity.this, "No List", Toast.LENGTH_SHORT).show();
+                }
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
 
-                setUpRecyclerView();
                 customProgressDialog.hideDialog();
-
-
             }
         }, new com.android.volley.Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
+                customProgressDialog.hideDialog();
                 Toast.makeText(BusinessAllProductsActivity.this,"Couldn't fetch the data",Toast.LENGTH_LONG).show();
             }
         });
@@ -332,85 +338,95 @@ public class BusinessAllProductsActivity extends AppCompatActivity implements IL
     }
 
     private void loadActiveProducts(){
-        String url = Constants.BASE_URL+"vendor/get-active-items-by-businessid/"+businessDetails.getBusinessId();
+        customProgressDialog.showDialog();
+        String url = Constants.BASE_URL+"vendor/get-active-items-by-business_id/"+businessDetails.getBusinessId();
         CustomJsonRequest customJsonRequest = new CustomJsonRequest(com.android.volley.Request.Method.GET, url, null, new com.android.volley.Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
+                Log.e(TAG, "onResponse: " +response.toString() );
                 JSONArray msg = null;
                 try {
-                    msg = response.getJSONArray("msg");
+                    boolean success = response.getBoolean("success");
+                    if (success) {
+                        msg = response.getJSONArray("msg");
+                        productsArrayList = new ArrayList<>();
 
-                    productsArrayList.clear();
-
-                    for(int i =0;i<msg.length();i++){
-                        JSONObject list = msg.getJSONObject(i);
-                        if(list.has("list_id")){
-                            if(list.getJSONArray("images").length()>0){
-                                if(list.getBoolean("single")){
-                                    productsArrayList.add(new NewProduct(list.getString("_id"),list.getString("name"),list.getString("list_id"),
-                                            list.getString("vendor_id"),list.getString("business_id"),list.getString("description"),
-                                            list.getString("brand"),list.getString("units"),list.getInt("quantity"),
-                                            list.getDouble("price"),list.getBoolean("single"),0,list.getJSONArray("images").getJSONObject(0).getString("url")));
-                                }else{
-                                    productsArrayList.add(new NewProduct(list.getString("_id"),list.getString("name"),list.getString("list_id"),
-                                            list.getString("vendor_id"),list.getString("business_id"),list.getString("description"),
-                                            list.getString("brand"),list.getString("units"),list.getInt("quantity"),
-                                            list.getDouble("price"),list.getBoolean("single"),list.getInt("pack"),list.getJSONArray("images").getJSONObject(0).getString("url")));
+                        for (int i = 0; i < msg.length(); i++) {
+                            JSONObject list = msg.getJSONObject(i);
+                            if (list.has("list_id")) {
+                                if (list.getJSONArray("images").length() > 0) {
+                                    if (list.getBoolean("single")) {
+                                        productsArrayList.add(new NewProduct(list.getString("_id"), list.getString("name"), list.getString("list_id"),
+                                                list.getString("vendor_id"), list.getString("business_id"), list.getString("description"),
+                                                list.getString("brand"), list.getString("units"), list.getInt("quantity"),
+                                                list.getDouble("price"), list.getBoolean("single"), 0, list.getJSONArray("images").getJSONObject(0).getString("url")));
+                                    } else {
+                                        productsArrayList.add(new NewProduct(list.getString("_id"), list.getString("name"), list.getString("list_id"),
+                                                list.getString("vendor_id"), list.getString("business_id"), list.getString("description"),
+                                                list.getString("brand"), list.getString("units"), list.getInt("quantity"),
+                                                list.getDouble("price"), list.getBoolean("single"), list.getInt("pack"), list.getJSONArray("images").getJSONObject(0).getString("url")));
+                                    }
+                                } else {
+                                    if (list.getBoolean("single")) {
+                                        productsArrayList.add(new NewProduct(list.getString("_id"), list.getString("name"), list.getString("list_id"),
+                                                list.getString("vendor_id"), list.getString("business_id"), list.getString("description"),
+                                                list.getString("brand"), list.getString("units"), list.getInt("quantity"),
+                                                list.getDouble("price"), list.getBoolean("single"), 0, ""));
+                                    } else {
+                                        productsArrayList.add(new NewProduct(list.getString("_id"), list.getString("name"), list.getString("list_id"),
+                                                list.getString("vendor_id"), list.getString("business_id"), list.getString("description"),
+                                                list.getString("brand"), list.getString("units"), list.getInt("quantity"),
+                                                list.getDouble("price"), list.getBoolean("single"), list.getInt("pack"), ""));
+                                    }
                                 }
-                            }else{
-                                if(list.getBoolean("single")){
-                                    productsArrayList.add(new NewProduct(list.getString("_id"),list.getString("name"),list.getString("list_id"),
-                                            list.getString("vendor_id"),list.getString("business_id"),list.getString("description"),
-                                            list.getString("brand"),list.getString("units"),list.getInt("quantity"),
-                                            list.getDouble("price"),list.getBoolean("single"),0,""));
-                                }else{
-                                    productsArrayList.add(new NewProduct(list.getString("_id"),list.getString("name"),list.getString("list_id"),
-                                            list.getString("vendor_id"),list.getString("business_id"),list.getString("description"),
-                                            list.getString("brand"),list.getString("units"),list.getInt("quantity"),
-                                            list.getDouble("price"),list.getBoolean("single"),list.getInt("pack"),""));
-                                }
-                            }
-                        }else{
-                            if(list.getJSONArray("images").length()>0){
-                                if(list.getBoolean("single")){
-                                    productsArrayList.add(new NewProduct(list.getString("_id"),list.getString("name"),"",
-                                            list.getString("vendor_id"),list.getString("business_id"),list.getString("description"),
-                                            list.getString("brand"),list.getString("units"),list.getInt("quantity"),
-                                            list.getDouble("price"),list.getBoolean("single"),0,list.getJSONArray("images").getJSONObject(0).getString("url")));
-                                }else{
-                                    productsArrayList.add(new NewProduct(list.getString("_id"),list.getString("name"),"",
-                                            list.getString("vendor_id"),list.getString("business_id"),list.getString("description"),
-                                            list.getString("brand"),list.getString("units"),list.getInt("quantity"),
-                                            list.getDouble("price"),list.getBoolean("single"),list.getInt("pack"),list.getJSONArray("images").getJSONObject(0).getString("url")));
-                                }
-                            }else{
-                                if(list.getBoolean("single")){
-                                    productsArrayList.add(new NewProduct(list.getString("_id"),list.getString("name"),"",
-                                            list.getString("vendor_id"),list.getString("business_id"),list.getString("description"),
-                                            list.getString("brand"),list.getString("units"),list.getInt("quantity"),
-                                            list.getDouble("price"),list.getBoolean("single"),0,""));
-                                }else{
-                                    productsArrayList.add(new NewProduct(list.getString("_id"),list.getString("name"),"",
-                                            list.getString("vendor_id"),list.getString("business_id"),list.getString("description"),
-                                            list.getString("brand"),list.getString("units"),list.getInt("quantity"),
-                                            list.getDouble("price"),list.getBoolean("single"),list.getInt("pack"),""));
+                            } else {
+                                if (list.getJSONArray("images").length() > 0) {
+                                    if (list.getBoolean("single")) {
+                                        productsArrayList.add(new NewProduct(list.getString("_id"), list.getString("name"), "",
+                                                list.getString("vendor_id"), list.getString("business_id"), list.getString("description"),
+                                                list.getString("brand"), list.getString("units"), list.getInt("quantity"),
+                                                list.getDouble("price"), list.getBoolean("single"), 0, list.getJSONArray("images").getJSONObject(0).getString("url")));
+                                    } else {
+                                        productsArrayList.add(new NewProduct(list.getString("_id"), list.getString("name"), "",
+                                                list.getString("vendor_id"), list.getString("business_id"), list.getString("description"),
+                                                list.getString("brand"), list.getString("units"), list.getInt("quantity"),
+                                                list.getDouble("price"), list.getBoolean("single"), list.getInt("pack"), list.getJSONArray("images").getJSONObject(0).getString("url")));
+                                    }
+                                } else {
+                                    if (list.getBoolean("single")) {
+                                        productsArrayList.add(new NewProduct(list.getString("_id"), list.getString("name"), "",
+                                                list.getString("vendor_id"), list.getString("business_id"), list.getString("description"),
+                                                list.getString("brand"), list.getString("units"), list.getInt("quantity"),
+                                                list.getDouble("price"), list.getBoolean("single"), 0, ""));
+                                    } else {
+                                        productsArrayList.add(new NewProduct(list.getString("_id"), list.getString("name"), "",
+                                                list.getString("vendor_id"), list.getString("business_id"), list.getString("description"),
+                                                list.getString("brand"), list.getString("units"), list.getInt("quantity"),
+                                                list.getDouble("price"), list.getBoolean("single"), list.getInt("pack"), ""));
+                                    }
                                 }
                             }
                         }
+                        setUpRecyclerView();
+                    }else{
+
+                        productsArrayList.clear();
+                        businessAllProductsAdapter.notifyDataSetChanged();
+                        Toast.makeText(BusinessAllProductsActivity.this, "No List", Toast.LENGTH_SHORT).show();
                     }
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
 
-                setUpRecyclerView();
+                } catch(JSONException e){
+                        e.printStackTrace();
+                    }
+
                 customProgressDialog.hideDialog();
-
 
             }
         }, new com.android.volley.Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 Toast.makeText(BusinessAllProductsActivity.this,"Couldn't fetch the data",Toast.LENGTH_LONG).show();
+                customProgressDialog.hideDialog();
             }
         });
 
@@ -419,77 +435,84 @@ public class BusinessAllProductsActivity extends AppCompatActivity implements IL
     }
 
     private void loadInActiveProducts(){
-        String url = Constants.BASE_URL+"vendor/get-inactive-items-by-businessid/"+businessDetails.getBusinessId();
+        customProgressDialog.showDialog();
+        String url = Constants.BASE_URL+"vendor/get-inactive-items-by-business_id/"+businessDetails.getBusinessId();
         CustomJsonRequest customJsonRequest = new CustomJsonRequest(com.android.volley.Request.Method.GET, url, null, new com.android.volley.Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 JSONArray msg = null;
                 try {
-                    msg = response.getJSONArray("msg");
-
-                    productsArrayList.clear();
-
-                    for(int i =0;i<msg.length();i++){
-                        JSONObject list = msg.getJSONObject(i);
-                        if(list.has("list_id")){
-                            if(list.getJSONArray("images").length()>0){
-                                if(list.getBoolean("single")){
-                                    productsArrayList.add(new NewProduct(list.getString("_id"),list.getString("name"),list.getString("list_id"),
-                                            list.getString("vendor_id"),list.getString("business_id"),list.getString("description"),
-                                            list.getString("brand"),list.getString("units"),list.getInt("quantity"),
-                                            list.getDouble("price"),list.getBoolean("single"),0,list.getJSONArray("images").getJSONObject(0).getString("url")));
+                    boolean success = response.getBoolean("success");
+                    if (success) {
+                        productsArrayList  = new ArrayList<>();
+                        msg = response.getJSONArray("msg");
+                        for(int i =0;i<msg.length();i++){
+                            JSONObject list = msg.getJSONObject(i);
+                            if(list.has("list_id")){
+                                if(list.getJSONArray("images").length()>0){
+                                    if(list.getBoolean("single")){
+                                        productsArrayList.add(new NewProduct(list.getString("_id"),list.getString("name"),list.getString("list_id"),
+                                                list.getString("vendor_id"),list.getString("business_id"),list.getString("description"),
+                                                list.getString("brand"),list.getString("units"),list.getInt("quantity"),
+                                                list.getDouble("price"),list.getBoolean("single"),0,list.getJSONArray("images").getJSONObject(0).getString("url")));
+                                    }else{
+                                        productsArrayList.add(new NewProduct(list.getString("_id"),list.getString("name"),list.getString("list_id"),
+                                                list.getString("vendor_id"),list.getString("business_id"),list.getString("description"),
+                                                list.getString("brand"),list.getString("units"),list.getInt("quantity"),
+                                                list.getDouble("price"),list.getBoolean("single"),list.getInt("pack"),list.getJSONArray("images").getJSONObject(0).getString("url")));
+                                    }
                                 }else{
-                                    productsArrayList.add(new NewProduct(list.getString("_id"),list.getString("name"),list.getString("list_id"),
-                                            list.getString("vendor_id"),list.getString("business_id"),list.getString("description"),
-                                            list.getString("brand"),list.getString("units"),list.getInt("quantity"),
-                                            list.getDouble("price"),list.getBoolean("single"),list.getInt("pack"),list.getJSONArray("images").getJSONObject(0).getString("url")));
+                                    if(list.getBoolean("single")){
+                                        productsArrayList.add(new NewProduct(list.getString("_id"),list.getString("name"),list.getString("list_id"),
+                                                list.getString("vendor_id"),list.getString("business_id"),list.getString("description"),
+                                                list.getString("brand"),list.getString("units"),list.getInt("quantity"),
+                                                list.getDouble("price"),list.getBoolean("single"),0,""));
+                                    }else{
+                                        productsArrayList.add(new NewProduct(list.getString("_id"),list.getString("name"),list.getString("list_id"),
+                                                list.getString("vendor_id"),list.getString("business_id"),list.getString("description"),
+                                                list.getString("brand"),list.getString("units"),list.getInt("quantity"),
+                                                list.getDouble("price"),list.getBoolean("single"),list.getInt("pack"),""));
+                                    }
                                 }
                             }else{
-                                if(list.getBoolean("single")){
-                                    productsArrayList.add(new NewProduct(list.getString("_id"),list.getString("name"),list.getString("list_id"),
-                                            list.getString("vendor_id"),list.getString("business_id"),list.getString("description"),
-                                            list.getString("brand"),list.getString("units"),list.getInt("quantity"),
-                                            list.getDouble("price"),list.getBoolean("single"),0,""));
+                                if(list.getJSONArray("images").length()>0){
+                                    if(list.getBoolean("single")){
+                                        productsArrayList.add(new NewProduct(list.getString("_id"),list.getString("name"),"",
+                                                list.getString("vendor_id"),list.getString("business_id"),list.getString("description"),
+                                                list.getString("brand"),list.getString("units"),list.getInt("quantity"),
+                                                list.getDouble("price"),list.getBoolean("single"),0,list.getJSONArray("images").getJSONObject(0).getString("url")));
+                                    }else{
+                                        productsArrayList.add(new NewProduct(list.getString("_id"),list.getString("name"),"",
+                                                list.getString("vendor_id"),list.getString("business_id"),list.getString("description"),
+                                                list.getString("brand"),list.getString("units"),list.getInt("quantity"),
+                                                list.getDouble("price"),list.getBoolean("single"),list.getInt("pack"),list.getJSONArray("images").getJSONObject(0).getString("url")));
+                                    }
                                 }else{
-                                    productsArrayList.add(new NewProduct(list.getString("_id"),list.getString("name"),list.getString("list_id"),
-                                            list.getString("vendor_id"),list.getString("business_id"),list.getString("description"),
-                                            list.getString("brand"),list.getString("units"),list.getInt("quantity"),
-                                            list.getDouble("price"),list.getBoolean("single"),list.getInt("pack"),""));
-                                }
-                            }
-                        }else{
-                            if(list.getJSONArray("images").length()>0){
-                                if(list.getBoolean("single")){
-                                    productsArrayList.add(new NewProduct(list.getString("_id"),list.getString("name"),"",
-                                            list.getString("vendor_id"),list.getString("business_id"),list.getString("description"),
-                                            list.getString("brand"),list.getString("units"),list.getInt("quantity"),
-                                            list.getDouble("price"),list.getBoolean("single"),0,list.getJSONArray("images").getJSONObject(0).getString("url")));
-                                }else{
-                                    productsArrayList.add(new NewProduct(list.getString("_id"),list.getString("name"),"",
-                                            list.getString("vendor_id"),list.getString("business_id"),list.getString("description"),
-                                            list.getString("brand"),list.getString("units"),list.getInt("quantity"),
-                                            list.getDouble("price"),list.getBoolean("single"),list.getInt("pack"),list.getJSONArray("images").getJSONObject(0).getString("url")));
-                                }
-                            }else{
-                                if(list.getBoolean("single")){
-                                    productsArrayList.add(new NewProduct(list.getString("_id"),list.getString("name"),"",
-                                            list.getString("vendor_id"),list.getString("business_id"),list.getString("description"),
-                                            list.getString("brand"),list.getString("units"),list.getInt("quantity"),
-                                            list.getDouble("price"),list.getBoolean("single"),0,""));
-                                }else{
-                                    productsArrayList.add(new NewProduct(list.getString("_id"),list.getString("name"),"",
-                                            list.getString("vendor_id"),list.getString("business_id"),list.getString("description"),
-                                            list.getString("brand"),list.getString("units"),list.getInt("quantity"),
-                                            list.getDouble("price"),list.getBoolean("single"),list.getInt("pack"),""));
+                                    if(list.getBoolean("single")){
+                                        productsArrayList.add(new NewProduct(list.getString("_id"),list.getString("name"),"",
+                                                list.getString("vendor_id"),list.getString("business_id"),list.getString("description"),
+                                                list.getString("brand"),list.getString("units"),list.getInt("quantity"),
+                                                list.getDouble("price"),list.getBoolean("single"),0,""));
+                                    }else{
+                                        productsArrayList.add(new NewProduct(list.getString("_id"),list.getString("name"),"",
+                                                list.getString("vendor_id"),list.getString("business_id"),list.getString("description"),
+                                                list.getString("brand"),list.getString("units"),list.getInt("quantity"),
+                                                list.getDouble("price"),list.getBoolean("single"),list.getInt("pack"),""));
+                                    }
                                 }
                             }
                         }
+
+                        setUpRecyclerView();
+                    }else{
+                        productsArrayList.clear();
+                        businessAllProductsAdapter.notifyDataSetChanged();
+                        Toast.makeText(BusinessAllProductsActivity.this, "No List", Toast.LENGTH_SHORT).show();
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
 
-                setUpRecyclerView();
                 customProgressDialog.hideDialog();
 
 
@@ -498,6 +521,7 @@ public class BusinessAllProductsActivity extends AppCompatActivity implements IL
             @Override
             public void onErrorResponse(VolleyError error) {
                 Toast.makeText(BusinessAllProductsActivity.this,"Couldn't fetch the data",Toast.LENGTH_LONG).show();
+                customProgressDialog.hideDialog();
             }
         });
 
@@ -506,77 +530,85 @@ public class BusinessAllProductsActivity extends AppCompatActivity implements IL
     }
 
     private void loadPendingProducts(){
-        String url = Constants.BASE_URL+"vendor/get-pending-items-by-businessid/"+businessDetails.getBusinessId();
+        String url = Constants.BASE_URL+"vendor/get-pending-items-by-business_id/"+businessDetails.getBusinessId();
         CustomJsonRequest customJsonRequest = new CustomJsonRequest(com.android.volley.Request.Method.GET, url, null, new com.android.volley.Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 JSONArray msg = null;
                 try {
-                    msg = response.getJSONArray("msg");
+                    boolean success = response.getBoolean("success");
 
-                    productsArrayList.clear();
+                    if (success) {
+                        productsArrayList  = new ArrayList<>();
+                        msg = response.getJSONArray("msg");
 
-                    for(int i =0;i<msg.length();i++){
-                        JSONObject list = msg.getJSONObject(i);
-                        if(list.has("list_id")){
-                            if(list.getJSONArray("images").length()>0){
-                                if(list.getBoolean("single")){
-                                    productsArrayList.add(new NewProduct(list.getString("_id"),list.getString("name"),list.getString("list_id"),
-                                            list.getString("vendor_id"),list.getString("business_id"),list.getString("description"),
-                                            list.getString("brand"),list.getString("units"),list.getInt("quantity"),
-                                            list.getDouble("price"),list.getBoolean("single"),0,list.getJSONArray("images").getJSONObject(0).getString("url")));
+                        for(int i =0;i<msg.length();i++){
+                            JSONObject list = msg.getJSONObject(i);
+                            if(list.has("list_id")){
+                                if(list.getJSONArray("images").length()>0){
+                                    if(list.getBoolean("single")){
+                                        productsArrayList.add(new NewProduct(list.getString("_id"),list.getString("name"),list.getString("list_id"),
+                                                list.getString("vendor_id"),list.getString("business_id"),list.getString("description"),
+                                                list.getString("brand"),list.getString("units"),list.getInt("quantity"),
+                                                list.getDouble("price"),list.getBoolean("single"),0,list.getJSONArray("images").getJSONObject(0).getString("url")));
+                                    }else{
+                                        productsArrayList.add(new NewProduct(list.getString("_id"),list.getString("name"),list.getString("list_id"),
+                                                list.getString("vendor_id"),list.getString("business_id"),list.getString("description"),
+                                                list.getString("brand"),list.getString("units"),list.getInt("quantity"),
+                                                list.getDouble("price"),list.getBoolean("single"),list.getInt("pack"),list.getJSONArray("images").getJSONObject(0).getString("url")));
+                                    }
                                 }else{
-                                    productsArrayList.add(new NewProduct(list.getString("_id"),list.getString("name"),list.getString("list_id"),
-                                            list.getString("vendor_id"),list.getString("business_id"),list.getString("description"),
-                                            list.getString("brand"),list.getString("units"),list.getInt("quantity"),
-                                            list.getDouble("price"),list.getBoolean("single"),list.getInt("pack"),list.getJSONArray("images").getJSONObject(0).getString("url")));
+                                    if(list.getBoolean("single")){
+                                        productsArrayList.add(new NewProduct(list.getString("_id"),list.getString("name"),list.getString("list_id"),
+                                                list.getString("vendor_id"),list.getString("business_id"),list.getString("description"),
+                                                list.getString("brand"),list.getString("units"),list.getInt("quantity"),
+                                                list.getDouble("price"),list.getBoolean("single"),0,""));
+                                    }else{
+                                        productsArrayList.add(new NewProduct(list.getString("_id"),list.getString("name"),list.getString("list_id"),
+                                                list.getString("vendor_id"),list.getString("business_id"),list.getString("description"),
+                                                list.getString("brand"),list.getString("units"),list.getInt("quantity"),
+                                                list.getDouble("price"),list.getBoolean("single"),list.getInt("pack"),""));
+                                    }
                                 }
                             }else{
-                                if(list.getBoolean("single")){
-                                    productsArrayList.add(new NewProduct(list.getString("_id"),list.getString("name"),list.getString("list_id"),
-                                            list.getString("vendor_id"),list.getString("business_id"),list.getString("description"),
-                                            list.getString("brand"),list.getString("units"),list.getInt("quantity"),
-                                            list.getDouble("price"),list.getBoolean("single"),0,""));
+                                if(list.getJSONArray("images").length()>0){
+                                    if(list.getBoolean("single")){
+                                        productsArrayList.add(new NewProduct(list.getString("_id"),list.getString("name"),"",
+                                                list.getString("vendor_id"),list.getString("business_id"),list.getString("description"),
+                                                list.getString("brand"),list.getString("units"),list.getInt("quantity"),
+                                                list.getDouble("price"),list.getBoolean("single"),0,list.getJSONArray("images").getJSONObject(0).getString("url")));
+                                    }else{
+                                        productsArrayList.add(new NewProduct(list.getString("_id"),list.getString("name"),"",
+                                                list.getString("vendor_id"),list.getString("business_id"),list.getString("description"),
+                                                list.getString("brand"),list.getString("units"),list.getInt("quantity"),
+                                                list.getDouble("price"),list.getBoolean("single"),list.getInt("pack"),list.getJSONArray("images").getJSONObject(0).getString("url")));
+                                    }
                                 }else{
-                                    productsArrayList.add(new NewProduct(list.getString("_id"),list.getString("name"),list.getString("list_id"),
-                                            list.getString("vendor_id"),list.getString("business_id"),list.getString("description"),
-                                            list.getString("brand"),list.getString("units"),list.getInt("quantity"),
-                                            list.getDouble("price"),list.getBoolean("single"),list.getInt("pack"),""));
-                                }
-                            }
-                        }else{
-                            if(list.getJSONArray("images").length()>0){
-                                if(list.getBoolean("single")){
-                                    productsArrayList.add(new NewProduct(list.getString("_id"),list.getString("name"),"",
-                                            list.getString("vendor_id"),list.getString("business_id"),list.getString("description"),
-                                            list.getString("brand"),list.getString("units"),list.getInt("quantity"),
-                                            list.getDouble("price"),list.getBoolean("single"),0,list.getJSONArray("images").getJSONObject(0).getString("url")));
-                                }else{
-                                    productsArrayList.add(new NewProduct(list.getString("_id"),list.getString("name"),"",
-                                            list.getString("vendor_id"),list.getString("business_id"),list.getString("description"),
-                                            list.getString("brand"),list.getString("units"),list.getInt("quantity"),
-                                            list.getDouble("price"),list.getBoolean("single"),list.getInt("pack"),list.getJSONArray("images").getJSONObject(0).getString("url")));
-                                }
-                            }else{
-                                if(list.getBoolean("single")){
-                                    productsArrayList.add(new NewProduct(list.getString("_id"),list.getString("name"),"",
-                                            list.getString("vendor_id"),list.getString("business_id"),list.getString("description"),
-                                            list.getString("brand"),list.getString("units"),list.getInt("quantity"),
-                                            list.getDouble("price"),list.getBoolean("single"),0,""));
-                                }else{
-                                    productsArrayList.add(new NewProduct(list.getString("_id"),list.getString("name"),"",
-                                            list.getString("vendor_id"),list.getString("business_id"),list.getString("description"),
-                                            list.getString("brand"),list.getString("units"),list.getInt("quantity"),
-                                            list.getDouble("price"),list.getBoolean("single"),list.getInt("pack"),""));
+                                    if(list.getBoolean("single")){
+                                        productsArrayList.add(new NewProduct(list.getString("_id"),list.getString("name"),"",
+                                                list.getString("vendor_id"),list.getString("business_id"),list.getString("description"),
+                                                list.getString("brand"),list.getString("units"),list.getInt("quantity"),
+                                                list.getDouble("price"),list.getBoolean("single"),0,""));
+                                    }else{
+                                        productsArrayList.add(new NewProduct(list.getString("_id"),list.getString("name"),"",
+                                                list.getString("vendor_id"),list.getString("business_id"),list.getString("description"),
+                                                list.getString("brand"),list.getString("units"),list.getInt("quantity"),
+                                                list.getDouble("price"),list.getBoolean("single"),list.getInt("pack"),""));
+                                    }
                                 }
                             }
                         }
+                        setUpRecyclerView();
+
+                    }else{
+                        productsArrayList.clear();
+                        businessAllProductsAdapter.notifyDataSetChanged();
+                        Toast.makeText(BusinessAllProductsActivity.this, "No List", Toast.LENGTH_SHORT).show();
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
 
-                setUpRecyclerView();
                 customProgressDialog.hideDialog();
 
 
@@ -585,10 +617,159 @@ public class BusinessAllProductsActivity extends AppCompatActivity implements IL
             @Override
             public void onErrorResponse(VolleyError error) {
                 Toast.makeText(BusinessAllProductsActivity.this,"Couldn't fetch the data",Toast.LENGTH_LONG).show();
+                customProgressDialog.hideDialog();
             }
         });
 
         customJsonRequest.setPriority(com.android.volley.Request.Priority.HIGH);
         helper.addToRequestQueue(customJsonRequest,businessDetails.getBusinessId()+"LISTS");
+    }
+
+    @Override
+    public void onCheckedChangedListener(boolean isChecked, NewProduct mProduct) {
+        if (isChecked)
+            itemsIdList.add(mProduct.getItemId());
+        else
+            itemsIdList.remove(mProduct.getItemId());
+    }
+
+    private void makeproductsactive() {
+        if(!itemsIdList.isEmpty()){
+            submitActiveProductsToServer(itemsIdList);
+        }else{
+            Toast.makeText(mContext, "Select any Product...", Toast.LENGTH_SHORT).show();
+        }
+
+    }
+
+    private void submitActiveProductsToServer(ArrayList<String> itemsIdList) {
+        JSONObject object = new JSONObject();
+        try {
+            object.put("business_id",businessDetails.getBusinessId());
+            object.put("item_id",new JSONArray(itemsIdList));
+            String url = Constants.BASE_URL+"vendor/post-item-active";
+            CustomJsonRequest customJsonRequest = new CustomJsonRequest(Request.Method.POST, url, object, new Response.Listener<JSONObject>() {
+                @Override
+                public void onResponse(JSONObject response) {
+                    try {
+                        boolean success = response.getBoolean("success");
+                        if(success){
+                            loadActiveProducts();
+                        }else{
+                            Toast.makeText(mContext, "No Changes Done", Toast.LENGTH_SHORT).show();
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+
+                }
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    Log.e(TAG, "onErrorResponse: " + error.toString() );
+                }
+            });
+            customJsonRequest.setPriority(com.android.volley.Request.Priority.HIGH);
+            helper.addToRequestQueue(customJsonRequest,businessDetails.getBusinessId()+"ACTIVE");
+
+        } catch (JSONException e) {
+
+
+        }
+
+
+
+
+    }
+
+    private void makeproductsdeactive() {
+        if(!itemsIdList.isEmpty()) {
+            JSONObject object = new JSONObject();
+            try {
+                object.put("business_id", businessDetails.getBusinessId());
+                object.put("item_id", new JSONArray(itemsIdList));
+                String url = Constants.BASE_URL + "vendor/post-item-inactive";
+                CustomJsonRequest customJsonRequest = new CustomJsonRequest(Request.Method.POST, url, object, new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        try {
+                            boolean success = response.getBoolean("success");
+                            if (success) {
+                                loadInActiveProducts();
+                            } else {
+                                Toast.makeText(mContext, "No Changes Done", Toast.LENGTH_SHORT).show();
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+                    }
+                }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Log.e(TAG, "onErrorResponse: " + error.toString());
+                    }
+                });
+                customJsonRequest.setPriority(com.android.volley.Request.Priority.HIGH);
+                helper.addToRequestQueue(customJsonRequest, businessDetails.getBusinessId() + "ACTIVE");
+
+            } catch (JSONException e) {
+
+
+            }
+        }else{
+            Toast.makeText(mContext, "Select any Product...", Toast.LENGTH_SHORT).show();
+        }
+
+    }
+
+    private void makeproductsdelete() {
+        if(!itemsIdList.isEmpty()) {
+            JSONObject object = new JSONObject();
+            try {
+                object.put("business_id",businessDetails.getBusinessId());
+                object.put("item_id",new JSONArray(itemsIdList));
+                String url = Constants.BASE_URL+"vendor/delete-multiple-items";
+                CustomJsonRequest customJsonRequest = new CustomJsonRequest(Request.Method.POST, url, object, new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        try {
+                            boolean success = response.getBoolean("success");
+                            if(success){
+                                loadAllProducts();
+                            }else{
+                                Toast.makeText(mContext, "No Changes Done", Toast.LENGTH_SHORT).show();
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+                    }
+                }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Log.e(TAG, "onErrorResponse: " + error.toString() );
+                    }
+                });
+                customJsonRequest.setPriority(com.android.volley.Request.Priority.HIGH);
+                helper.addToRequestQueue(customJsonRequest,businessDetails.getBusinessId()+"ACTIVE");
+
+            } catch (JSONException e) {
+
+
+            }
+        }else{
+            Toast.makeText(mContext, "Select any Product...", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    @Override
+    public void onItemClicked(NewProduct productDetails) {
+        Intent intent = new Intent(BusinessAllProductsActivity.this,BusinessProductDetailsActivity.class);
+        intent.putExtra("productDetails",productDetails);
+        intent.putExtra("businessDetails",businessDetails);
+        startActivity(intent);
+
+
     }
 }
