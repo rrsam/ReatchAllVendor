@@ -280,6 +280,9 @@
     <string name="title_activity_vendor_login">VendorLoginActivity</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="active">Active</string>
+    <string name="pending">Pending</string>
+    <string name="manage">Manage</string>
 
     <string-array name="hoursArray">
 

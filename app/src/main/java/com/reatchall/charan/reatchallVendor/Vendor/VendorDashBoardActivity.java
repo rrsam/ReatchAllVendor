@@ -230,8 +230,8 @@ public class VendorDashBoardActivity extends AppCompatActivity {
         myProducts.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), BusinessAllProductsActivity.class);
-                //Intent intent = new Intent(getApplicationContext(), VendorMyProductsActivity.class);
+                Intent intent = new Intent(getApplicationContext(), VendorAllProductsActivity.class);
+                //Intent intent = new Intent(getApplicationContext(), BusinessAllProductsActivity.class);
                 intent.putExtra("businessDetails",businessDetails);
                 intent.putExtra("toggle",1);
                 startActivity(intent);

@@ -212,7 +212,7 @@ public class VendorEditListActivity extends AppCompatActivity {
             @Override
             public void onStateChanged(int id, TransferState state) {
 
-                if (state.COMPLETED.equals(observer.getState())) {
+                if (TransferState.COMPLETED.equals(observer.getState())) {
 
                     Log.e(TAG, "onStateChanged: UPLOAD COMPLETE" );
                     Log.e(TAG, "onStateChanged: https://"+Constants.S3_BUCKET_CATEGORY+".s3.amazonaws.com/"+observer.getKey());

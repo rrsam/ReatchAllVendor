@@ -28,7 +28,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Vendor.BusinessProductDetailsActivity"></activity>
+        <activity android:name=".Vendor.VendorAllProductsActivity"></activity>
+        <activity android:name=".Vendor.BusinessProductDetailsActivity" />
         <activity android:name=".Vendor.VendorAddServiceActivity" />
         <activity android:name=".Vendor.VendorAddCustomerActivity" />
         <activity android:name=".Vendor.VendorCustomerActivity" />

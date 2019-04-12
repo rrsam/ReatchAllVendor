@@ -195,7 +195,7 @@ public class BusinessAllProductsActivity extends AppCompatActivity implements IL
     }
 
     private void deleteProduct(int positon){
-        String url = Constants.BASE_URL+"vendor/delete-item/"+arrayList.get(positon).getProductId();
+        String url = Constants.BASE_URL+"vendor/delete-item/"+productsArrayList.get(positon).getItemId();
         CustomJsonRequest customJsonRequest = new CustomJsonRequest(com.android.volley.Request.Method.GET, url, null, new com.android.volley.Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {

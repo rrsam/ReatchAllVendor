@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Vendor.VendorAllProductsActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        >
+        <android.support.v7.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/profileToolBar">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginRight="3dp"
+                    android:layout_centerVertical="true"
+                    android:id="@+id/back_arrow"
+                    android:src="@drawable/ic_back_navigate"/>
+                <fr.arnaudguyon.smartfontslib.FontTextView
+                    app:smart_font="fonts/Montserrat-Regular.ttf"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="My Products"
+                    android:textSize="16sp"
+                    android:textColor="@color/white"
+                    android:layout_centerVertical="true"
+                    android:id="@+id/title_toolbar"
+                    android:layout_centerInParent="true"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:layout_toRightOf="@+id/back_arrow"
+                    />
+
+
+            </RelativeLayout>
+        </android.support.v7.widget.Toolbar>
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.design.widget.TabLayout
+        android:id="@+id/sliding_tabs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/appBarLayout"
+        app:tabSelectedTextColor="@color/light_yellow"
+        app:tabTextColor="@color/grey"
+        app:tabIndicatorHeight="0dp"
+        app:tabMode="fixed" />
+
+    <com.reatchall.charan.reatchallVendor.Utils.NonSwipeableViewPager
+        android:id="@+id/viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/sliding_tabs"/>
+
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/cl_products_manage"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <fr.arnaudguyon.smartfontslib.FontTextView
+            android:id="@+id/txtSort"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Sort"
+            android:gravity="center"
+            android:padding="20dp"
+            android:background="@drawable/black_border_products"
+            app:layout_constraintBaseline_toBaselineOf="@+id/txtSelect"
+            app:layout_constraintEnd_toStartOf="@+id/txtSelect"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <fr.arnaudguyon.smartfontslib.FontTextView
+            android:id="@+id/txtSelect"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Select"
+            android:gravity="center"
+            android:padding="20dp"
+            android:background="@drawable/black_border_products"
+            app:layout_constraintBaseline_toBaselineOf="@+id/txtActions"
+            app:layout_constraintEnd_toStartOf="@+id/txtActions"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/txtSort" />
+
+        <fr.arnaudguyon.smartfontslib.FontTextView
+            android:id="@+id/txtActions"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Actions"
+            android:gravity="center"
+            android:padding="20dp"
+            android:background="@drawable/black_border_products"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/txtSelect" />
+
+    </android.support.constraint.ConstraintLayout>
+</android.support.constraint.ConstraintLayout>

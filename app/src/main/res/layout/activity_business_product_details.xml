@@ -401,6 +401,47 @@
                 android:textColor="@color/black"
                 />
 
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_details_images"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="15dp"
+                android:layout_margin="8dp">
+
+                <fr.arnaudguyon.smartfontslib.FontButton
+                    android:id="@+id/editButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toStartOf="@id/deleteButton"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:background="@color/darkBlue"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    app:smart_font="fonts/Montserrat-Regular.ttf"
+                    android:text="Edit" />
+
+                <fr.arnaudguyon.smartfontslib.FontButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/deleteButton"
+                    android:background="@color/redVariant"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    app:smart_font="fonts/Montserrat-Regular.ttf"
+                    app:layout_constraintStart_toEndOf="@id/editButton"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:text="Delete"/>
+
+            </android.support.constraint.ConstraintLayout>
 
 
         </LinearLayout>
