@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 import com.bumptech.glide.Glide;
@@ -29,11 +30,14 @@ public class ViewServicesAdaper extends RecyclerView.Adapter<ViewServicesAdaper.
     Context context;
     ArrayList<VendorService> vendorServiceArrayList;
     OnStatusCheckListener mListener;
+    onDeleteViewListener onDeleteViewListener;
 
-    public ViewServicesAdaper(Context context, ArrayList<VendorService> vendorServiceArrayList,OnStatusCheckListener mListener) {
+    public ViewServicesAdaper(Context context, ArrayList<VendorService> vendorServiceArrayList,OnStatusCheckListener mListener,
+                              onDeleteViewListener onDeleteViewListener) {
         this.context = context;
         this.vendorServiceArrayList = vendorServiceArrayList;
         this.mListener = mListener;
+        this.onDeleteViewListener = onDeleteViewListener;
     }
 
     @NonNull
@@ -74,16 +78,24 @@ public class ViewServicesAdaper extends RecyclerView.Adapter<ViewServicesAdaper.
         FontTextView serviceName;
         FontCheckBox serviceSelect;
         RelativeLayout viewAppnmts;
+        LinearLayout deleteLayout;
         public ViewServicesViewHolder(View itemView) {
             super(itemView);
             serviceIv =(ImageView)itemView.findViewById(R.id.serviceIv);
             serviceName =(FontTextView) itemView.findViewById(R.id.serviceName);
             serviceSelect =(FontCheckBox) itemView.findViewById(R.id.serviceSelect);
             viewAppnmts =(RelativeLayout) itemView.findViewById(R.id.viewAppnmts);
+            deleteLayout =(LinearLayout) itemView.findViewById(R.id.removeLayout);
             serviceSelect.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override
                 public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                     mListener.onCheckedChangedListener(isChecked,vendorServiceArrayList.get(getAdapterPosition()));
+                }
+            });
+            deleteLayout.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    onDeleteViewListener.onDeleteViewClicked(getAdapterPosition());
                 }
             });
 
@@ -92,5 +104,9 @@ public class ViewServicesAdaper extends RecyclerView.Adapter<ViewServicesAdaper.
 
     public interface OnStatusCheckListener{
         void onCheckedChangedListener(boolean isChecked,VendorService mVendorService);
+    }
+
+    public interface onDeleteViewListener{
+        void onDeleteViewClicked(int position);
     }
 }

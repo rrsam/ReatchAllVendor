@@ -31,7 +31,7 @@ public class AllProductsPagerAdapter extends FragmentStatePagerAdapter {
         } else if (position == 1){
             return PendingProductsFrag.newInstance(businessDetails);
         } else {
-            return ManageProductsFrag.newInstance();
+            return ManageProductsFrag.newInstance(businessDetails);
         }
 
     }

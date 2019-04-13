@@ -62,6 +62,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.bumptech.glide.Glide;
 import com.reatchall.charan.reatchallVendor.R;
+import com.reatchall.charan.reatchallVendor.Utils.ConfirmationDialog;
 import com.reatchall.charan.reatchallVendor.Utils.Constants;
 import com.reatchall.charan.reatchallVendor.Utils.CustomJsonRequest;
 import com.reatchall.charan.reatchallVendor.Utils.CustomProgressDialog;
@@ -99,7 +100,7 @@ import fr.arnaudguyon.smartfontslib.FontCheckBox;
 import fr.arnaudguyon.smartfontslib.FontEditText;
 import fr.arnaudguyon.smartfontslib.FontTextView;
 
-public class VendorServicesActivity extends AppCompatActivity implements PopupMenu.OnMenuItemClickListener, ViewServicesAdaper.OnStatusCheckListener {
+public class VendorServicesActivity extends AppCompatActivity implements PopupMenu.OnMenuItemClickListener, ViewServicesAdaper.OnStatusCheckListener, ViewServicesAdaper.onDeleteViewListener {
 
     private static final String TAG = "VendorServicesActivity";
     FontTextView services,appointments,addService,txtSort,txtSelect,txtActions,subTitle;
@@ -135,9 +136,6 @@ public class VendorServicesActivity extends AppCompatActivity implements PopupMe
         titleToolbar=(FontTextView)findViewById(R.id.title_toolbar);
         subTitle = (FontTextView)findViewById(R.id.subTitle);
         businessDashboard=getIntent().getExtras().getParcelable("businessDetails");
-        if(businessDashboard!=null){
-            titleToolbar.setText(businessDashboard.getBusinessName().toString());
-        }
         customProgressDialog = new CustomProgressDialog(context);
         backArrow=(ImageView)findViewById(R.id.back_arrow);
         backArrow.setOnClickListener(new View.OnClickListener() {
@@ -160,7 +158,7 @@ public class VendorServicesActivity extends AppCompatActivity implements PopupMe
         servicesRcv.setHasFixedSize(true);
         servicesRcv.setNestedScrollingEnabled(false);
         servicesRcv.setLayoutManager(new LinearLayoutManager(context,LinearLayoutManager.VERTICAL, false));
-        viewServicesAdaper=new ViewServicesAdaper(context,managersList,this);
+        viewServicesAdaper=new ViewServicesAdaper(context,managersList,this,this);
         servicesRcv.setAdapter(viewServicesAdaper);
 
 
@@ -245,7 +243,7 @@ public class VendorServicesActivity extends AppCompatActivity implements PopupMe
                                 }
 
                             }
-                            viewServicesAdaper = new ViewServicesAdaper(context,managersList,VendorServicesActivity.this);
+                            viewServicesAdaper = new ViewServicesAdaper(context,managersList,VendorServicesActivity.this,VendorServicesActivity.this);
                             servicesRcv.setAdapter(viewServicesAdaper);
                         }else{
                             Toast.makeText(context,"No services found",Toast.LENGTH_LONG).show();
@@ -444,7 +442,7 @@ public class VendorServicesActivity extends AppCompatActivity implements PopupMe
                                 }
 
                             }
-                            viewServicesAdaper = new ViewServicesAdaper(context,managersList,VendorServicesActivity.this);
+                            viewServicesAdaper = new ViewServicesAdaper(context,managersList,VendorServicesActivity.this,VendorServicesActivity.this);
                             servicesRcv.setAdapter(viewServicesAdaper);
                         }else{
                             managersList.clear();
@@ -473,4 +471,76 @@ public class VendorServicesActivity extends AppCompatActivity implements PopupMe
 
     }
 
+    @Override
+    public void onDeleteViewClicked(int position) {
+        deleteOfferDialog(position);
+    }
+
+    private void deleteOfferDialog(int position){
+        ConfirmationDialog mAlert = new ConfirmationDialog(VendorServicesActivity.this);
+        mAlert.setTitle("Delete Service");
+        mAlert.setIcon(android.R.drawable.ic_dialog_alert);
+        mAlert.setMessage("Are you sure you want to delete this Service? You can't undo this action.");
+        mAlert.setPositveButton("Yes", new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mAlert.dismiss();
+                deleteService(position);
+                customProgressDialog.showDialog();
+
+                //Do want you want
+            }
+        });
+
+        mAlert.setNegativeButton("No", new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mAlert.dismiss();
+                //Do want you want
+            }
+        });
+
+        mAlert.show();
+    }
+
+    private void deleteService(int positon){
+        JSONObject jsonObject = new JSONObject();
+        try {
+            jsonObject.put("service_id",managersList.get(positon).getServiceId());
+            String url = Constants.BASE_URL+"vendor/delete-service/"+managersList.get(positon).getServiceId();
+            CustomJsonRequest customJsonRequest = new CustomJsonRequest(Request.Method.POST, url, jsonObject, new com.android.volley.Response.Listener<JSONObject>() {
+                @Override
+                public void onResponse(JSONObject response) {
+                    customProgressDialog.hideDialog();
+                    try {
+                        if(response.getBoolean("success")){
+                            Toast.makeText(VendorServicesActivity.this,"Success",Toast.LENGTH_LONG).show();
+                            updateList(positon);
+                        }else{
+                            Toast.makeText(VendorServicesActivity.this,"Couldn't delete list. Please Try again!",Toast.LENGTH_LONG).show();
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+
+                }
+            }, new com.android.volley.Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    customProgressDialog.hideDialog();
+                    Toast.makeText(VendorServicesActivity.this,"Couldn't delete list. Please Try again!",Toast.LENGTH_LONG).show();
+                }
+            });
+            customJsonRequest.setPriority(com.android.volley.Request.Priority.HIGH);
+            helper.addToRequestQueue(customJsonRequest,"DELETE_LIST");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    private void updateList(int i){
+        managersList.remove(i);
+        viewServicesAdaper.notifyItemRemoved(i);
+    }
 }

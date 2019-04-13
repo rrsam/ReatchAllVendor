@@ -57,9 +57,6 @@ public class VendorAccessManagementActivity extends AppCompatActivity {
         prefManager = new PrefManager(context);
         titleToolbar=(FontTextView)findViewById(R.id.title_toolbar);
         businessDashboard=getIntent().getExtras().getParcelable("businessDetails");
-        if(businessDashboard!=null){
-            titleToolbar.setText(businessDashboard.getBusinessName().toString());
-        }
         customProgressDialog = new CustomProgressDialog(context);
         backArrow=(ImageView)findViewById(R.id.back_arrow);
         backArrow.setOnClickListener(new View.OnClickListener() {

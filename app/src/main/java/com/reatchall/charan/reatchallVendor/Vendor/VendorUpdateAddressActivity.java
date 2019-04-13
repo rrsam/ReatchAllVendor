@@ -82,7 +82,7 @@ public class VendorUpdateAddressActivity extends AppCompatActivity implements On
         titleToolbar = (FontTextView) findViewById(R.id.title_toolbar);
         businessDashboard = getIntent().getExtras().getParcelable("businessDetails");
         if (businessDashboard != null) {
-            titleToolbar.setText(businessDashboard.getBusinessName().toString());
+            titleToolbar.setText("Update Address");
         }
 
         initViews();

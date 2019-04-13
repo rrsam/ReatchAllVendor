@@ -47,7 +47,7 @@ public class VendorBusinessNotificationsActivity extends AppCompatActivity {
         titleToolbar=(FontTextView)findViewById(R.id.title_toolbar);
         businessDashboard=getIntent().getExtras().getParcelable("businessDetails");
         if(businessDashboard!=null){
-            titleToolbar.setText(businessDashboard.getBusinessName().toString());
+            titleToolbar.setText("Notifications");
         }
 
         orders=(FontTextView)findViewById(R.id.ordersNotifications);

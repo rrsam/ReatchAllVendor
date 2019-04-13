@@ -51,15 +51,15 @@ public class VendorDashBoardActivity extends AppCompatActivity {
             titleToolbar.setText(businessDetails.getBusinessName());
         }
 
-        services=(LinearLayout) findViewById(R.id.services);
-        services.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), VendorServicesActivity.class);
-                intent.putExtra("businessDetails",businessDetails);
-                startActivity(intent);
-            }
-        });
+//        services=(LinearLayout) findViewById(R.id.services);
+//        services.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(getApplicationContext(), VendorServicesActivity.class);
+//                intent.putExtra("businessDetails",businessDetails);
+//                startActivity(intent);
+//            }
+//        });
 
         accessManagement=(LinearLayout) findViewById(R.id.accessManagement);
         accessManagement.setOnClickListener(new View.OnClickListener() {
