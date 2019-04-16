@@ -25,11 +25,13 @@ public class VendorAllProductsAdapter extends RecyclerView.Adapter<VendorAllProd
     Context context;
     ArrayList<NewProduct> allProductsArrayList;
     ILoadProducts iLoadProductsList;
+    OnItemClickListener mItemClickListener;
 
-    public VendorAllProductsAdapter(Context context, ArrayList<NewProduct> allProductsArrayList, ILoadProducts iLoadProductsList) {
+    public VendorAllProductsAdapter(Context context, ArrayList<NewProduct> allProductsArrayList, ILoadProducts iLoadProductsList,OnItemClickListener mItemClickListener) {
         this.context = context;
         this.allProductsArrayList = allProductsArrayList;
         this.iLoadProductsList = iLoadProductsList;
+        this.mItemClickListener = mItemClickListener;
     }
 
     @NonNull
@@ -86,10 +88,19 @@ public class VendorAllProductsAdapter extends RecyclerView.Adapter<VendorAllProd
             productImage=(ImageView)itemView.findViewById(R.id.productImage);
             productName=(FontTextView)itemView.findViewById(R.id.productName);
             listName=(FontTextView)itemView.findViewById(R.id.listName);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    mItemClickListener.onItemClicked(allProductsArrayList.get(getAdapterPosition()));
+                }
+            });
         }
 
+    }
 
-
+    public interface OnItemClickListener{
+        void onItemClicked(NewProduct mProduct);
     }
 
 }

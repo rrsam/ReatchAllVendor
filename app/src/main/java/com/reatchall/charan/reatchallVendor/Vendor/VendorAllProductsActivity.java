@@ -191,10 +191,12 @@ public class VendorAllProductsActivity extends AppCompatActivity implements Popu
         try {
             object.put("business_id",businessDetails.getBusinessId());
             object.put("item_id",new JSONArray(itemsIdList));
+            Log.e(TAG, "submitActiveProductsToServer: "+ object.toString());
             String url = Constants.BASE_URL+"vendor/post-item-active";
             CustomJsonRequest customJsonRequest = new CustomJsonRequest(Request.Method.POST, url, object, new Response.Listener<JSONObject>() {
                 @Override
                 public void onResponse(JSONObject response) {
+                    Log.e(TAG, "onResponse: "+ response);
                     try {
                         boolean success = response.getBoolean("success");
                         if(success){
@@ -306,4 +308,5 @@ public class VendorAllProductsActivity extends AppCompatActivity implements Popu
             Toast.makeText(mContext, "Select any Product...", Toast.LENGTH_SHORT).show();
         }
     }
+
 }

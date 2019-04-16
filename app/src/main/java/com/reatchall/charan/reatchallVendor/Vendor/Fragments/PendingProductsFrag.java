@@ -20,6 +20,7 @@ import com.reatchall.charan.reatchallVendor.Utils.Constants;
 import com.reatchall.charan.reatchallVendor.Utils.CustomJsonRequest;
 import com.reatchall.charan.reatchallVendor.Utils.ReatchAll;
 import com.reatchall.charan.reatchallVendor.Vendor.Adapters.VendorAllProductsAdapter;
+import com.reatchall.charan.reatchallVendor.Vendor.BusinessProductDetailsActivity;
 import com.reatchall.charan.reatchallVendor.Vendor.Models.BusinessDetails;
 import com.reatchall.charan.reatchallVendor.Vendor.Models.NewProduct;
 import com.reatchall.charan.reatchallVendor.Vendor.VendorEditItemActivity;
@@ -33,7 +34,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 
-public class PendingProductsFrag extends Fragment implements ILoadProducts {
+public class PendingProductsFrag extends Fragment implements ILoadProducts, VendorAllProductsAdapter.OnItemClickListener {
 
     RecyclerView rvProducts;
     private static final String BUSSINESS_ID = "param1";
@@ -122,7 +123,7 @@ public class PendingProductsFrag extends Fragment implements ILoadProducts {
                                 }
                             }
                         }
-                        vendorAllProductsAdapter = new VendorAllProductsAdapter(getActivity(),productsArrayList,PendingProductsFrag.this);
+                        vendorAllProductsAdapter = new VendorAllProductsAdapter(getActivity(),productsArrayList,PendingProductsFrag.this,PendingProductsFrag.this);
                         rvProducts.setAdapter(vendorAllProductsAdapter);
                     }else{
 
@@ -216,4 +217,11 @@ public class PendingProductsFrag extends Fragment implements ILoadProducts {
         vendorAllProductsAdapter.notifyItemRemoved(i);
     }
 
+    @Override
+    public void onItemClicked(NewProduct mProduct) {
+        Intent intent = new Intent(getActivity(), BusinessProductDetailsActivity.class);
+        intent.putExtra("productDetails",mProduct);
+        intent.putExtra("businessDetails",businessDetails);
+        startActivity(intent);
+    }
 }

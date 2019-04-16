@@ -117,7 +117,7 @@
                 android:layout_marginRight="45dp"
                 android:layout_marginBottom="5dp"
                 android:text="Dal"
-                android:textColor="@color/grey_letters"
+                android:textColor="@color/grey_variant"
                 android:textSize="16sp"
                 app:smart_font="fonts/Montserrat-Regular.ttf" />
 
@@ -144,7 +144,7 @@
                 android:layout_marginRight="45dp"
                 android:layout_marginBottom="5dp"
                 android:text="Soya"
-                android:textColor="@color/grey_letters"
+                android:textColor="@color/grey_variant"
                 android:textSize="16sp"
                 app:smart_font="fonts/Montserrat-Regular.ttf" />
 
@@ -171,7 +171,7 @@
                 android:layout_marginRight="45dp"
                 android:layout_marginBottom="5dp"
                 android:text="10 Kg"
-                android:textColor="@color/grey_letters"
+                android:textColor="@color/grey_variant"
                 android:textSize="16sp"
                 app:smart_font="fonts/Montserrat-Regular.ttf" />
 
@@ -198,7 +198,7 @@
                 android:layout_marginRight="45dp"
                 android:layout_marginBottom="5dp"
                 android:text="Premium"
-                android:textColor="@color/grey_letters"
+                android:textColor="@color/grey_variant"
                 android:textSize="16sp"
                 app:smart_font="fonts/Montserrat-Regular.ttf" />
 
@@ -225,7 +225,7 @@
                 android:layout_marginRight="45dp"
                 android:layout_marginBottom="5dp"
                 android:text="Loose"
-                android:textColor="@color/grey_letters"
+                android:textColor="@color/grey_variant"
                 android:textSize="16sp"
                 app:smart_font="fonts/Montserrat-Regular.ttf" />
 
@@ -252,7 +252,7 @@
                 android:layout_marginRight="45dp"
                 android:layout_marginBottom="5dp"
                 android:text="100.00"
-                android:textColor="@color/grey_letters"
+                android:textColor="@color/grey_variant"
                 android:textSize="16sp"
                 app:smart_font="fonts/Montserrat-Regular.ttf" />
 
@@ -279,7 +279,7 @@
                 android:layout_marginRight="45dp"
                 android:layout_marginBottom="5dp"
                 android:text="10.00"
-                android:textColor="@color/grey_letters"
+                android:textColor="@color/grey_variant"
                 android:textSize="16sp"
                 app:smart_font="fonts/Montserrat-Regular.ttf" />
             <fr.arnaudguyon.smartfontslib.FontTextView
@@ -305,7 +305,7 @@
                 android:layout_marginRight="45dp"
                 android:layout_marginBottom="5dp"
                 android:text="90.00"
-                android:textColor="@color/grey_letters"
+                android:textColor="@color/grey_variant"
                 android:textSize="16sp"
                 app:smart_font="fonts/Montserrat-Regular.ttf" />
             <fr.arnaudguyon.smartfontslib.FontTextView
@@ -332,7 +332,7 @@
                 android:layout_marginLeft="45dp"
                 android:layout_marginRight="45dp"
                 android:layout_marginBottom="5dp"
-                android:textColor="@color/grey_letters"
+                android:textColor="@color/grey_variant"
                 />
             <fr.arnaudguyon.smartfontslib.FontTextView
                 app:smart_font="fonts/Montserrat-Regular.ttf"
@@ -357,7 +357,7 @@
                 android:layout_marginRight="45dp"
                 android:layout_marginBottom="5dp"
                 android:text="Descripiton"
-                android:textColor="@color/grey_letters"
+                android:textColor="@color/grey_variant"
                 android:textSize="16sp"
                 app:smart_font="fonts/Montserrat-Regular.ttf" />
 
@@ -383,7 +383,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="45dp"
                 android:layout_marginBottom="5dp"
-                android:textColor="@color/grey_letters"
+                android:textColor="@color/grey_variant"
                 android:textSize="16sp"
                 app:smart_font="fonts/Montserrat-Regular.ttf" />
 

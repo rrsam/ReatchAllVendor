@@ -23,6 +23,7 @@ import com.reatchall.charan.reatchallVendor.Utils.ReatchAll;
 import com.reatchall.charan.reatchallVendor.Vendor.Adapters.BusinessAllProductsAdapter;
 import com.reatchall.charan.reatchallVendor.Vendor.Adapters.VendorAllProductsAdapter;
 import com.reatchall.charan.reatchallVendor.Vendor.BusinessAllProductsActivity;
+import com.reatchall.charan.reatchallVendor.Vendor.BusinessProductDetailsActivity;
 import com.reatchall.charan.reatchallVendor.Vendor.Models.BusinessDetails;
 import com.reatchall.charan.reatchallVendor.Vendor.Models.NewProduct;
 import com.reatchall.charan.reatchallVendor.Vendor.VendorEditItemActivity;
@@ -35,7 +36,9 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 
-public class ActiveProductsFrag extends Fragment implements ILoadProducts {
+public class ActiveProductsFrag extends Fragment implements ILoadProducts, VendorAllProductsAdapter.OnItemClickListener {
+
+    private static final String TAG = "ActiveProductsFrag";
 
     RecyclerView rvProducts;
     private static final String BUSSINESS_ID = "param1";
@@ -85,6 +88,7 @@ public class ActiveProductsFrag extends Fragment implements ILoadProducts {
         CustomJsonRequest customJsonRequest = new CustomJsonRequest(com.android.volley.Request.Method.GET, url, null, new com.android.volley.Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
+                Log.e(TAG, "onResponse: " + response);
                 JSONArray msg = null;
                 try {
                     boolean success = response.getBoolean("success");
@@ -124,11 +128,11 @@ public class ActiveProductsFrag extends Fragment implements ILoadProducts {
                                 }
                             }
                         }
-                        vendorAllProductsAdapter = new VendorAllProductsAdapter(getActivity(),productsArrayList,ActiveProductsFrag.this);
+                        vendorAllProductsAdapter = new VendorAllProductsAdapter(getActivity(),productsArrayList,ActiveProductsFrag.this,ActiveProductsFrag.this);
                         rvProducts.setAdapter(vendorAllProductsAdapter);
                     }else{
 
-                        Toast.makeText(getActivity(), "No List", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(), "There is no active products. Make active in Manage Section", Toast.LENGTH_SHORT).show();
                     }
 
                 } catch(JSONException e){
@@ -218,4 +222,12 @@ public class ActiveProductsFrag extends Fragment implements ILoadProducts {
         vendorAllProductsAdapter.notifyItemRemoved(i);
     }
 
+    @Override
+    public void onItemClicked(NewProduct mProduct) {
+        Intent intent = new Intent(getActivity(), BusinessProductDetailsActivity.class);
+        intent.putExtra("productDetails",mProduct);
+        intent.putExtra("businessDetails",businessDetails);
+        startActivity(intent);
+
+    }
 }

@@ -6,9 +6,9 @@ import android.preference.PreferenceManager;
 
 public class Constants {
     //192.168.1.32
-    //public static String BASE_URL ="http://192.168.1.23:2300/";
+    public static String BASE_URL ="http://192.168.1.15:2300/";
     //public static String SOCKET_URL ="http://192.168.1.7:1200";
-    public static String BASE_URL = "https://webapi.reatchall.com/";
+    //public static String BASE_URL = "https://webapi.reatchall.com/";
     public static String SOCKET_URL ="http://13.233.13.171:1200";
 
 

@@ -25,6 +25,7 @@ import com.reatchall.charan.reatchallVendor.Utils.ReatchAll;
 import com.reatchall.charan.reatchallVendor.Vendor.Adapters.BusinessAllProductsAdapter;
 import com.reatchall.charan.reatchallVendor.Vendor.Adapters.VendorAllProductsAdapter;
 import com.reatchall.charan.reatchallVendor.Vendor.BusinessAllProductsActivity;
+import com.reatchall.charan.reatchallVendor.Vendor.BusinessProductDetailsActivity;
 import com.reatchall.charan.reatchallVendor.Vendor.Models.BusinessDetails;
 import com.reatchall.charan.reatchallVendor.Vendor.Models.NewProduct;
 import com.reatchall.charan.reatchallVendor.Vendor.VendorAllProductsActivity;
@@ -158,12 +159,14 @@ public class ManageProductsFrag extends Fragment implements BusinessAllProductsA
 
     @Override
     public void onItemClicked(NewProduct mProduct) {
-
+        Intent intent = new Intent(getActivity(), BusinessProductDetailsActivity.class);
+        intent.putExtra("productDetails",mProduct);
+        intent.putExtra("businessDetails",businessDetails);
+        startActivity(intent);
     }
 
     @Override
     public void onCheckedChangedListener(boolean isChecked, NewProduct mProduct) {
-
     }
 
     @Override
