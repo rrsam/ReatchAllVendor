@@ -6,16 +6,19 @@ import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Typeface;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationManager;
+import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -49,9 +52,15 @@ import com.karumi.dexter.PermissionToken;
 import com.karumi.dexter.listener.PermissionRequest;
 import com.karumi.dexter.listener.multi.MultiplePermissionsListener;
 import com.reatchall.charan.reatchallVendor.Models.PaymentModesModel;
+import com.reatchall.charan.reatchallVendor.R;
+import com.reatchall.charan.reatchallVendor.Utils.Constants;
+import com.reatchall.charan.reatchallVendor.Utils.CustomJsonRequest;
 import com.reatchall.charan.reatchallVendor.Utils.MultiSelectSpinner;
 import com.reatchall.charan.reatchallVendor.Utils.OnSpinerItemClick;
+import com.reatchall.charan.reatchallVendor.Utils.PrefManager;
+import com.reatchall.charan.reatchallVendor.Utils.ReatchAll;
 import com.reatchall.charan.reatchallVendor.Utils.SpinnerDialog;
+import com.reatchall.charan.reatchallVendor.Vendor.Maps.MarkLocationActivity;
 import com.reatchall.charan.reatchallVendor.Vendor.Models.BusinessController;
 import com.reatchall.charan.reatchallVendor.Vendor.Models.BusinessDetails;
 import com.reatchall.charan.reatchallVendor.Vendor.Models.Categories;
@@ -60,12 +69,6 @@ import com.reatchall.charan.reatchallVendor.Vendor.Models.Districts;
 import com.reatchall.charan.reatchallVendor.Vendor.Models.SellerType;
 import com.reatchall.charan.reatchallVendor.Vendor.Models.States;
 import com.reatchall.charan.reatchallVendor.Vendor.Models.VendorBusinessType;
-import com.reatchall.charan.reatchallVendor.R;
-import com.reatchall.charan.reatchallVendor.Utils.Constants;
-import com.reatchall.charan.reatchallVendor.Utils.CustomJsonRequest;
-import com.reatchall.charan.reatchallVendor.Utils.PrefManager;
-import com.reatchall.charan.reatchallVendor.Utils.ReatchAll;
-import com.reatchall.charan.reatchallVendor.Vendor.Maps.MarkLocationActivity;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -327,6 +330,15 @@ public class VendorCreateBusinessActivity extends AppCompatActivity implements O
             }
         });
 
+        if (ContextCompat.checkSelfPermission(this,
+                Manifest.permission.ACCESS_FINE_LOCATION)
+                != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this,
+                    new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
+                    99);
+        }
+
+
         initWidgets();
         saveControllerDetails.performClick();
     }
@@ -580,12 +592,13 @@ public class VendorCreateBusinessActivity extends AppCompatActivity implements O
         getCurrentlocation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               // getCurrentLocation();
+
 
                 Intent intent=new Intent(VendorCreateBusinessActivity.this,MarkLocationActivity.class);
                 startActivityForResult(intent, 2);
             }
         });
+
 
 
 
@@ -2458,9 +2471,6 @@ public class VendorCreateBusinessActivity extends AppCompatActivity implements O
                         categoryIdsList= new ArrayList<>();
                         for (int i = 0; i < Jarray.length(); i++) {
                             JSONObject object     = Jarray.getJSONObject(i);
-//                            JSONObject image = object.getJSONObject("image");
-                            Log.e(TAG, "onPostExecute: "+  object.getString("name"));
-                            Log.e(TAG, "onPostExecute: "+   object.getString("_id"));
 
                             categoriesModelArrayList.add(object.getString("name"));
                             categoryIdsList.add(object.getString("_id"));
@@ -4097,5 +4107,6 @@ public class VendorCreateBusinessActivity extends AppCompatActivity implements O
         customJsonRequest.setPriority(Request.Priority.HIGH);
         helper.addToRequestQueue(customJsonRequest,"ADDBUSINESSTOVENDOR");
      }
+
 
 }

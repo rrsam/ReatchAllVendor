@@ -78,12 +78,10 @@ public class VendorHomeAdapterNew extends RecyclerView.Adapter<VendorHomeAdapter
             });
         }
 
-        Log.e(TAG, "onClick: "+arrayList.get(position).isTimings_flag() );
 
         holder.viewDashboardLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.e(TAG, "onClick: "+arrayList.get(position).isTimings_flag() );
                 if(arrayList.get(position).isTimings_flag()){
                     if(arrayList.get(position).isApproved()){
                         iDashboardInterface.passBusinessId(arrayList.get(position));
@@ -116,7 +114,6 @@ public class VendorHomeAdapterNew extends RecyclerView.Adapter<VendorHomeAdapter
     }
 
     private void getBusinessStatus(String businessId, final ImageView open, final ImageView closed, final FontTextView statusTV,LinearLayout openCloseLayout){
-        Log.e(TAG, "getBusinessStatus: "+businessId);
         String url= Constants.BASE_URL + "vendor/get-business-status/"+businessId;
         CustomJsonRequest customJsonRequest = new CustomJsonRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
             @Override

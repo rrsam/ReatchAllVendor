@@ -1,9 +1,15 @@
 package com.reatchall.charan.reatchallVendor.Vendor;
 
 
+import android.app.AlertDialog;
 import android.app.Fragment;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.location.LocationManager;
+import android.os.Build;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.support.annotation.Nullable;
 import android.support.v4.widget.NestedScrollView;
 import android.support.v7.widget.LinearLayoutManager;
@@ -16,6 +22,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import com.android.volley.Request;
 import com.android.volley.VolleyError;
 import com.reatchall.charan.reatchallVendor.R;
 import com.reatchall.charan.reatchallVendor.Utils.Constants;
@@ -24,7 +31,6 @@ import com.reatchall.charan.reatchallVendor.Utils.CustomProgressDialog;
 import com.reatchall.charan.reatchallVendor.Utils.PrefManager;
 import com.reatchall.charan.reatchallVendor.Utils.ReatchAll;
 import com.reatchall.charan.reatchallVendor.Vendor.CreateBusiness.VendorCreateBusinessActivity;
-import com.reatchall.charan.reatchallVendor.Vendor.Models.AllProducts;
 import com.reatchall.charan.reatchallVendor.Vendor.Models.BusinessDashboard;
 import com.reatchall.charan.reatchallVendor.Vendor.Models.BusinessDetails;
 import com.reatchall.charan.reatchallVendor.Vendor.interfaces.IDashboardInterface;
@@ -34,8 +40,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-
-import com.android.volley.Request;
 
 
 
@@ -82,7 +86,27 @@ public class VendorHomeFragment extends Fragment implements IDashboardInterface 
         addBusinessLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getActivity(),VendorCreateBusinessActivity.class));
+                if(isLocationEnabled(getActivity())) {
+                    Log.e(TAG, "isLocationEnabled: ture" );
+                    startActivity(new Intent(getActivity(),VendorCreateBusinessActivity.class));
+                }else{
+                    Log.e(TAG, "isLocationEnabled: false" );
+                    new AlertDialog.Builder(getActivity()).setTitle("Location must be Enabled!!")
+                            .setMessage("To Create Business Location Must be Enabled")
+                            .setPositiveButton("Enable", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+
+                                }
+                            })
+                            .setNegativeButton("Close", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    dialog.dismiss();
+                                }
+                            }).create().show();
+                }
+
             }
         });
 
@@ -119,6 +143,21 @@ public class VendorHomeFragment extends Fragment implements IDashboardInterface 
         }
 
     }
+
+    public boolean isLocationEnabled(Context context){
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+// This is new method provided in API 28
+            LocationManager lm = (LocationManager) context.getSystemService(Context.LOCATION_SERVICE);
+            return lm.isLocationEnabled();
+        } else {
+// This is Deprecated in API 28
+            int mode = Settings.Secure.getInt(context.getContentResolver(), Settings.Secure.LOCATION_MODE,
+                    Settings.Secure.LOCATION_MODE_OFF);
+            return  (mode != Settings.Secure.LOCATION_MODE_OFF);
+
+        }
+    }
+
 
 
     private void getBusinessNew(){
