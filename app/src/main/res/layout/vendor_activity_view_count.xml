@@ -98,7 +98,7 @@
                 android:text="TODAY"
                 android:id="@+id/todayTv"
                 android:textColor="@color/red_new"
-                android:textSize="25sp"
+                android:textSize="18sp"
                 app:smart_font="fonts/Montserrat-Bold.ttf" />
 
             <fr.arnaudguyon.smartfontslib.FontTextView
@@ -110,7 +110,7 @@
                 android:text="LAST WEEK"
                 android:id="@+id/lastWeekTV"
                 android:textColor="@color/red_new"
-                android:textSize="25sp"
+                android:textSize="18sp"
                 app:smart_font="fonts/Montserrat-Bold.ttf" />
 
         </LinearLayout>
@@ -133,7 +133,7 @@
                 android:text="300"
                 android:id="@+id/todayValue"
                 android:textColor="@color/dark_orange"
-                android:textSize="30sp"
+                android:textSize="18sp"
                 app:smart_font="fonts/Montserrat-Bold.ttf" />
 
             <fr.arnaudguyon.smartfontslib.FontTextView
@@ -145,7 +145,7 @@
                 android:text="1.2K"
                 android:id="@+id/lastWeekValue"
                 android:textColor="#009688"
-                android:textSize="30sp"
+                android:textSize="18sp"
                 app:smart_font="fonts/Montserrat-Bold.ttf" />
 
         </LinearLayout>
@@ -176,7 +176,7 @@
                 android:text="40.6K"
                 android:id="@+id/lastMonthValue"
                 android:textColor="#26A69A"
-                android:textSize="30sp"
+                android:textSize="18sp"
                 app:smart_font="fonts/Montserrat-Bold.ttf" />
 
             <fr.arnaudguyon.smartfontslib.FontTextView
@@ -188,7 +188,7 @@
                 android:text="4.8L"
                 android:id="@+id/totalValue"
                 android:textColor="@color/light_yellow"
-                android:textSize="30sp"
+                android:textSize="18sp"
                 app:smart_font="fonts/Montserrat-Bold.ttf" />
 
         </LinearLayout>
@@ -211,7 +211,7 @@
                 android:text="LAST MONTH"
                 android:id="@+id/lastMonthTV"
                 android:textColor="@color/red_new"
-                android:textSize="25sp"
+                android:textSize="18sp"
                 app:smart_font="fonts/Montserrat-Bold.ttf" />
 
             <fr.arnaudguyon.smartfontslib.FontTextView
@@ -223,7 +223,7 @@
                 android:text="TOTAL"
                 android:id="@+id/totalTV"
                 android:textColor="@color/red_new"
-                android:textSize="25sp"
+                android:textSize="18sp"
                 app:smart_font="fonts/Montserrat-Bold.ttf" />
 
         </LinearLayout>

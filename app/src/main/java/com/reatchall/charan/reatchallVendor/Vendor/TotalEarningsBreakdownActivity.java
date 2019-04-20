@@ -1,12 +1,12 @@
 package com.reatchall.charan.reatchallVendor.Vendor;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
 
 import com.reatchall.charan.reatchallVendor.R;
-import com.reatchall.charan.reatchallVendor.Vendor.Models.BusinessDashboard;
+import com.reatchall.charan.reatchallVendor.Vendor.Models.BusinessDetails;
 
 import fr.arnaudguyon.smartfontslib.FontTextView;
 
@@ -15,7 +15,7 @@ public class TotalEarningsBreakdownActivity extends AppCompatActivity {
     private static final String TAG = "TotalEarningsBreakdownA";
     ImageView backArrow;
     FontTextView titleToolbar,subTitle;
-    BusinessDashboard businessDashboard;
+    BusinessDetails businessDashboard;
 
     int toggle;
 

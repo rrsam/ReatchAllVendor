@@ -108,7 +108,7 @@
                     android:layout_marginTop="20dp"
                     android:text="@string/home_del_terms"
                     android:textColor="@color/black"
-                    android:textSize="10sp"
+                    android:textSize="12sp"
                     android:lineSpacingExtra="5sp"
                     app:smart_font="fonts/Ubuntu-R.ttf" />
 

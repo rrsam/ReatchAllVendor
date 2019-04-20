@@ -61,6 +61,8 @@ public class VendorHomeAdapterNew extends RecyclerView.Adapter<VendorHomeAdapter
     @Override
     public void onBindViewHolder(final VendorHomeAdapterNew.VendorHomeNewViewHolder holder, final int position) {
 
+        Log.e(TAG, "onBindViewHolder: " +arrayList.get(position).getBusinessId() );
+
         getBusinessStatus(arrayList.get(position).getBusinessId(),holder.switchOn,holder.switchOff,holder.statusTV,holder.openCloseLayout);
 
         if(position==arrayList.size()-1){

@@ -221,7 +221,7 @@
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp"
                 android:textSize="14sp"
-                android:background="@color/red_new"
+                android:background="@drawable/new_btn_bg"
                 android:gravity="center"
                 android:layout_gravity="center"
                 app:smart_font="fonts/Montserrat-Bold.ttf"

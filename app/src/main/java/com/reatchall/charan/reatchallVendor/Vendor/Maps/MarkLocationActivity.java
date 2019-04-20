@@ -226,6 +226,7 @@ public class MarkLocationActivity extends AppCompatActivity  implements MapWrapp
             mCustomMapFragment.setOnDragListener(MarkLocationActivity.this);
             mCustomMapFragment.getMapAsync(MarkLocationActivity.this);
 
+
         }
     }
 
@@ -373,7 +374,7 @@ public class MarkLocationActivity extends AppCompatActivity  implements MapWrapp
                 Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED){
             return;
         }
-        mMap.setMyLocationEnabled(false);
+        mMap.setMyLocationEnabled(true);
         mMap.getUiSettings().setMyLocationButtonEnabled(true);
         mMarkerParentView.setVisibility(View.VISIBLE);
 
